@@ -6,4 +6,5 @@ class HomeTest < ApplicationSystemTestCase
     visit "/"
     assert_selector "h1", text: "Pages#home"
   end
+
 end
