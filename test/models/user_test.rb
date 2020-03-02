@@ -20,4 +20,5 @@ class UserTest < ActiveSupport::TestCase
     user = User.new(logitude: "144.9736116")
     assert_equal "144.9736116", user.longitude
   end
+
 end
