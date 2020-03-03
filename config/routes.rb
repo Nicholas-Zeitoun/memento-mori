@@ -1,11 +1,4 @@
 Rails.application.routes.draw do
-  get 'memes/index'
-  get 'memes/show'
-  get 'memes/new'
-  get 'memes/create'
-  get 'memes/edit'
-  get 'memes/update'
-  get 'memes/destroy'
   devise_for :users
   root to: 'pages#home'
   get 'style-guide', to: 'pages#style_guide'
