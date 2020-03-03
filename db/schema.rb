@@ -24,21 +24,21 @@ ActiveRecord::Schema.define(version: 2020_03_03_021659) do
   end
 
   create_table "category_followings", force: :cascade do |t|
-    t.bigint "follower_id"
+    t.bigint "user_id"
     t.bigint "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_category_followings_on_category_id"
-    t.index ["follower_id"], name: "index_category_followings_on_follower_id"
+    t.index ["user_id"], name: "index_category_followings_on_user_id"
   end
 
   create_table "collection_followings", force: :cascade do |t|
-    t.bigint "followed_collection_id"
-    t.bigint "follower_id"
+    t.bigint "collection_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["followed_collection_id"], name: "index_collection_followings_on_followed_collection_id"
-    t.index ["follower_id"], name: "index_collection_followings_on_follower_id"
+    t.index ["collection_id"], name: "index_collection_followings_on_collection_id"
+    t.index ["user_id"], name: "index_collection_followings_on_user_id"
   end
 
   create_table "collections", force: :cascade do |t|
@@ -113,10 +113,10 @@ ActiveRecord::Schema.define(version: 2020_03_03_021659) do
 
   create_table "user_followings", force: :cascade do |t|
     t.bigint "follower_id"
-    t.bigint "followed_user_id"
+    t.bigint "followee_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["followed_user_id"], name: "index_user_followings_on_followed_user_id"
+    t.index ["followee_id"], name: "index_user_followings_on_followee_id"
     t.index ["follower_id"], name: "index_user_followings_on_follower_id"
   end
 
@@ -137,9 +137,9 @@ ActiveRecord::Schema.define(version: 2020_03_03_021659) do
 
   add_foreign_key "categories", "users"
   add_foreign_key "category_followings", "categories"
-  add_foreign_key "category_followings", "users", column: "follower_id"
-  add_foreign_key "collection_followings", "collections", column: "followed_collection_id"
-  add_foreign_key "collection_followings", "users", column: "follower_id"
+  add_foreign_key "category_followings", "users"
+  add_foreign_key "collection_followings", "collections"
+  add_foreign_key "collection_followings", "users"
   add_foreign_key "collections", "users"
   add_foreign_key "collects", "collections"
   add_foreign_key "collects", "memes"
@@ -151,6 +151,6 @@ ActiveRecord::Schema.define(version: 2020_03_03_021659) do
   add_foreign_key "memes", "categories"
   add_foreign_key "memes", "users"
   add_foreign_key "rarities", "memes"
-  add_foreign_key "user_followings", "users", column: "followed_user_id"
+  add_foreign_key "user_followings", "users", column: "followee_id"
   add_foreign_key "user_followings", "users", column: "follower_id"
 end

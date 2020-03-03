@@ -1,5 +1,5 @@
 class Collection < ApplicationRecord
-  belongs_to :user
+  belongs_to :follower
   has_many :collects, dependent: :destroy
   has_many :memes, through: :collects
 
