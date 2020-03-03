@@ -20,7 +20,7 @@ RSpec.describe "Collection", :type => :collection do
 
   it "has a name" do
     collection = Collection.new(valid_attributes)
-    expect(meme.title).to eq("My Doges")
+    expect(collection.name).to eq("My Doges")
   end
 
   it "collection name cannot be blank" do
