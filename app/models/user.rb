@@ -3,40 +3,43 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+  validates :username, presence: true, uniqueness: true
 
   has_one :dank_rank, dependent: :destroy
   has_many :memes, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :comments, dependent: :destroy
 
-  # for user.followers
-  has_many :followers_relations,
-    foreign_key: :follower_id,
-    class_name: 'UserFollowing',
-    dependent: :destroy
-  has_many :followers,
-    through: :followers_relations
-
-  # for user.followed_users
-  has_many :followed_relations,
-    foreign_key: :followed_user_id,
-    class_name: 'UserFollowing',
-    dependent: :destroy
-  has_many :followed_users,
-    through: :followed_relations
+  has_many :user_followings, dependent: :destroy
 
   has_many :collections, dependent: :destroy # as creator => user.collections
   has_many :collection_followings, dependent: :destroy
-  # as follower => user.followed_collections
-  has_many :followed_collections,
-    foreign_key: :follower_id,
-    class_name: 'CollectionFollowing'
 
   has_many :categories, dependent: :destroy # as creator => user.categories
   has_many :category_followings, dependent: :destroy
-  has_many :followed_categories,
-    foreign_key: :follower_id,
-    class_name: 'CategoryFollowing'
 
-  validates :username, presence: true, uniqueness: true
+
+  def followed_collections
+    CollectionFollowing.where(follower: self).map do |collfoll|
+      collfoll.collection
+    end
+  end
+
+  def followed_categories
+    CategoryFollowing.where(follower: self).map do |catfoll|
+      catfoll.category
+    end
+  end
+
+  def followed_users
+    UserFollowing.where(follower: self).map do |userfoll|
+      userfoll.followed_user
+    end
+  end
+
+  def followers
+    UserFollowing.where(followed_user: self).map do |userfoll|
+      userfoll.follower
+    end
+  end
 end
