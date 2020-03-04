@@ -1,0 +1,11 @@
+- email: bob@user.com
+  password: password
+  username: bob
+  location: 12 lennox st richmond
+  avatar_url: https://source.unsplash.com/random/?face
+
+- email: marty@user.com
+  password: password
+  username: marty
+  location: 12 lennox st richmond
+  avatar_url: https://source.unsplash.com/random/?face
