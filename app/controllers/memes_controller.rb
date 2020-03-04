@@ -5,11 +5,14 @@ class MemesController < ApplicationController
 
   def index
     @memes = Meme.all
+    @top_categories = top_categories
   end
 
   def show; end
 
-  def new; end
+  def new
+    @meme = Meme.new
+  end
 
   def create
     @meme = Meme.new
@@ -45,5 +48,14 @@ class MemesController < ApplicationController
 
   def meme_params
     params.require(:meme).permit(:title, :image_url, :category, :user)
+  end
+
+  # Retrieving the top 10 categories with highest number of images
+  def top_categories
+    Category
+    .joins(:memes)
+    .group(:id)
+    .order('COUNT(memes.id) DESC')
+    .limit(10)
   end
 end
