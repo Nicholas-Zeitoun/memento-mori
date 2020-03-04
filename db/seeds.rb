@@ -86,6 +86,13 @@ bird2meme = Meme.create!(
   user: user2
 )
 
+catmeme_rarity = Rarity.create!(total_score: 237, meme: catmeme)
+dogmeme_rarity = Rarity.create!(total_score: 156, meme: dogmeme)
+birdmeme_rarity = Rarity.create!(total_score: 289, meme: birdmeme)
+cat2meme_rarity = Rarity.create!(total_score: 51, meme: cat2meme)
+dog2meme_rarity = Rarity.create!(total_score: 174, meme: dog2meme)
+bird2meme_rarity = Rarity.create!(total_score: 90, meme: bird2meme)
+
 user1.memes << catmeme << dogmeme << birdmeme
 
 puts 'martys making a collection!'
