@@ -8,7 +8,7 @@ class CollectionsController < ApplicationController
   end
 
   def create
-    @collection = collection.new(collection_params)
+    @collection = Collection.new(collection_params)
     @collection.user = current_user
 
     if @collection.save
@@ -28,7 +28,7 @@ class CollectionsController < ApplicationController
     end
   end
 
-  def delete
+  def destroy
     @collection.destroy
     redirect_to user_path(current_user)
   end
