@@ -19,6 +19,10 @@ user1 = User.create!(email: "bob@user.com",
 
 user2 = User.create!(email: "marty@user.com",
   password: "password", username: "marty")
+
+user3 = User.create!(email: "sheila@user.com",
+  password: "password", username: "sheila")
+
 puts 'danking them rankings'
 
 user1_dank_rank = DankRank.new(total_score: 150, user_id: user1.id)
@@ -33,9 +37,24 @@ animal_category = Category.create!(user: user1, name: 'animal category')
 
 puts 'memeing it up'
 
-catmeme = Meme.create!(title: 'cat meme', image_url: 'catmeme.jpg', category: animal_category, user: user1)
-dogmeme = Meme.create!(title: 'dog meme', image_url: 'dogmeme.jpg', category: animal_category, user: user1)
-birdmeme = Meme.create!(title: 'bird meme', image_url: 'birdmeme.jpg', category: animal_category, user: user1)
+catmeme = Meme.create!(
+  title: 'cat meme',
+  image_url: 'https://www.dailydot.com/wp-content/uploads/2018/10/olli-the-polite-cat.jpg',
+  category: animal_category,
+  user: user1
+)
+dogmeme = Meme.create!(
+  title: 'dog meme',
+  image_url: 'https://moderndogmagazine.com/sites/default/files/images/uploads/ThisisDoge.jpg',
+  category: animal_category,
+  user: user1
+)
+birdmeme = Meme.create!(
+  title: 'bird meme',
+  image_url: 'https://i.chzbgr.com/full/9201253632/hFBA8818F/to-flex-its-muscles-under-the-caption-when-you-open-the-spaghetti-sauce-jar-on-your-first-try',
+  category: animal_category,
+  user: user2
+)
 
 user1.memes << catmeme << dogmeme << birdmeme
 
@@ -59,4 +78,15 @@ cm_comment_1 = Comment.create!(user: user1, meme: catmeme, content: 'nice meme!'
 cm_comment_2 = Comment.create!(user: user2, meme: catmeme, content: 'love cat memes!')
 
 catmeme.comments << cm_comment_1 << cm_comment_2
+
+puts 'lets make some followers!'
+
+UserFollowing.create!(follower: user1, followed_user: user2)
+UserFollowing.create!(follower: user3, followed_user: user2)
+UserFollowing.create!(follower: user2, followed_user: user3)
+
+CategoryFollowing.create!(follower: user1, category: animal_category)
+CategoryFollowing.create!(follower: user2, category: animal_category)
+
+CollectionFollowing.create!(follower: user1, collection: user2s_collection)
 
