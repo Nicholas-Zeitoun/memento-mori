@@ -4,6 +4,7 @@ class Meme < ApplicationRecord
   has_many :likes
   has_many :comments
   has_one :rarity
+  has_many :collects
   has_many :collections, through: :collects
 
   validates :image_url, presence: true

@@ -7,18 +7,18 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "Should have an assigned username" do
-    user = User.new(user_name: "jeffrey123")
-    assert_equal "jeffrey123", user.user_name
+    user = User.new(username: "jeffrey123")
+    assert_equal "jeffrey123", user.username
   end
 
-  test "Should have a location Latitude" do
-    user = User.new(latitude: "-37.8378816")
-    assert_equal "-37.8378816", user.latitude
+  test "Should have a location" do
+    user = User.new(location: "South Yarra")
+    assert_equal "South Yarra", user.location
   end
 
-  test "Should have a location Longitude" do
-    user = User.new(logitude: "144.9736116")
-    assert_equal "144.9736116", user.longitude
+  test "Should have a dank rank" do
+    user = User.new(dank_rank: DankRank.new(total_score: 10))
+    assert_equal 10, user.dank_rank.total_score
   end
 
 end
