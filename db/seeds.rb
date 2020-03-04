@@ -34,6 +34,8 @@ user2.dank_rank = user2_dank_rank
 puts 'making dat fat category'
 
 animal_category = Category.create!(user: user1, name: 'animal category')
+dog_category = Category.create!(user: user1, name: 'dog category')
+cat_category = Category.create!(user: user1, name: 'cat category')
 
 puts 'memeing it up'
 
@@ -53,6 +55,25 @@ birdmeme = Meme.create!(
   title: 'bird meme',
   image_url: 'https://i.chzbgr.com/full/9201253632/hFBA8818F/to-flex-its-muscles-under-the-caption-when-you-open-the-spaghetti-sauce-jar-on-your-first-try',
   category: animal_category,
+  user: user2
+)
+
+cat2meme = Meme.create!(
+  title: 'cat meme',
+  image_url: 'https://www.dailydot.com/wp-content/uploads/2018/10/olli-the-polite-cat.jpg',
+  category: cat_category,
+  user: user1
+)
+dog2meme = Meme.create!(
+  title: 'dog meme',
+  image_url: 'https://moderndogmagazine.com/sites/default/files/images/uploads/ThisisDoge.jpg',
+  category: dog_category,
+  user: user1
+)
+bird2meme = Meme.create!(
+  title: 'bird meme',
+  image_url: 'https://i.chzbgr.com/full/9201253632/hFBA8818F/to-flex-its-muscles-under-the-caption-when-you-open-the-spaghetti-sauce-jar-on-your-first-try',
+  category: dog_category,
   user: user2
 )
 
