@@ -1,17 +1,20 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<div class="navbar navbar-expand-sm navbar-dark navbar-memento">
+  <!-- Logo -->
   <%= link_to "#", class: "navbar-brand" do %>
-    <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
+    <%= image_tag asset_path('memento-logo.png') %>
     <% end %>
-    
-  <%= render 'shared/components/searchform' %>
 
+
+  <!-- Links -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <!-- Search Bar -->
+    <%= render 'shared/components/search_form' %>
     <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>  
+      <% if user_signed_in? %>
         <li class="nav-item active">
           <%= link_to "Discover", "#", class: "nav-link" %>
         </li>
