@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'byebug'
 
 RSpec.describe "Meme", :type => :meme do
   # Hash for valid user attributes to test build user
@@ -39,12 +40,23 @@ RSpec.describe "Meme", :type => :meme do
     expect(meme.category).to eq(category)
   end
 
+  it "can be collected" do
+    meme = Meme.new(valid_attributes)
+    expect(meme).to respond_to(:collects)
+    expect(meme.collects.count).to eq(0)
+  end
+
   # Belongs to a collection
-  it "Can belongs to a collection" do
-    meme = Meme.create!(valid_attributes)
-    collection = Collection.new(name: "My Doge Collection")
-    meme.collection_id = collection.id
-    expect(meme.collection).to eq(collection)
+  it "Can belong to a collection" do
+    user = User.create!(valid_user_attributes)
+    category = Category.create!(name: "Doge Memes", user: user)
+    meme = Meme.new(valid_attributes)
+    collection = Collection.create!(name: "My Doge Collection", user: user)
+    collect = Collect.create!(collection: collection, meme: meme)
+    # meme.collect_id = collect.id
+    # expect(meme.collect).to eq(collect)
+    expect(meme).to respond_to(:collections)
+    expect(meme.collections.count).to eq(0)
   end
 
   it "has a rarity" do
