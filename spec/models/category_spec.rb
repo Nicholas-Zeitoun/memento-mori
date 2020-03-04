@@ -27,6 +27,8 @@ RSpec.describe "Category", :type => :category do
   end
 
   it "has many followers" do
-    should have_many(:category_followers)
+    category = Category.new(valid_attributes)
+    expect(category).to respond_to(:followers)
+    expect(category.followers.count).to eq(0)
   end
 end
