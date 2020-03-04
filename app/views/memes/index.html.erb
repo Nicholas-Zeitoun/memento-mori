@@ -1,56 +1,91 @@
-<h1>Memes#index</h1>
-<p>Find me in app/views/memes/index.html.erb</p>
+<div class="content-dashboard row m-0">
+  <!-- Left side bar -->
+  <div class="left-sidebar col-md-2 d-none d-lg-flex">
+    <div class="left-sidebar-container p-3">
+      <!-- User details -->
+      <div class="user-section">
+        <div class="user-l-sidebar-info">
+          <h3><%= current_user.username %></h3>
+          <img class="user-l-sidebar-info-image m-0">
 
-<div class="row border">
-  <div class="left-sidebar col-2 border">
-    <h2>Left sidebar </h2>
-    <%= render 'shared/sidebar/left_sidebar' %>
-  </div>
-
-  <div class="memes-index-content col-10 border">
-    <div class="row">
-      <div class="carousel">
-        <h2>Carousel</h2>
-        <% @top_categories.each do |category| %>
-          <%= render partial: 'shared/cards/category_card', collection: [category], as: :category %>
-        <% end %>
-      </div>
-    </div>
-
-    <div class="row border">
-      <div class="memes-feed col-9 border">
-        <h2>Meme feed</h2>
-        <div class="memes-cards-scroll">
-          <div class="memes-card border">
-            <h2>Meme card</h2>
+          </img>
+          <h3><%= current_user.dank_rank.total_score %></h3>
+          <div class="dank-bar">
+            <span class="badge badge-pill badge-primary dank-filler">  </span>
+            <!-- <span class="badge badge-pill badge-light dank-full">  </span> -->
           </div>
-          <div class="memes-card border">
-            <h2>Meme card</h2>
-          </div>
+          <p>89 / 123 unil next rank!</p>
         </div>
       </div>
+      <!-- Collections list -->
+      <div class="collection-list-section">
 
-      <div class="memes-toggle col-1 border">
-        <h2>Meme toggle</h2>
       </div>
-
-      <div class="right-sidebar col-2 border">
-        <div class="leaderboard border">
-          <h2>Leaderboard</h2>
-          <ul>
-            <% @top_three_users.each do |topuser| %>
-              <li><%= topuser.username %> - DankRank: <%= topuser.dank_rank.total_score %></li>
-            <% end %>
-          </ul>
-        </div>
-
-        <div class="sidebar-meme-post-card border">
-          <h2>Meme post card</h2>
-        </div>
+      <!-- Categories list -->
+      <div class="category-list-section">
 
       </div>
     </div>
-
   </div>
-
+  <!-- Categories bar -->
+  <div class="col-md-10 p-0 d-flex flex-column">
+    <div class="row m-0 p-0 d-none d-lg-flex">
+      <div class="col-12 m-0 p-0">
+        <div class="categories-carousel p-3">
+          🔥
+          <% @top_categories.each do |category| %>
+            <button type="button" class="btn btn-primary btn-sm"><%= category.name %></button>
+            <span class="badge badge-secondary"> <%= category.followers.count %> <i class="fas fa-user"></i></span>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <!-- Main Interface -->
+    <div class="meme-content row m-0 p-0">
+      <!-- Memes feed -->
+      <div class="memes-feed col-sm-12 col-lg-8 m-0">
+        <div class="meme-scroll-window d-flex flex-column">
+          <%= render partial: "meme_feed_card", collection: @memes, as: :meme %>
+        </div>
+      </div>
+      <!-- Layout toggle buttons -->
+      <div class="col-sm-0 col-lg-1 d-none d-lg-flex">
+       <div class="layout-toggle">
+         <button type="button" class="btn btn-secondary"><i class="fas fa-bars"></i></button>
+         <button type="button" class="btn btn-secondary"><i class="fas fa-th"></i></button>
+       </div>
+      </div>
+      <!-- Right sidebar -->
+      <div class="col-sm-0 col-lg-3 d-none d-md-flex flex-column">
+        <div class="right-sidebar p-3">
+          <!-- Leaderboard -->
+          <div class="leaderboard-section">
+            <div class="leaderboard card p-3 border-0 shadow text-center d-flex justify-content-top">
+              <h3>Leaderboard</h3>
+              <div class="pl-3">
+                <% @top_three_users.each do |topuser| %>
+                  <div class="d-flex align-items-center">
+                    <img class="avatar"/> <%= topuser.username %>
+                    &nbsp<span class="badge badge-primary"><i class="fas fa-skull-crossbones"></i> <%= topuser.dank_rank.total_score %></span>
+                    &nbsp<span class="badge badge-secondary"> <%= topuser.followers.count %> <i class="fas fa-user"></i></span>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
+          <!-- Meme upload section -->
+          <div class="creation-section">
+            <div class="creation-card p-3">
+              <h5>Upload your meme here! <i class="fas fa-file-upload"></i></h5>
+            </div>
+          </div>
+          <!-- Option buttons -->
+          <div class="extras-section">
+            <i class="fas fa-plus-circle"></i> <i class="fas fa-comments"></i> <i class="fas fa-cog"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+

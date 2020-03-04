@@ -1,0 +1,26 @@
+.meme-content {
+  flex: 1;
+}
+.memes-feed {
+  background-color: #FFF;
+  flex: 1;
+}
+
+.meme-scroll-window {
+  max-height: 800px;
+  width: 100%;
+  // display: flex;
+  // justify-content: center;
+  // flex-direction: column;
+  overflow: scroll;
+}
+
+.meme-view {
+  // background-color: #aaa;
+  flex: 1;
+}
+
+.index-meme-card {
+  max-width: 500px;
+  margin: 25px;
+}
