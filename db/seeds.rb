@@ -11,7 +11,6 @@
 # Collection.delete_all
 # CategoryFollowing.delete_all
 # CollectionFollowing.delete_all
-User.delete_all
 
 puts 'making them users'
 
@@ -20,7 +19,6 @@ user1 = User.create!(email: "bob@user.com",
 
 user2 = User.create!(email: "marty@user.com",
   password: "password", username: "marty")
-
 puts 'danking them rankings'
 
 user1_dank_rank = DankRank.new(total_score: 150, user_id: user1.id)
@@ -61,5 +59,4 @@ cm_comment_1 = Comment.create!(user: user1, meme: catmeme, content: 'nice meme!'
 cm_comment_2 = Comment.create!(user: user2, meme: catmeme, content: 'love cat memes!')
 
 catmeme.comments << cm_comment_1 << cm_comment_2
-
 
