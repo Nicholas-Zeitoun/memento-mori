@@ -1,12 +1,48 @@
 <h1>Memes#index</h1>
 <p>Find me in app/views/memes/index.html.erb</p>
 
-<ul>
-  <% @memes.each do |meme| %>
-    <div>
-      <li><%= meme.title %> - <%= meme.user.username %>, <%= meme.image_url %></li>
-      <li><%= meme.likes.count %> Likes, <%= meme.comments.count %> Comments</li>
-      <hr>
+<div class="container">
+  <div class="left-sidebar">
+  
+  </div>
+
+  <div class="memes-index-content">
+    <div class="carousel">
+    
     </div>
-  <% end %>
-</ul>
+
+    <div class="memes-index-subcontent">
+      <div class="memes-feed">
+        
+        <div class="memes-cards-scroll">
+          <div class="memes-card">
+
+          </div>
+        </div>
+
+        <div class="memes-toggle">
+        
+        </div>
+      
+      </div>
+
+      <div class="right-sidebar">
+        <div class="leaderboard">
+        
+        </div>
+
+        <div class="sidebar-meme-post-card">
+        
+        </div>
+      
+      </div>
+
+
+    </div>
+  
+  </div>
+
+</div>
+
+
+
