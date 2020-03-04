@@ -23,6 +23,9 @@ user2 = User.create!(email: "marty@user.com",
 user3 = User.create!(email: "sheila@user.com",
   password: "password", username: "sheila")
 
+user4 = User.create!(email: "max@user.com",
+  password: "password", username: "max")
+
 puts 'danking them rankings'
 
 user1_dank_rank = DankRank.new(total_score: 150, user_id: user1.id)
@@ -30,6 +33,12 @@ user1.dank_rank = user1_dank_rank
 
 user2_dank_rank = DankRank.new(total_score: 100, user_id: user2.id)
 user2.dank_rank = user2_dank_rank
+
+user3_dank_rank = DankRank.new(total_score: 127, user_id: user3.id)
+user3.dank_rank = user3_dank_rank
+
+user4_dank_rank = DankRank.new(total_score: 90, user_id: user4.id)
+user4.dank_rank = user4_dank_rank
 
 puts 'making dat fat category'
 

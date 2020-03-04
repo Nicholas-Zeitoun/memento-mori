@@ -14,12 +14,12 @@
         <% @top_categories.each do |category| %>
           <%= render partial: 'shared/cards/category_card', collection: [category], as: :category %>
         <% end %>
-      </div>  
+      </div>
     </div>
 
     <div class="row border">
       <div class="memes-feed col-9 border">
-        <h2>Meme feed</h2>       
+        <h2>Meme feed</h2>
         <div class="memes-cards-scroll">
           <div class="memes-card border">
             <h2>Meme card</h2>
@@ -37,15 +37,20 @@
       <div class="right-sidebar col-2 border">
         <div class="leaderboard border">
           <h2>Leaderboard</h2>
+          <ul>
+            <% @top_three_users.each do |topuser| %>
+              <li><%= topuser.username %> - DankRank: <%= topuser.dank_rank.total_score %></li>
+            <% end %>
+          </ul>
         </div>
 
         <div class="sidebar-meme-post-card border">
           <h2>Meme post card</h2>
         </div>
-      
+
       </div>
     </div>
 
   </div>
-    
+
 </div>
