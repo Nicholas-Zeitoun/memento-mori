@@ -1,2 +1,52 @@
-<h1>Memes#new</h1>
-<p>Find me in app/views/memes/new.html.erb</p>
+<div class="content-dashboard row m-0">
+  <!-- Left side bar -->
+  <div class="left-sidebar col-md-2 d-none d-lg-flex">
+    <div class="left-sidebar-container p-3">
+      <!-- User details -->
+      <div class="user-section">
+        <div class="user-l-sidebar-info">
+          <h3><%= current_user.username %></h3>
+          <img class="user-l-sidebar-info-image m-0">
+
+          </img>
+          <h3><%= current_user.dank_rank.total_score %></h3>
+          <div class="dank-bar">
+            <span class="badge badge-pill badge-primary dank-filler">  </span>
+            <!-- <span class="badge badge-pill badge-light dank-full">  </span> -->
+          </div>
+          <p>89 / 123 unil next rank!</p>
+        </div>
+      </div>
+      <!-- Collections list -->
+      <div class="collection-list-section">
+
+      </div>
+      <!-- Categories list -->
+      <div class="category-list-section">
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Main interface -->
+  <div class="meme-main-interface row m-0 p-0">
+    
+    <!-- Title bar -->
+    <div class="memes-feed col-sm-12 col-lg-8 m-0">
+      <div class="meme-scroll-window d-flex flex-column">
+        <%= render partial: "meme_feed_card", collection: @memes, as: :meme %>
+      </div>
+    </div>
+      
+    <!-- Meme upload form -->
+    <div class="meme-creation-form">
+      <%= simple_form_for @meme do |f| %>
+        <%= f.input :title %>
+        <%= f.input :image_url %>
+        <%= f.button :submit %>
+      <% end %>
+    </div>
+  
+  </div>
+</div>
+
