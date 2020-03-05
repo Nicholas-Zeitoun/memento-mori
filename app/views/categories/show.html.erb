@@ -1,2 +1,33 @@
-<h1>Categories#show</h1>
-<p>Find me in app/views/categories/show.html.erb</p>
+<div class="content-dashboard row m-0">
+  <!-- Left side bar -->
+  <%= render 'shared/sidebar/left_sidebar' %>
+
+  <!-- Main Interface -->
+  <div class="meme-content row m-0 p-0">
+    <h1><%= @category.name %></h1>
+
+    <!-- Memes feed -->
+    <div class="memes-feed col-sm-12 col-lg-8 m-0">
+      <div class="meme-scroll-window d-flex flex-column">
+        <%= render partial: "memes/meme_feed_card", collection: @memes, as: :meme %>
+      </div>
+    </div>
+
+    <!-- Layout toggle buttons -->
+    <div class="col-sm-0 col-lg-1 d-none d-lg-flex">
+      <div class="layout-toggle">
+        <button type="button" class="btn btn-secondary"><i class="fas fa-bars"></i></button>
+        <button type="button" class="btn btn-secondary"><i class="fas fa-th"></i></button>
+      </div>
+    </div>
+      
+    <!-- Meme upload section -->
+    <div class="creation-section">
+      <div class="creation-card p-3 stretch-link">
+        <p class="btn btn-primary"><%= link_to "Upload a meme", new_meme_path(@category), class: "text-white" %></p>
+      </div>
+    </div>
+          
+  </div>
+</div>
+
