@@ -11,6 +11,7 @@
 # Collection.delete_all
 # CategoryFollowing.delete_all
 # CollectionFollowing.delete_all
+# User.delete_all
 
 puts 'making them users'
 
