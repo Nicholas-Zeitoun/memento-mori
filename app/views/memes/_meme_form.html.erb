@@ -3,6 +3,7 @@
     <p>Add this meme to an existing category:</p>
     <%= f.association :category %>
     <p>Or create a new category for your meme:</p>
+
     <%= f.simple_fields_for :category do |category| %>
       <%= category.input :name, label: "New category", placeholder: 'New category name...' %>
     <% end %>

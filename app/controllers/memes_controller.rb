@@ -10,8 +10,7 @@ class MemesController < ApplicationController
     @top_three_memes = top_three_memes
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @meme = Meme.new
@@ -60,10 +59,6 @@ class MemesController < ApplicationController
   def meme_params
     params.require(:meme).permit(:title, :image_url, :category_id, :user, :image)
   end
-
-  # def category_params
-  #   params.require(:category).permit(:name, :user)
-  # end
 
   # Retrieving the top 10 categories with highest number of images
   def top_categories

@@ -8,7 +8,10 @@ class Meme < ApplicationRecord
   has_many :collections, through: :collects
   has_one_attached :image
 
-  validates :image_url, presence: true
+  #validates :image_url, presence: true, unless: meme.image.present?
+  validates :image_url, presence: true, unless: :image
+  validates :image, presence: true, unless: :image_url
+
   validates :title, presence: true
 
   def set_rarity
