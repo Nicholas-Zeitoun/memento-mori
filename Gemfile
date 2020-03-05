@@ -15,6 +15,7 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'cloudinary', '~> 1.12.0'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
@@ -30,6 +31,7 @@ group :development, :test do
   gem 'capybara'
   gem 'webdrivers', '~> 4.0'
   gem 'launchy'
+  gem 'dotenv-rails'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
