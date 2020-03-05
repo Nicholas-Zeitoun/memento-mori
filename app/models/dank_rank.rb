@@ -6,6 +6,7 @@ class DankRank < ApplicationRecord
     self.engagement = engagement_score;
     self.collection = collection_score;
     self.creation = creation_score;
+    self.total_score = self.return_rank;
     self.save!
   end
 
