@@ -1,3 +1,168 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
-<%= @user.username %>
+<div class="content-dashboard row m-0">
+  <!-- Left side bar -->
+      <div class="left-sidebar p-0 col-md-2 d-none d-lg-flex">
+        <div class="nav flex-column w-100 nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+          <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Home</a>
+          <a class="nav-link" id="v-pills-account-tab" data-toggle="pill" href="#v-pills-account" role="tab" aria-controls="v-pills-account" aria-selected="false">Account</a>
+          <a class="nav-link" id="v-pills-collections-tab" data-toggle="pill" href="#v-pills-collections" role="tab" aria-controls="v-pills-collections" aria-selected="false">Collections</a>
+          <a class="nav-link" id="v-pills-memes-tab" data-toggle="pill" href="#v-pills-memes" role="tab" aria-controls="v-pills-memes" aria-selected="false">Memes</a>
+          <a class="nav-link" id="v-pills-followings-tab" data-toggle="pill" href="#v-pills-followings" role="tab" aria-controls="v-pills-followings" aria-selected="false">Followings</a>
+        </div>
+      </div>
+
+      <div class="tab-content col-9" id="v-pills-tabContent">
+
+        <!-- Dashboard home infos -->
+        <div class="tab-pane user-tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+          <div class="user-info-card">
+            <h3 class="page-title"><%= @user.username %></h3>
+            <img class="user-l-sidebar-info-image m-0">
+            </img>
+          </div>
+          <br>
+
+          <div class="user-dank-card">
+            <h3><%= @user.dank_rank.total_score %> Dank Points</h3>
+            <span class="badge badge-pill badge-primary dank-filler">  </span>
+          </div>
+          <div class="user-dank-stats-card">
+            <ul>
+              <li>Engagement score: <%= @user.dank_rank.engagement %></li>
+              <li>Creation score: <%= @user.dank_rank.creation %></li>
+              <li>Collection score: <%= @user.dank_rank.collection %></li>
+            </ul>
+          </div>
+          <br>
+
+          <div class="user-followers-list">
+            <h6>Followed by</h6>
+            <% @user.followers.each do |follower| %>
+              <a href="<%= user_path(follower) %>">
+                <div class="user-follower-card flex-row">
+                  <!-- Follower's avatar that should be clickable -->
+                  <img class="user-l-sidebar-info-image m-1">
+                  </img>
+                  <%= follower.username %>
+                </div>
+              </a>
+            <% end %>
+          </div>
+          <br>
+        </div>
+
+        <!-- Account infos/edit -->
+        <div class="tab-pane user-tab-pane fade" id="v-pills-account" role="tabpanel" aria-labelledby="v-pills-account-tab">
+          <div class="user-account-infos">
+            <h3>Hello <%= @user.username %></h3>
+            <img class="user-l-sidebar-info-image m-1"></img>
+            <br>
+            <p>Username: <%= @user.username %></p>
+            <p>Email: <%= @user.email %></p>
+            <p>Meme mastering since <%= @user.created_at.strftime("%d of %B, %Y") %></p>
+          </div>
+          <br>
+          <div class="user-account-edit-form">
+            <p>Insert edit account form here</p>
+          </div>
+        </div>
+
+        <!-- Collections -->
+        <div class="tab-pane user-tab-pane fade" id="v-pills-collections" role="tabpanel" aria-labelledby="v-pills-collections-tab">
+          <h3>Collections</h3>
+          <hr>
+
+          <div class="user-collections-board">
+            <div class="row">
+                <div class="card-columns mt-4">
+                  <% @user.collections.each do |collection| %>
+                      <a href="<%= user_collection_path(@user, collection) %>">
+                      <!-- Collection card -->
+                      <div class="collection-card" style="width: auto;">
+                        <!-- Image section-->
+                        <img src="<%= collection.memes.first.image_url %>" class="user-l-sidebar-info-image m-1">
+                        </img>
+                        <!-- Collection infos -->
+                        <div class="collection-infos">
+                          <h5><%= collection.name %></h5>
+                          <p>Contains <%= collection.memes.count %> memes</p>
+                        </div>
+                      </div>
+                      </a>
+                  <% end %>
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Memes -->
+        <div class="tab-pane user-tab-pane fade" id="v-pills-memes" role="tabpanel" aria-labelledby="v-pills-memes-tab">
+          <h3>Memes</h3>
+          <hr>
+
+          <div class="user-memes-board">
+            <div class="row">
+                <div class="card-columns mt-4">
+                  <%= render partial: "/memes/meme_feed_card", collection: @user.memes, as: :meme %>
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Followings -->
+        <div class="tab-pane user-tab-pane fade" id="v-pills-followings" role="tabpanel" aria-labelledby="v-pills-followings-tab">
+          <!-- Followed categories -->
+          <h3>Followed Categories</h3>
+          <hr>
+
+          <div class="user-categories-list">
+            <% @user.categories.each do |category| %>
+              <a href="<%= category_path(category) %>"><button type="button" class="btn btn-primary btn-sm"><%= category.name %></button></a>
+              <span class="badge badge-secondary"> <%= category.memes.count %> <i class="fas fa-images"></i></span>
+            <% end %>
+          </div>
+          <br>
+
+          <!-- Followed collections -->
+          <h3>Followed Collections</h3>
+          <hr>
+
+          <div class="user-collections-board">
+            <% @user.followed_collections.each do |collection| %>
+              <a href="<%= user_collection_path(collection.user, collection) %>">
+                <!-- Collection card -->
+                <div class="collection-card" style="width: auto;">
+                  <!-- Image section-->
+                  <img src="<%= collection.memes.first.image_url %>" height="150px">
+                  </img>
+                  <!-- Collection infos -->
+                  <div class="collection-infos">
+                    <h5><%= collection.name %></h5>
+                    <p>Contains <%= collection.memes.count %> memes</p>
+                  </div>
+                </div>
+              </a>
+            <% end %>
+          </div>
+          <br>
+
+          <!-- Followed users -->
+          <h3>Followed Users</h3>
+          <hr>
+
+          <div class="user-followed-users-list">
+            <% @user.followed_users.each do |followed_user| %>
+              <a href="<%= user_path(followed_user) %>">
+                <div class="user-follower-card flex-row">
+                  <!-- Follower's avatar that should be clickable -->
+                  <img class="user-l-sidebar-info-image m-1">
+                  </img>
+                  <%= followed_user.username %>
+                </div>
+              </a>
+            <% end %>
+          </div>
+          <br>
+
+        </div>
+      </div>
+</div>
