@@ -2,78 +2,65 @@
   <!-- Left sidebar -->
   <%= render 'shared/sidebar/left_sidebar' %>
 
-  <div class="memes-show-content col-10 border" >
-
-    <div class="row">
-      <div class="memes-show-left-subcontent col-8 border">
-
-          <div class="memes-show-left-subcontent-menu border">
-              <div class="memes-show-left-subcontent-menu-options border">
-                subcontent
-              </div>
-          </div>
-
-          <div class="memes-big-card border">
-            <%= render partial: 'memes/meme_show_meme_view', collection: [@meme], as: :meme %>
-          </div>
-
+  <!-- Memes details section  -->
+  <div class="memes-details col-6">
+    <!-- Title bar -->
+    <div class="row memes-titlebar m-0 justify-content-between">
+      <div class="justify-content-left">
+        <%= link_to 'Back', memes_path %>
       </div>
+      <div class="justify-content-between">
+        <%= link_to 'Edit', edit_meme_path %>
+        <%= link_to 'Delete' %> 
+      </div>   
+    </div>
+    
+    <!-- Memes details -->
+    <%= render partial: 'memes/meme_show_meme_view', collection: [@meme], as: :meme %>
+  </div>
 
-      <div class="memes-show-right-subcontent col-4 border">
+  <!-- Right sidebar // partial later -->
+  <div class="memes-right-sidebar col-4">
 
-          <!-- can put into partial at a later stage -->
-          <div class="meme-action-btns border">
-            <div class="row">
-                <button class="col-4">
-                  <i class="fas fa-heart"></i>
-                </button>
-                <button class="col-4">
-                  <i class="far fa-plus-square"></i>
-                </button>
-                <button class="col-4">
-                  <i class="fas fa-share-alt"></i>
-                </button>
-            </div>
-          </div>
-
-          <div class="meme-creator-info border">
-            <div class="row">
-              <div class="col-3">
-                <img src="https://via.placeholder.com/50x50" class="avatar"></img>
-              </div>
-              <div class="col-9">
-                <h4>Name</h4>
-                <p>Description</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="meme-comments border">
-              <div class="meme-comment-cards border">
-                <div class="row">
-                  <div class="col-3">
-                    <img src="https://via.placeholder.com/50x50" class="avatar"></img>
-                  </div>
-                  <div class="col-9">
-                    comment
-                  </div>
-                </div>
-              </div>
-              <div class="comment-form border">
-                <div class="row">
-                  <div class="col-3">
-                    <img src="https://via.placeholder.com/50x50" class="avatar"></img>
-                  </div>
-                  <div class="col-9">
-                    enter comment here
-                  </div>
-                </div>
-              </div>
-          </div>
-
-      </div>
-
+    <!-- Meme engagement actions -->
+    <div class="row memes-actions">
+      <button class="col-4"><i class="fas fa-heart"></i></button>
+      <button class="col-4"><i class="far fa-plus-square"></i></button>
+      <button class="col-4"><i class="fas fa-share-alt"></i></button>
     </div>
 
+    <!-- Meme creator info card -->
+    <div class="row meme-creator-info">
+      <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-bordered" style="float:left" />
+      <p>Creator's name</p>
+    </div>
+
+    <!-- Meme comments section -->
+    <div class="memes-comments">
+
+      <!-- Meme comments list -->
+      <div class="row meme-comments-list">
+        <img src="https://via.placeholder.com/50x50" class="avatar" style="float:left">
+        <p>comment</p>
+      </div>
+
+      <div class="row meme-comments-list">
+        <img src="https://via.placeholder.com/50x50" class="avatar" style="float:left">
+        <p>comment</p>
+      </div>
+
+      <div class="row meme-comments-list">
+        <img src="https://via.placeholder.com/50x50" class="avatar" style="float:left">
+        <p>comment</p>
+      </div>
+
+      <!-- Meme comments form -->
+      <div class="memes-comments-form p-5">
+        <%# <% simple_form_for @comment do |f| %>
+          <%# <%= f.input :comment, placeholder: 'Type your comment' %>
+          <%# <%= f.button :submit %>
+        <%# <% end %>
+      <h5>this is the comment form</h5>
+    </div>
   </div>
 </div>

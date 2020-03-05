@@ -7,9 +7,13 @@
     <h1><%= @category.name %></h1>
 
     <!-- Memes feed -->
-    <div class="memes-feed col-sm-12 col-lg-8 m-0">
-      <div class="meme-scroll-window d-flex flex-column">
-        <%= render partial: "memes/meme_feed_card", collection: @memes, as: :meme %>
+    <div class="tab-pane" id="v-pills-memes" role="tabpanel" aria-labelledby="v-pills-memes-tab">
+      <div class="category-memes-board">
+        <div class="row">
+          <div class="card-columns mt-4">
+            <%= render partial: "/memes/meme_feed_card", collection: @memes, as: :meme %>
+          </div>
+        </div>
       </div>
     </div>
 
