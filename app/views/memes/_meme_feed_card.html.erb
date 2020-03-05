@@ -9,7 +9,11 @@
   <!-- Image -->
   <div class="meme-card-image">
     <div class="meme-image-container">
-      <%= image_tag meme.image_url %>
+      <% if meme.image.attached? %>
+        <%= cl_image_tag meme.image.key %>
+      <% else %>
+        <%= image_tag meme.image_url %>
+      <% end %>
       <div class="overlay">
         <div class="text">
           Add to collection!
