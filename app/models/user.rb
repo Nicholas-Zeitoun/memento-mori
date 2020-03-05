@@ -42,4 +42,49 @@ class User < ApplicationRecord
       userfoll.follower
     end
   end
+
+  def init_dank_rank
+    self.dank_rank = DankRank.create!(
+      user_id: self.id
+    )
+  end
+
+  def set_dank_rank
+    self.dank_rank.set_scores(
+      engagement_score,
+      creation_score,
+      collection_score
+    )
+  end
+
+  def get_dank_rank
+    self.dank_rank.return_rank
+  end
+
+  def engagement_score
+    followers = self.followers.count # should change this to engagement
+    following = self.followed_users.count
+    followers + following
+  end
+
+  def creation_score
+    creation = self.memes.count
+  end
+
+  def collection_score
+    collections = self.collections.count
+  end
+
+  # def update_dank_rank
+  #   followers = self.followers.count # should change this to engagement
+  #   following = self.followed_users.count
+  #   engagement = followers + following
+  #   collections = self.collections.count # should also add a collection quality mod
+  #   creation = self.memes.count
+  #   self.dank_rank.set_scores(engagement, collections, creation)
+  # end
+
+  # def calculate_dank(engagement, collection, creation)
+  #   total_score = (engagement + collection + creation) * 4
+  # end
 end
