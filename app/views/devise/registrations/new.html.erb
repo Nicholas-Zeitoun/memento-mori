@@ -1,25 +1,43 @@
-<h2>Sign up</h2>
+<div class="row ">
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+  <div class="col-md-6 p-5">
 
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
+    <h2>Sign up</h2>
+
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
+
+      <div class="form-inputs">
+        <%= f.input :email,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" }%>
+        <%= f.input :password,
+                    required: true,
+                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                    input_html: { autocomplete: "new-password" } %>
+        <%= f.input :password_confirmation,
+                    required: true,
+                    input_html: { autocomplete: "new-password" } %>
+      </div>
+
+      <div class="col-12 btn btn-primary form-actions">
+        <%= f.button :submit, "Sign up", class: "text-white" %>
+      </div>
+    <% end %>
+
+    <!-- Space between button and devise Sign up / Forgot Password Links -->
+    <br>
+    <%= render "devise/shared/links" %>
+
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+  <div class="col-md-6 grey-obloid p-5">
+    <div class="banner-image p-5">
+        <!-- Image to be replaced by random memento meme -->
+        <%= image_tag asset_path("https://res.cloudinary.com/practicaldev/image/fetch/s--OoBLh7-Q--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/1614/1%2A8BlqJ8lNVZzuRjAg1mZ50w.png"), class: "banner-image" %>
+    </div>
   </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+</div>
+
