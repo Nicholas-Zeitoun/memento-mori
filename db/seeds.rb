@@ -145,12 +145,12 @@ bird2meme.save!
 
 puts 'danking them rankings'
 
-user1.set_dank_rank
+user1.init_dank_rank
 # user1.save!
-user2.set_dank_rank
+user2.init_dank_rank
 # user2.save!
-user3.set_dank_rank
+user3.init_dank_rank
 # user3.save!
-user4.set_dank_rank
+user4.init_dank_rank
 # user4.save!
 
