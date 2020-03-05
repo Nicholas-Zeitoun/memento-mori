@@ -1,32 +1,7 @@
 <div class="content-dashboard row m-0">
-  <!-- Left side bar -->
-  <div class="left-sidebar col-md-2 d-none d-lg-flex">
-    <div class="left-sidebar-container p-3">
-      <!-- User details -->
-      <div class="user-section">
-        <div class="user-l-sidebar-info">
-          <h3><%= current_user.username %></h3>
-          <img class="user-l-sidebar-info-image m-0">
-
-          </img>
-          <h3><%= current_user.dank_rank.total_score %></h3>
-          <div class="dank-bar">
-            <span class="badge badge-pill badge-primary dank-filler">  </span>
-            <!-- <span class="badge badge-pill badge-light dank-full">  </span> -->
-          </div>
-          <p>89 / 123 unil next rank!</p>
-        </div>
-      </div>
-      <!-- Collections list -->
-      <div class="collection-list-section">
-
-      </div>
-      <!-- Categories list -->
-      <div class="category-list-section">
-
-      </div>
-    </div>
-  </div>
+  <!-- Left sidebar -->
+  <%= render 'shared/sidebar/left_sidebar' %>
+  
   <!-- Categories bar -->
   <div class="col-md-10 p-0 d-flex flex-column">
     <div class="row m-0 p-0 d-none d-lg-flex">
