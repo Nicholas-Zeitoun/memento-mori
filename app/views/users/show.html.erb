@@ -16,8 +16,12 @@
         <div class="tab-pane user-tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
           <div class="user-info-card">
             <h3 class="page-title"><%= @user.username %></h3>
-            <img class="user-l-sidebar-info-image m-0">
-            </img>
+            <% if @user.avatar.attached? %>
+              <%= cl_image_tag @user.avatar.key, height: 300, width: 400, crop: :fill %>
+            <% else %>
+              <img class="user-l-sidebar-info-image m-1">
+              </img>
+            <% end %>
           </div>
           <br>
 

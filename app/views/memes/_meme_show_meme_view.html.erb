@@ -11,7 +11,11 @@
 
     <div class="row mt-3">
       <div class= "col-12">
+        <% if meme.image.key.nil? %>
           <%= image_tag meme.image_url, class: "img-fluid" %>
+        <% else %>
+          <%= cl_image_tag meme.image.key, crop: :fill %>
+        <% end %>
       </div>
     </div>
 

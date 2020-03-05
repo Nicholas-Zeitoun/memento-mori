@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show]
-  
+
   def index
     @users = users_ordered_by_dank
   end
@@ -18,5 +18,9 @@ class UsersController < ApplicationController
     top_danks.map do |dank|
       User.find(dank.user_id)
     end
+  end
+
+  def user_params
+    params.permit(:name, :avatar)
   end
 end

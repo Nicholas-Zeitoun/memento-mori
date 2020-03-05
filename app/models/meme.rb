@@ -1,6 +1,9 @@
 class Meme < ApplicationRecord
   belongs_to :user
   belongs_to :category
+
+  has_one_attached :image
+
   has_many :likes
   has_many :comments
   has_one :rarity
@@ -27,6 +30,6 @@ class Meme < ApplicationRecord
 
   # validates :title, presence: true
   # validates :photo, presence: true
-  # validates :category, presence: true 
+  # validates :category, presence: true
 
 end

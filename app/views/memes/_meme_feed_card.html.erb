@@ -1,7 +1,11 @@
 <div class="card align-self-center index-meme-card shadow">
   <div class="card-body p-0">
     <h5 class="card-title p-3"> <%= meme.title %> </h5>
-    <%= image_tag meme.image_url, class: "img-fluid" %>
+    <% if meme.image.attached? %>
+      <%= cl_image_tag meme.image.key, crop: :fill %>
+    <% else %>
+      <%= image_tag meme.image_url, class: "img-fluid" %>
+    <% end %>
     <!-- <a href="#" class="hidden stretched-link"></a> -->
     <%= link_to '', meme_path(meme), class: "stretched-link" %>
   </div>
