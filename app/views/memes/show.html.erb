@@ -1,36 +1,80 @@
-<div class="row">
-    <div class="left-sidebar col-2">
+<h1>Memes#show</h1>
+<p>Find me in app/views/memes/show.html.erb</p>
+
+<div class="row vh-100">
+    <div class="left-sidebar col-2 border">
+      left side bar
     </div>
 
-    <div class="memes-show-content col-10">
+    <div class="memes-show-content col-10 border" >
 
       <div class="row">
-        <div class="memes-show-left-subcontent col-8">
+        <div class="memes-show-left-subcontent col-8 border">
 
-            <div class="memes-show-left-subcontent-menu">
-                <div class="memes-show-left-subcontent-menu-options">
+            <div class="memes-show-left-subcontent-menu border">
+                <div class="memes-show-left-subcontent-menu-options border">
+                  subcontent
                 </div>
             </div>
 
-            <div class="memes-big-card">
+            <div class="memes-big-card border">
+              <%= render partial: 'memes/meme_show_meme_view', collection: [@meme], as: :meme %>
             </div>
 
         </div>
 
-        <div class="memes-show-right-subcontent col-4">
+        <div class="memes-show-right-subcontent col-4 border">
 
-            <div class="meme-action-btns">
+            <!-- can put into partial at a later stage -->
+            <div class="meme-action-btns border">
+              <div class="row">
+                  <button class="col-4">
+                    <i class="fas fa-heart"></i>
+                  </button>
+                  <button class="col-4">
+                    <i class="far fa-plus-square"></i>
+                  </button>
+                  <button class="col-4">
+                    <i class="fas fa-share-alt"></i>
+                  </button>
+              </div>
             </div>
 
-            <div class="meme-creator-info">
-            </div>
-
-            <div class="meme-comments">
-                <div class="meme-comment-cards">
+            <div class="meme-creator-info border">
+              <div class="row">
+                <div class="col-3">
+                  <img src="https://via.placeholder.com/50x50" class="avatar"></img>
                 </div>
-                <div class="comment-form">
+                <div class="col-9">
+                  <h4>Name</h4>
+                  <p>Description</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="meme-comments border">
+                <div class="meme-comment-cards border">
+                  <div class="row">
+                    <div class="col-3">
+                      <img src="https://via.placeholder.com/50x50" class="avatar"></img>
+                    </div>
+                    <div class="col-9">
+                      comment
+                    </div>
+                  </div>
+                </div>
+                <div class="comment-form border">
+                  <div class="row">
+                    <div class="col-3">
+                      <img src="https://via.placeholder.com/50x50" class="avatar"></img>
+                    </div>
+                    <div class="col-9">
+                      enter comment here
+                    </div>
+                  </div>
                 </div>
             </div>
+
         </div>
 
       </div>
