@@ -38,10 +38,27 @@
     <div class="category-content row m-0 p-0">
       <!-- Main Content Col's -->
       <div class="col-sm-12 col-lg-8 m-0">
-        <!-- Memes feed -->
+
+
+        <!-- Memes feed grid -->
         <div class="row memes-feed p-3">
           <div class="col4">
-            <%= @collection.memes.first.title %>
+              <% @collection.memes.each do |meme| %>
+              <!-- Card will be contained in a 4 columns on large screens -->
+                <div class="card">
+                    <img src= " <%= meme.image_url %> " class="img-fluid">
+                  <div class="">
+                    <h5 class="card-title"><%= meme.title %></h5>
+
+                    <h5 class="card-text">
+                      <span class="badge badge-secondary"> <%= meme.category %> </span>
+                    </h5>
+                    <%= link_to "", meme_path(meme), class: "stretched-link" %>
+                  </div>
+                </div>
+            <% end %>
+
+
           </div>
         </div>
       </div>
