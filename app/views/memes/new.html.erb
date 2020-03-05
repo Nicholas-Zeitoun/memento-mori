@@ -1,2 +1,22 @@
-<h1>Memes#new</h1>
-<p>Find me in app/views/memes/new.html.erb</p>
+<div class="row">
+  <!-- Left sidebar -->
+  <%= render 'shared/sidebar/left_sidebar' %>
+
+  <!-- Main interface -->
+  <div class="meme-main-interface row m-0 p-0">
+    
+    <!-- Title bar -->
+    <div class="memes-actions col-sm-12 col-lg-8 m-0">
+      <a href="#">Back</a>
+      <a href="#">Edit</a>
+      <a href="#">Delete</a>  
+    </div>
+      
+    <!-- Meme upload form -->
+    <div>
+      <h3>Upload a meme!</h3>
+      <%= render 'memes/meme_form' %>
+    </div>
+    
+  </div>
+</div>
