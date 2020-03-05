@@ -21,6 +21,7 @@ class MemesController < ApplicationController
     @meme.user = current_user
 
     if @meme.save
+      new_meme_rarity = Rarity.create!(total_score: 0, meme: @meme)
       redirect_to meme_path(@meme)
     else
       render :new
@@ -79,7 +80,13 @@ class MemesController < ApplicationController
       Meme.find(rarity.meme_id)
     end
   end
+
 end
 
-
-
+#   for future rarity controller
+#   def calculate_rarity
+#     #rarity = meme.calculate_rarity
+#     rarity = (self.likes.count + self.comments.count + ...)
+#     self.total_score = rarity
+#     self.save!
+#   end
