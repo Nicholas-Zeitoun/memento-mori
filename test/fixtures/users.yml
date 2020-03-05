@@ -1,2 +1,24 @@
-george:
-  email: "george@abitbol.com"
+bob:
+  username: Bobby Roberts
+  email: bob@user.com
+  encrypted_password: password
+
+marty:
+  username: Marty Schwartz
+  email: marty@user.com
+  encrypted_password: password
+
+sheila:
+  username: Sheila Mobeila
+  email: sheila@user.com
+  encrypted_password: password
+
+max:
+  username: Max Attaxs
+  email: max@user.com
+  encrypted_password: password
+
+steven:
+  username: Steven Even
+  email: steven@user.com
+  encrypted_password: password

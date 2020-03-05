@@ -116,8 +116,11 @@
 
           <div class="user-categories-list">
             <% @user.categories.each do |category| %>
-              <a href="<%= category_path(category) %>"><button type="button" class="btn btn-primary btn-sm"><%= category.name %></button></a>
-              <span class="badge badge-secondary"> <%= category.memes.count %> <i class="fas fa-images"></i></span>
+              <a href="<%= category_path(category) %>">
+                <button type="button" class="btn btn-primary btn-sm"><%= category.name %>
+                  <span class="badge badge-secondary"> <%= category.memes.count %> <i class="fas fa-images"></i></span>
+                </button>
+              </a>
             <% end %>
           </div>
           <br>

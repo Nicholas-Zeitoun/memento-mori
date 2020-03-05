@@ -1,0 +1,38 @@
+:users:
+- :username: Bobby Roberts
+  :categories:
+  - :category_name: doge memes
+    :memes:
+    - :meme:
+      :title: Doge meme
+      :image_url: https://upload.wikimedia.org/wikipedia/en/thumb/5/5f/Original_Doge_meme.jpg/300px-Original_Doge_meme.jpg
+    - :meme:
+      :title: HTML Doge
+      :image_url: https://upload.wikimedia.org/wikipedia/en/thumb/5/5f/Original_Doge_meme.jpg/300px-Original_Doge_meme.jpg
+    - :meme:
+      :title: Space Doge
+      :image_url: https://upload.wikimedia.org/wikipedia/en/thumb/5/5f/Original_Doge_meme.jpg/300px-Original_Doge_meme.jpg
+  - :category_name: catto memes
+    :memes:
+    - :meme:
+      :title: Polite catto
+      :image_url: https://upload.wikimedia.org/wikipedia/en/thumb/5/5f/Original_Doge_meme.jpg/300px-Original_Doge_meme.jpg
+    - :meme:
+      :title: Michief catto
+      :image_url: https://upload.wikimedia.org/wikipedia/en/thumb/5/5f/Original_Doge_meme.jpg/300px-Original_Doge_meme.jpg
+  - :category_name: miceo memes
+    :memes:
+    - :meme:
+      :title: Mess with miceo you get teh sliceo
+      :image_url: https://upload.wikimedia.org/wikipedia/en/thumb/5/5f/Original_Doge_meme.jpg/300px-Original_Doge_meme.jpg
+  - :category_name: birdo memes
+    :memes:
+    - :meme:
+      :title: derp pengiun
+      :image_url: https://upload.wikimedia.org/wikipedia/en/thumb/5/5f/Original_Doge_meme.jpg/300px-Original_Doge_meme.jpg
+- :username: Marty Schwartz
+  # :categories:
+    # - :category_name:
+- :username: Sheila Mobeila
+  # :categories:
+    # - :category_name:

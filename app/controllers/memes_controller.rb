@@ -10,7 +10,8 @@ class MemesController < ApplicationController
     @top_three_memes = top_three_memes
   end
 
-  def show; end
+  def show
+  end
 
   def new
     @meme = Meme.new

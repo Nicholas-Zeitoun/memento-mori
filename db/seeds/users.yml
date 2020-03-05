@@ -1,11 +1,40 @@
-- email: bob@user.com
+bob:
+  username: Bobby Roberts
+  email: bob@user.com
   password: password
-  username: bob
   location: 12 lennox st richmond
-  avatar_url: https://source.unsplash.com/random/?face
+  avatar_url: https://cpb-ap-se2.wpmucdn.com/blogs.unimelb.edu.au/dist/3/41/files/2016/10/my-doge-zzb6qh-300x300.png
 
-- email: marty@user.com
+marty:
+  username: Marty Schwartz
+  email: marty@user.com
   password: password
-  username: marty
   location: 12 lennox st richmond
-  avatar_url: https://source.unsplash.com/random/?face
+  avatar_url: https://cpb-ap-se2.wpmucdn.com/blogs.unimelb.edu.au/dist/3/41/files/2016/10/my-doge-zzb6qh-300x300.png
+sheila:
+  username: Sheila Mobeila
+  email: sheila@user.com
+  password: password
+  location: 12 lennox st richmond
+  avatar_url: https://cpb-ap-se2.wpmucdn.com/blogs.unimelb.edu.au/dist/3/41/files/2016/10/my-doge-zzb6qh-300x300.png
+
+max:
+  username: Max Attaxs
+  email: max@user.com
+  password: password
+  location: 12 lennox st richmond
+  avatar_url: https://cpb-ap-se2.wpmucdn.com/blogs.unimelb.edu.au/dist/3/41/files/2016/10/my-doge-zzb6qh-300x300.png
+
+steven:
+  username: Steven Even
+  email: steven@user.com
+  password: password
+  location: 12 lennox st richmond
+  avatar_url: https://cpb-ap-se2.wpmucdn.com/blogs.unimelb.edu.au/dist/3/41/files/2016/10/my-doge-zzb6qh-300x300.png
+
+Monroe:
+  username: Monroe Picard
+  email: monroe@user.com
+  password: password
+  location: 12 lennox st richmond
+  avatar_url: https://cpb-ap-se2.wpmucdn.com/blogs.unimelb.edu.au/dist/3/41/files/2016/10/my-doge-zzb6qh-300x300.png

@@ -8,8 +8,11 @@
       <div class="col-12 m-0 p-0">
         <div class="categories-carousel p-3">
           <% @categories.each do |category| %>
-            <button type="button" class="btn btn-primary btn-sm"><%= category.name %></button>
-            <span class="badge badge-secondary"> <%= category.followers.count %> <i class="fas fa-user"></i></span>
+            <a href="<%= category_path(category) %>">
+              <button type="button" class="btn btn-primary btn-sm"><%= category.name %>
+                <span class="badge badge-secondary"> <%= category.memes.count %> <i class="fas fa-images"></i></span>
+              </button>
+            </a>
           <% end %>
         </div>
       </div>
