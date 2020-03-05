@@ -1,15 +1,27 @@
-<div >
-    <div class="user-info-card">
-        <img src="..." class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+<div class="left-sidebar col-md-2 d-none d-lg-flex">
+    <div class="left-sidebar-container p-3">
+      <!-- User details -->
+      <div class="user-section">
+        <div class="user-l-sidebar-info">
+          <h3><%= current_user.username %></h3>
+          <img class="user-l-sidebar-info-image m-0">
+
+          <h3><%= current_user.dank_rank.total_score %></h3>
+          <div class="dank-bar">
+            <span class="badge badge-pill badge-primary dank-filler">  </span>
+            <!-- <span class="badge badge-pill badge-light dank-full">  </span> -->
+          </div>
+          <p>89 / 123 unil next rank!</p>
         </div>
+      </div>
+      
+      <!-- Collections list -->
+      <div class="collection-list-section">
+
+      </div>
+      <!-- Categories list -->
+      <div class="category-list-section">
+
+      </div>
     </div>
-
-    <div class="main-menu">
-
-    </div>
-
-</div>
+  </div>
