@@ -6,7 +6,7 @@ class Meme < ApplicationRecord
   has_one :rarity
   has_many :collects
   has_many :collections, through: :collects
-  # has_one_attached :photo
+  has_one_attached :image
 
   validates :image_url, presence: true
   validates :title, presence: true
@@ -27,6 +27,6 @@ class Meme < ApplicationRecord
 
   # validates :title, presence: true
   # validates :photo, presence: true
-  # validates :category, presence: true 
+  # validates :category, presence: true
 
 end
