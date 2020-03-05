@@ -1,11 +1,31 @@
 .left-sidebar {
-  background-color: #EEEAF2;
+  background-color: #EDEDED;
+}
+
+.left-sidebar-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+//User section
+
+.user-section {
+  height: 300px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-bottom: 1px solid #CCC;
 }
 
 .user-l-sidebar-info {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   text-align: center;
 }
 
@@ -13,13 +33,39 @@
   height: 80px;
   width: 80px;
   border-radius: 50%;
-  background-color: #DDD;
+  margin: 10px;
+}
+
+.dank-bar {
+  height: 12px;
+  width: 90%;
+  border-radius: 25px;
+  background-color: #87629A;
 }
 
 .dank-filler {
   height: 12px;
   width: 80%;
-  border-corner-radius: 25%;
-  // background-color:#39095F;
-
+  border-radius: 25px;
+  background-color: $memento-purple;
 }
+
+//Collection section
+.collection-list-section {
+  width: 100%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border-bottom: 1px solid #CCC;
+}
+
+.category-list-section {
+  height: 300px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border-bottom: 1px solid #CCC;
+}
+

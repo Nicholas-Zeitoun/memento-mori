@@ -1,5 +1,4 @@
 require "open-uri"
-require 'byebug'
 
 DankRank.delete_all
 Meme.delete_all

@@ -9,18 +9,22 @@
 .meme-scroll-window {
   max-height: 800px;
   width: 100%;
-  // display: flex;
-  // justify-content: center;
-  // flex-direction: column;
   overflow: scroll;
 }
 
 .meme-view {
-  // background-color: #aaa;
   flex: 1;
 }
 
 .index-meme-card {
   max-width: 500px;
   margin: 25px;
+}
+
+.meme-show-window {
+  flex: 1;
+  height: 800px;
+  width: 100%;
+  justify-content: center;
+  overflow: scroll;
 }

@@ -4,41 +4,6 @@
   flex-direction: column;
 }
 
-.leaderboard-section {
-  // background-color: #EEE;
-}
-
-.leaderboard {
-  min-height: 400px;
-}
-
-.creation-section {
-  // background-color: #DDD;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.creation-card {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 250px;
-  background-color: #39095F;
-  border-radius: 16px;
-  opacity: 0.4;
-  color: white;
-  background-color: #39095F;
-  transition: 0.5s;
-  &:hover {
-    border-style: dashed;
-    border-width: 5px;
-    border-color: #39095F;
-    opacity: 0.6;
-  }
-}
-
 .extras-section {
   // background-color: #CCC;
   color: #CCC;
