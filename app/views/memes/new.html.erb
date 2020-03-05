@@ -32,24 +32,17 @@
   <div class="meme-main-interface row m-0 p-0">
     
     <!-- Title bar -->
-    <div class="memes-feed col-sm-12 col-lg-8 m-0">
-      <div class="meme-scroll-window d-flex flex-column">
-        <%= render partial: "meme_feed_card", collection: @memes, as: :meme %>
-      </div>
+    <div class="memes-actions col-sm-12 col-lg-8 m-0">
+      <a href="#">Back</a>
+      <a href="#">Edit</a>
+      <a href="#">Delete</a>  
     </div>
       
     <!-- Meme upload form -->
-    <div class="meme-creation-form p-5">
-      <h3>Upload a new meme!</h3>
-      <%= simple_form_for @meme do |f| %>
-        <%= f.input :title, placeholder: 'Type the title' %>
-        <%= f.input :photo, as: :file %>
-        <%= f.input :image_url, placeholder: 'Type the image url' %>
-        <%= f.input :category, collection: ['Cats', 'Dogs', 'Birds', 'Elephants', 'Cocktails'], prompt: "Select the category" %>
-        <%= f.button :submit %>
-      <% end %>
+    <div>
+      <h3>Upload a meme!</h3>
+      <%= render 'memes/meme_form' %>
     </div>
-  
+    
   </div>
 </div>
-
