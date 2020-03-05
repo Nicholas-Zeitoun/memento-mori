@@ -14,14 +14,21 @@ class MemesController < ApplicationController
 
   def new
     @meme = Meme.new
+    @category = Category.new
   end
 
   def create
-    @meme = Meme.new
+    unless params[:meme][:category][:name].empty?
+      newcat = Category.create!(name: params[:meme][:category][:name], user: current_user)
+      @meme = Meme.new(meme_params)
+      @meme.category = newcat
+    else
+      @meme = Meme.new(meme_params)
+    end
     @meme.user = current_user
     @meme.set_rarity
+    #raise
     if @meme.save
-      # new_meme_rarity = Rarity.create!(total_score: 0, meme: @meme)
       redirect_to meme_path(@meme)
     else
       render :new
@@ -50,8 +57,12 @@ class MemesController < ApplicationController
   end
 
   def meme_params
-    params.require(:meme).permit(:title, :image_url, :category, :user, :photo)
+    params.require(:meme).permit(:title, :image_url, :category_id, :user, :image)
   end
+
+  # def category_params
+  #   params.require(:category).permit(:name, :user)
+  # end
 
   # Retrieving the top 10 categories with highest number of images
   def top_categories

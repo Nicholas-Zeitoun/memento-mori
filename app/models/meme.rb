@@ -27,6 +27,6 @@ class Meme < ApplicationRecord
 
   # validates :title, presence: true
   # validates :photo, presence: true
-  # validates :category, presence: true 
+  # validates :category, presence: true
 
 end
