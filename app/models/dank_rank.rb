@@ -1,7 +1,7 @@
 class DankRank < ApplicationRecord
   belongs_to :user
 
-  def set_scores(engagement_score, collection_score, creation_score)
+  def set_scores(engagement_score, creation_score, collection_score)
     puts 'setting scores...'
     self.engagement = engagement_score;
     self.collection = collection_score;
