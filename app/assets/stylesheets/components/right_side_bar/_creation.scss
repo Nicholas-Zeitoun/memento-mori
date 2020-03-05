@@ -1,0 +1,31 @@
+.creation-section {
+  // background-color: #DDD;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.creation-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+  width: 100%;
+  background-color: #39095F;
+  border-radius: 16px;
+  opacity: 0.4;
+  // color: white;
+  background-color: #39095F;
+  transition: 0.5s;
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  &:hover {
+    border-style: dashed;
+    border-width: 5px;
+    border-color: #39095F;
+    opacity: 0.6;
+  }
+}

@@ -9,4 +9,17 @@
 @import "left-sidebar";
 @import "meme-window";
 @import "page-title";
-@import "user-tab-pane"
+@import "user-tab-pane";
+
+//Meme cards
+@import "meme_cards/meme-feed-card";
+
+//Memes index
+@import "right_side_bar/leaderboard";
+@import "right_side_bar/creation";
+@import "right_side_bar/extra-section";
+
+//Memes shadow
+@import "right_side_bar/comments";
+@import "right_side_bar/actions";
+@import "right_side_bar/creator";
