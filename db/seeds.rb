@@ -24,6 +24,9 @@ user2 = User.create!(email: "marty@user.com",
 user3 = User.create!(email: "sheila@user.com",
   password: "password", username: "sheila")
 
+user4 = User.create!(email: "max@user.com",
+  password: "password", username: "max")
+
 puts 'danking them rankings'
 
 user1_dank_rank = DankRank.new(total_score: 150, user_id: user1.id)
@@ -32,9 +35,17 @@ user1.dank_rank = user1_dank_rank
 user2_dank_rank = DankRank.new(total_score: 100, user_id: user2.id)
 user2.dank_rank = user2_dank_rank
 
+user3_dank_rank = DankRank.new(total_score: 127, user_id: user3.id)
+user3.dank_rank = user3_dank_rank
+
+user4_dank_rank = DankRank.new(total_score: 90, user_id: user4.id)
+user4.dank_rank = user4_dank_rank
+
 puts 'making dat fat category'
 
 animal_category = Category.create!(user: user1, name: 'animal category')
+dog_category = Category.create!(user: user1, name: 'dog category')
+cat_category = Category.create!(user: user1, name: 'cat category')
 
 puts 'memeing it up'
 
@@ -56,6 +67,32 @@ birdmeme = Meme.create!(
   category: animal_category,
   user: user2
 )
+
+cat2meme = Meme.create!(
+  title: 'cat meme',
+  image_url: 'https://www.dailydot.com/wp-content/uploads/2018/10/olli-the-polite-cat.jpg',
+  category: cat_category,
+  user: user1
+)
+dog2meme = Meme.create!(
+  title: 'dog meme',
+  image_url: 'https://moderndogmagazine.com/sites/default/files/images/uploads/ThisisDoge.jpg',
+  category: dog_category,
+  user: user1
+)
+bird2meme = Meme.create!(
+  title: 'bird meme',
+  image_url: 'https://i.chzbgr.com/full/9201253632/hFBA8818F/to-flex-its-muscles-under-the-caption-when-you-open-the-spaghetti-sauce-jar-on-your-first-try',
+  category: dog_category,
+  user: user2
+)
+
+catmeme_rarity = Rarity.create!(total_score: 237, meme: catmeme)
+dogmeme_rarity = Rarity.create!(total_score: 156, meme: dogmeme)
+birdmeme_rarity = Rarity.create!(total_score: 289, meme: birdmeme)
+cat2meme_rarity = Rarity.create!(total_score: 51, meme: cat2meme)
+dog2meme_rarity = Rarity.create!(total_score: 174, meme: dog2meme)
+bird2meme_rarity = Rarity.create!(total_score: 90, meme: bird2meme)
 
 user1.memes << catmeme << dogmeme << birdmeme
 

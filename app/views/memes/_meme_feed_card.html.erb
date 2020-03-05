@@ -1,0 +1,11 @@
+<div class="card align-self-center index-meme-card shadow">
+  <div class="card-body p-0">
+    <h5 class="card-title p-3"> <%= meme.title %> </h5>
+    <%= image_tag meme.image_url, class: "img-fluid" %>
+    <!-- <a href="#" class="hidden stretched-link"></a> -->
+    <%= link_to '', meme_path(meme), class: "stretched-link" %>
+  </div>
+  <div class="card-footer text-muted">
+    <i class="fas fa-heart" style="color: #F19B90;"></i> <%= meme.likes.count %>
+  </div>
+</div>

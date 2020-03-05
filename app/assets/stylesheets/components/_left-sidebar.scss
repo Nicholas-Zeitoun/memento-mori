@@ -1,0 +1,25 @@
+.left-sidebar {
+  background-color: #EEEAF2;
+}
+
+.user-l-sidebar-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.user-l-sidebar-info-image {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background-color: #DDD;
+}
+
+.dank-filler {
+  height: 12px;
+  width: 80%;
+  border-corner-radius: 25%;
+  // background-color:#39095F;
+
+}
