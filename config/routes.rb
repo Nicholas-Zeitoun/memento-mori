@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'memes#index'
+  get 'dashboard-template', to: 'pages#dashboard_template'
   get 'style-guide', to: 'pages#style_guide'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 

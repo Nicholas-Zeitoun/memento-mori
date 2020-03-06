@@ -6,4 +6,7 @@ class PagesController < ApplicationController
 
   def style_guide
   end
+
+  def dashboard_template
+  end
 end
