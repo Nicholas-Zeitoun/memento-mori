@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     resources :likes, only: [:new, :create, :destroy]
     resources :categories, only: [:new, :create]
     resources :comments, except: [:index]
+    resources :collects, only: [:new, :create, :destroy]
   end
 
 end

@@ -8,6 +8,7 @@ class MemesController < ApplicationController
     @top_categories = top_categories
     @top_three_users = top_three_users
     @top_three_memes = top_three_memes
+    @collect = Collect.new
   end
 
   def show; end
