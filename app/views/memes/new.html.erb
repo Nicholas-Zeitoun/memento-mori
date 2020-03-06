@@ -1,20 +1,33 @@
-<div class="row">
-  <!-- Left sidebar -->
-  <%= render 'shared/sidebar/left_sidebar' %>
+<div class="content-dashboard row m-0 p-0">
+  <!-- Left Dashboard -->
+  <div class="col-0 col-lg-2 p-0 d-none d-lg-flex flex-column">
+    <div class="left-dashboard red-testing">
+      <%= render 'memes/meme_edit_left_sidebar' %>
+    </div>
+  </div>
 
-  <!-- Main interface -->
-  <div class="meme-main-interface row m-0 p-0">
-    
-    <!-- Title bar -->
-    <div class="memes-actions col-sm-12 col-lg-8 m-0">
-      <%= link_to 'Back', memes_path %>
+  <!-- Middle and Right Sections -->
+  <div class="col-md-12 col-lg-10 p-0 d-flex flex-column">
+    <!-- Categories topbar: Comment out when not in use -->
+    <!-- <div class="dashboard-carousel row m-0 p-0 d-none d-lg-flex grey-testing"> -->
+    <!-- </div> -->
+
+    <!-- Right Dashboard -->
+    <div class="right-dashboard row m-0 p-0">
+      <!-- Meme Window -->
+      <div class="col-12 col-md-12 col-lg-6 m-0 p-0">
+        <div class="meme-window-title">
+          <h3>Upload a meme!</h3>
+        </div>
+        <%= render 'memes/meme_form' %>
+      </div>
+      <div class="col-0 col-md-0 col-lg-6 d-none d-lg-flex flex-column m-0 p-0 purple-testing">
+        <%= render 'memes/meme_preview' %>
+      </div>
     </div>
-      
-    <!-- Meme upload form -->
-    <div>
-      <h3>Upload a meme!</h3>
-      <%= render 'memes/meme_form' %>
-    </div>
-    
+  </div>
+
+  <div class="d-block d-lg-none mobile-dash-menu green-testing">
+
   </div>
 </div>
