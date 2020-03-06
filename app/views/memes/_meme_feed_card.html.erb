@@ -24,6 +24,6 @@
   </div>
   <!-- Hearts -->
   <div class="p-3">
-    <i class="fas fa-heart" style="color: #F19B90;"></i> <%= meme.likes.count %>
+    <%= render partial: "/shared/components/like_toggle", collection: [meme], as: :meme %>
   </div>
 </div>
