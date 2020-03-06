@@ -5,7 +5,8 @@ class CollectsController < ApplicationController
     if @collect.save
       redirect_to user_collection_path(current_user, @collect.collection)
     else
-      redirect_to meme_path(@meme)
+      # should re-render the form
+      redirect_to meme_path(Meme.find(params[:meme_id]))
     end
   end
 

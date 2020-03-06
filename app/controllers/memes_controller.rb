@@ -11,7 +11,9 @@ class MemesController < ApplicationController
     @collect = Collect.new
   end
 
-  def show; end
+  def show
+    @collect = Collect.new
+  end
 
   def new
     @meme = Meme.new
