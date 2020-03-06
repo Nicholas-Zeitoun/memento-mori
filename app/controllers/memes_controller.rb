@@ -8,9 +8,14 @@ class MemesController < ApplicationController
     @top_categories = top_categories
     @top_three_users = top_three_users
     @top_three_memes = top_three_memes
+    @collect = Collect.new
+    @collection = Collection.new
   end
 
-  def show; end
+  def show
+    @collect = Collect.new
+    @collection = Collection.new
+  end
 
   def new
     @meme = Meme.new
@@ -27,7 +32,6 @@ class MemesController < ApplicationController
     end
     @meme.user = current_user
     @meme.set_rarity
-    #raise
     if @meme.save
       redirect_to meme_path(@meme)
     else
