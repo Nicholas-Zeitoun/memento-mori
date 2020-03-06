@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show]
-  
+
   def index
     @users = users_ordered_by_dank
   end
