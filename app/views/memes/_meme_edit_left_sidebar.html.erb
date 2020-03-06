@@ -23,7 +23,7 @@
     <div class="collection-list-section p-4 pb-0">
       <h6>My Collections</h6>
       <% current_user.collections.each do |collection| %>
-        <%= link_to collection.name, collection_path(collection), class: "badge badge-primary nounderline text-white mt-2" %>
+        <%= link_to collection.name, user_collection_path(current_user, collection), class: "badge badge-primary nounderline text-white mt-2" %>
       <% end %>
     </div>
 

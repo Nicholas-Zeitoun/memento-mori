@@ -8,6 +8,7 @@ class CategoriesController < ApplicationController
 
   def show
     @memes = @category.memes
+    @collect = Collect.new
   end
 
   def new
