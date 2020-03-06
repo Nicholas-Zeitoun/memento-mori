@@ -32,7 +32,6 @@ class MemesController < ApplicationController
     end
     @meme.user = current_user
     @meme.set_rarity
-    #raise
     if @meme.save
       redirect_to meme_path(@meme)
     else

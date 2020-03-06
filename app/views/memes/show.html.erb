@@ -17,7 +17,7 @@
             <%= link_to 'Back', memes_path %>
           </div>
           <div class="justify-content-between p-3">
-            <%= link_to 'Edit', edit_meme_path %>
+            <%#= link_to 'Edit', edit_meme_path(@meme) %>
             <%= link_to 'Delete' %>
           </div>
         </div>
@@ -64,3 +64,7 @@
   </div>
 
 </div>
+
+<%= content_for :after_js do %>
+  <%= javascript_pack_tag 'collectFormValidation' %>
+<% end %>

@@ -2,6 +2,7 @@
   "name": "memento-mori",
   "private": true,
   "dependencies": {
+    "@client-side-validations/simple-form": "^0.1.1",
     "@rails/webpacker": "4.2.2",
     "bootstrap": "^4.4.1",
     "jquery": "^3.4.1",

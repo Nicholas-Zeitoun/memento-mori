@@ -1,5 +1,5 @@
 <div class="collection-form p-5">
-  <%= simple_form_for [meme, @collect] do |f| %>
+  <%= simple_form_for [meme, collect] do |f| %>
     <p>Add this meme to one of your collections:</p>
     <!-- retrieve user's collections only -->
     <%= f.association :collection, collection: Collection.where(user: current_user) %>
@@ -9,6 +9,6 @@
       <%= collection.input :name, label: "New collection", placeholder: 'New collection name...' %>
     <% end %>
     <br>
-    <%= f.submit 'submit', class: "btn btn-primary text-white" %>
+    <%= f.submit 'submit', class: "btn btn-primary text-white", id: "magic" %>
   <% end %>
 </div>

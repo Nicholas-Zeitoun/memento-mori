@@ -4,16 +4,17 @@ class CollectsController < ApplicationController
       newcol = Collection.create!(name: params[:collect][:collection][:name], user: current_user)
       @collect = Collect.new(collect_params)
       @collect.collection = newcol
-      @collect.meme = Meme.find(params[:meme_id])
+      @meme = Meme.find(params[:meme_id])
+      @collect.meme = @meme
     else
       @collect = Collect.new(collect_params)
-      @collect.meme = Meme.find(params[:meme_id])
+      @meme = Meme.find(params[:meme_id])
+      @collect.meme = @meme
     end
 
     if @collect.save
       redirect_to user_collection_path(current_user, @collect.collection)
     else
-      # should re-render the form
       redirect_to meme_path(Meme.find(params[:meme_id]))
     end
   end
