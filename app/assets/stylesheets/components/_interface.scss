@@ -1,7 +1,9 @@
 body {
   background-color: #fff;
 }
+
 ///////////// PROPERRR STUFFFF ////////////////
+
 .interface {
   display: flex;
   flex-direction: column;
@@ -10,6 +12,7 @@ body {
 .content-dashboard {
   flex: 1;
 }
+
 .left-dashboard {
   flex: 1;
 }
@@ -19,13 +22,16 @@ body {
 .dashboard-carousel {
   height: 80px;
 }
+
 .mobile-dash-menu {
   height: 50px;
   width: 100%;
   position: fixed;
   bottom: 0px;
 }
+
 ///////////// PROPERRR STUFFFF ////////////////
+
 // Stuff to clean up alter!!
 .categories-carousel {
   background-color: #fff;
