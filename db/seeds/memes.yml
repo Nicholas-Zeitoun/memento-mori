@@ -8,31 +8,94 @@
       :image_url: https://upload.wikimedia.org/wikipedia/en/thumb/5/5f/Original_Doge_meme.jpg/300px-Original_Doge_meme.jpg
     - :meme:
       :title: HTML Doge
-      :image_url: https://upload.wikimedia.org/wikipedia/en/thumb/5/5f/Original_Doge_meme.jpg/300px-Original_Doge_meme.jpg
+      :image_url: https://pics.me.me/thumb_code-doge-thx-%3C-doge%3E-hello-world-click-much-intelligent-52228719.png
     - :meme:
       :title: Space Doge
-      :image_url: https://upload.wikimedia.org/wikipedia/en/thumb/5/5f/Original_Doge_meme.jpg/300px-Original_Doge_meme.jpg
+      :image_url: https://images-na.ssl-images-amazon.com/images/I/51S3AvID1jL._AC_SY400_.jpg
   - :category_name: catto memes
     :memes:
     - :meme:
       :title: Polite catto
-      :image_url: https://upload.wikimedia.org/wikipedia/en/thumb/5/5f/Original_Doge_meme.jpg/300px-Original_Doge_meme.jpg
+      :image_url: https://www.kapwing.com/resources/content/images/2019/06/final_5d127ff68e621000130e11c2_946097.jpg
     - :meme:
       :title: Michief catto
-      :image_url: https://upload.wikimedia.org/wikipedia/en/thumb/5/5f/Original_Doge_meme.jpg/300px-Original_Doge_meme.jpg
+      :image_url: https://i.imgflip.com/1l2a4g.jpg
   - :category_name: miceo memes
     :memes:
     - :meme:
       :title: Mess with miceo you get teh sliceo
-      :image_url: https://upload.wikimedia.org/wikipedia/en/thumb/5/5f/Original_Doge_meme.jpg/300px-Original_Doge_meme.jpg
+      :image_url: https://pics.me.me/mess-with-miceo-u-get-a-sliceo-18263976.png
   - :category_name: birdo memes
     :memes:
     - :meme:
       :title: derp pengiun
-      :image_url: https://upload.wikimedia.org/wikipedia/en/thumb/5/5f/Original_Doge_meme.jpg/300px-Original_Doge_meme.jpg
+      :image_url: https://i.imgflip.com/2ptlqb.jpg
 - :username: Marty Schwartz
-  # :categories:
-    # - :category_name:
+  :categories:
+  - :category_name: Coding memes
+    :memes:
+    - :meme:
+      :title: If Eddy Coded
+      :image_url: https://i.redd.it/eqntkqfehnj01.jpg
+    - :meme:
+      :title: Bug Debug Bug
+      :image_url: https://i.chzbgr.com/full/8299458048/h45E1A111/dawg-i-heard-you-like-debugging-so-i-put-more-debugs-to-your-debug-so-you-can-debug-while-you-debug
+    - :meme:
+      :title: Code Baby
+      :image_url: https://wyncode.co/uploads/2014/08/181.jpg
+    - :meme:
+      :title: Cheeky Code
+      :image_url: https://res.cloudinary.com/practicaldev/image/fetch/s--zqHC2NpH--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://thepracticaldev.s3.amazonaws.com/i/x43m8xsus78o3uehowcp.jpg
+    - :meme:
+      :title: Gooogcoding
+      :image_url: https://i.pinimg.com/originals/11/b4/20/11b420fbf1595be3056ad6355277933c.jpg
+    - :meme:
+      :title: OMGbama Code
+      :image_url: https://i.pinimg.com/564x/ea/4a/0c/ea4a0c23569fa0dccf6cd5470cdc6981.jpg
+    - :meme:
+      :title: Fixed Mum
+      :image_url: https://www.dailymoss.com/wp-content/uploads/2018/01/0b6b2adc21c458186ee98909e34115f5.jpg
+    - :meme:
+      :title: Critical Dating Error
+      :image_url: https://pics.me.me/backend-developers-backend-developers-38119067.png
 - :username: Sheila Mobeila
+  :categories:
+  - :category_name: Movie memes
+    :memes:
+    - :meme:
+      :title: Disney Frozen
+      :image_url: https://pics.me.me/never-ever-pause-a-disney-movie-memes-com-14770064.png
+    - :meme:
+      :title: Smith ur Pippen
+      :image_url: https://lh3.googleusercontent.com/proxy/bjnRP22Jzrgw5wvlKGY7C7hc0fB0gkV13lEfNvVHw4YCGd6lWDQsfeFfycuPRdI_otsHjsPUvXMx1NvTR23pKY5itQhLFBoRnxnq6EiSXxd6KyBcTBr_C-Olp6XPnr6LhQOhi_B9Rl4QFw62A-eIkLOxzUw9WLHg3cye1g
+    - :meme:
+      :title: Dad Niro...
+      :image_url: "https://pbs.twimg.com/profile_images/688590000871493632/h5lZWHf-_400x400.jpg"
+    - :meme:
+      :title: Sneaky Yoda
+      :image_url: https://i.pinimg.com/originals/44/6f/a0/446fa02cdde5fac0e1a4adab47ab6c59.jpg
+    - :meme:
+      :title: Indie...
+      :image_url: https://lh3.googleusercontent.com/proxy/AJk4YYiXR-pVXwF7tZYc_DAMdXlf8Ld3GC2ZW6CsqJx1XrNC71b3Bj5ndcXBjcaS9A5N4Lji8dxzm3fEYoOpHVkrW3De1LbHdxxtWf4iDHciXLs9Wu_431ClP7SSHWuf8mnIkk6ZWL2e7hBLxNSdIYqCGGlYth2hw8dDNw
+    - :meme:
+      :title: Conspiracy Keanu
+      :image_url: https://i.kym-cdn.com/photos/images/newsfeed/000/259/740/058.jpg
+  - :category_name: Melbourne memes
+    :memes:
+    - :meme:
+      :title: Melbourne Weather
+      :image_url: https://i.pinimg.com/originals/b8/fe/27/b8fe27f3ad0646b51d270635d0198a13.jpg
+    - :meme:
+      :title: Melbourne Earthquake 2019
+      :image_url: https://www.memesmonkey.com/images/memesmonkey/98/988bdc71057908e57e52a06238d82b4b.jpeg
+    - :meme:
+      :title: Melburnt
+      :image_url: https://i0.wp.com/bloggers.society19.com/wp-content/uploads/2015/11/PAUL-HOGAN-WEATHER.jpg?resize=550%2C681&ssl=1
+    - :meme:
+      :title: Sifty Melbournian
+      :image_url: https://cdn.newsapi.com.au/image/v1/ecdf75f510303ef66a5a9c974e81dc67?width=650
+    - :meme:
+      :title: Your mate
+      :image_url: https://data.punkee.com.au/wp-content/uploads/2017/10/Punkee-Corey-Worthington.gif
   # :categories:
     # - :category_name:
