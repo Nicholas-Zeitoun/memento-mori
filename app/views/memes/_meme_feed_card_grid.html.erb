@@ -1,0 +1,28 @@
+<div class="meme-feed-card-grid align-self-center">
+  <!-- Top link card -->
+  <div class="card d-flex border-0 rounded-tops">
+    <h5 class="card-title p-3 m-0"> <%= meme.title %> </h5>
+    <div class="meme-card-grid-heading">
+      <%= link_to '', meme_path(meme), class: "hidden stretched-link" %>
+    </div>
+  </div>
+  <!-- Image -->
+  <div class="meme-card-grid-image">
+    <div class="meme-image-container">
+      <% if meme.image.attached? %>
+        <%= cl_image_tag meme.image.key %>
+      <% else %>
+        <%= image_tag meme.image_url %>
+      <% end %>
+      <div class="overlay">
+        <div class="text">
+          Add to collection!
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Hearts -->
+  <div class="p-3">
+    <i class="fas fa-heart" style="color: #F19B90;"></i> <%= meme.likes.count %>
+  </div>
+</div>

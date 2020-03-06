@@ -1,32 +1,43 @@
 body {
-  background-color: #FFF;
+  background-color: #fff;
 }
+///////////// PROPERRR STUFFFF ////////////////
 .interface {
-  // background-color: #DDD;
   display: flex;
   flex-direction: column;
   height: 100vh;
-  // width: 100vh;
 }
-
 .content-dashboard {
-  // background-color: #BBB;
   flex: 1;
 }
-
+.left-dashboard {
+  flex: 1;
+}
+.right-dashboard {
+  flex: 1;
+}
+.dashboard-carousel {
+  height: 80px;
+}
+.mobile-dash-menu {
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  bottom: 0px;
+}
+///////////// PROPERRR STUFFFF ////////////////
+// Stuff to clean up alter!!
 .categories-carousel {
-  background-color: #FFF;
+  background-color: #fff;
   z-index: 2;
 }
-
 .layout-toggle {
-  background-color: #FFF;
+  background-color: #fff;
 }
-
 .avatar {
   height: 32px;
   width: 32px;
   margin: 5px;
   border-radius: 50%;
-  background-color: #DDD;
+  background-color: #ddd;
 }

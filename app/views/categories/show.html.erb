@@ -1,37 +1,39 @@
 <div class="content-dashboard row m-0">
-  <!-- Left side bar -->
-  <%= render 'shared/sidebar/left_sidebar' %>
+  <!-- Left Sidebar -->
+  <%= render "shared/sidebar/left_sidebar" %>
 
-  <!-- Main Interface -->
-  <div class="meme-content row m-0 p-0">
-    <h1><%= @category.name %></h1>
+  <!-- Middle and Right Sections -->
+  <div class="col-md-10 p-0 d-flex flex-column">
 
-    <!-- Memes feed -->
-    <div class="tab-pane" id="v-pills-memes" role="tabpanel" aria-labelledby="v-pills-memes-tab">
-      <div class="category-memes-board">
-        <div class="row">
-          <div class="card-columns mt-4">
-            <%= render partial: "/memes/meme_feed_card", collection: @memes, as: :meme %>
+    <!-- Title Bar -->
+    <div class="memes-titlebar m-0">
+      <h1><%= @category.name %></h1>
+    </div>
+
+    <!-- Middle Section -->
+    <div class="memes-content d-none d-md-flex flex-column m-0 p-0">
+
+      <!-- Memes Feed Grid -->
+      <div class="tab-pane" id="v-pills-memes" role="tabpanel" aria-labelledby="v-pills-memes-tab">
+        <div class="category-memes-board">
+          <div class="row">
+            <div class="card-columns col-12 mt-4 justify-content-space-between">
+              <%= render partial: "/memes/meme_feed_card", collection: @memes, as: :meme %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Layout toggle buttons -->
-    <div class="col-sm-0 col-lg-1 d-none d-lg-flex">
-      <div class="layout-toggle">
-        <button type="button" class="btn btn-secondary"><i class="fas fa-bars"></i></button>
-        <button type="button" class="btn btn-secondary"><i class="fas fa-th"></i></button>
-      </div>
-    </div>
-      
-    <!-- Meme upload section -->
-    <div class="creation-section">
-      <div class="creation-card p-3 stretch-link">
-        <p class="btn btn-primary"><%= link_to "Upload a meme", new_meme_path(@category), class: "text-white" %></p>
-      </div>
-    </div>
-          
+    <!-- Right Sidebar -->
+    <div class="col-sm-0 col-2 d-none d-md-flex flex-column p-0">
+      <!-- Meme upload section -->
+      <div class="creation-section">
+        <div class="creation-card p-3 stretch-link">
+          <p class="btn btn-primary"><%= link_to "Upload a meme", new_meme_path(@category), class: "text-white" %></p>
+        </div>
+      </div>  
+    </div> 
+
   </div>
 </div>
 

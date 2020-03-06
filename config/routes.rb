@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'memes#index'
   get 'style-guide', to: 'pages#style_guide'
+  get 'dashboard-template', to: 'pages#dashboard_template'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   # users can't edit categories, can't create categories without creating a meme
