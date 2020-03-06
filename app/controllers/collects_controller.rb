@@ -1,7 +1,15 @@
 class CollectsController < ApplicationController
   def create
-    @collect = Collect.new(collect_params)
-    @collect.meme = Meme.find(params[:meme_id])
+    unless params[:collect][:collection][:name].empty?
+      newcol = Collection.create!(name: params[:collect][:collection][:name], user: current_user)
+      @collect = Collect.new(collect_params)
+      @collect.collection = newcol
+      @collect.meme = Meme.find(params[:meme_id])
+    else
+      @collect = Collect.new(collect_params)
+      @collect.meme = Meme.find(params[:meme_id])
+    end
+
     if @collect.save
       redirect_to user_collection_path(current_user, @collect.collection)
     else
@@ -16,3 +24,4 @@ class CollectsController < ApplicationController
     params.require(:collect).permit(:collection_id, :meme)
   end
 end
+

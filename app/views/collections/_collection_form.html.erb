@@ -4,10 +4,10 @@
     <!-- retrieve user's collections only -->
     <%= f.association :collection, collection: Collection.where(user: current_user) %>
 
-    <!-- <p>Or create a new collection for this meme:</p> -->
-    <%#= f.simple_fields_for :category do |category| %>
-      <%#= category.input :name, label: "New category", placeholder: 'New category name...' %>
-    <%# end %>
+    <p>Or create a new one to add this meme to:</p>
+    <%= f.simple_fields_for :collection do |collection| %>
+      <%= collection.input :name, label: "New collection", placeholder: 'New collection name...' %>
+    <% end %>
     <br>
     <%= f.submit 'submit', class: "btn btn-primary text-white" %>
   <% end %>

@@ -9,10 +9,12 @@ class MemesController < ApplicationController
     @top_three_users = top_three_users
     @top_three_memes = top_three_memes
     @collect = Collect.new
+    @collection = Collection.new
   end
 
   def show
     @collect = Collect.new
+    @collection = Collection.new
   end
 
   def new
