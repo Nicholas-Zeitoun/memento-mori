@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand-sm navbar-dark navbar-memento">
-  
+
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag asset_path('memento-logo.png') %>
@@ -22,7 +22,7 @@
           <%= link_to "Trending", "#", class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "New", "#", class: "nav-link" %>
+          <%= link_to "Upload a meme", new_meme_path(@category), class: "nav-link" %>
         </li>
         <li class="nav-item dropdown">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
