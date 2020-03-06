@@ -1,32 +1,6 @@
 <div class="content-dashboard row m-0">
   <!-- Left side bar -->
-  <div class="left-sidebar col-md-2 d-none d-lg-flex">
-    <div class="left-sidebar-container p-3">
-      <!-- User details -->
-      <div class="user-section">
-        <div class="user-l-sidebar-info">
-          <h3><%= current_user.username %></h3>
-          <img class="user-l-sidebar-info-image m-0">
-
-          </img>
-          <h3><%= current_user.dank_rank.total_score %></h3>
-          <div class="dank-bar">
-            <span class="badge badge-pill badge-primary dank-filler">  </span>
-            <!-- <span class="badge badge-pill badge-light dank-full">  </span> -->
-          </div>
-          <p>89 / 123 unil next rank!</p>
-        </div>
-      </div>
-      <!-- Collections list -->
-      <div class="collection-list-section">
-
-      </div>
-      <!-- Categories list -->
-      <div class="category-list-section">
-
-      </div>
-    </div>
-  </div>
+  <%= render "shared/sidebar/left_sidebar" %>
 
   <!-- Main Interface -->
   <!-- Categories menu bar -->
@@ -39,29 +13,23 @@
       <!-- Main Content Col's -->
       <div class="col-sm-12 col-lg-8 m-0">
 
-
         <!-- Memes feed grid -->
-        <div class="row memes-feed p-3">
-          <div class="col4">
-              <% @collection.memes.each do |meme| %>
+        <div class="row meme-feed-grid p-3">
+          <div class="col-4 flex-wrap">
+            <% @collection.memes.each do |meme| %>
               <!-- Card will be contained in a 4 columns on large screens -->
-                <div class="card">
-                    <img src= " <%= meme.image_url %> " class="img-fluid">
-                  <div class="">
-                    <h5 class="card-title"><%= meme.title %></h5>
-
-                    <h5 class="card-text">
-                      <span class="badge badge-secondary"> <%= meme.category %> </span>
-                    </h5>
-                    <%= link_to "", meme_path(meme), class: "stretched-link" %>
-                  </div>
-                </div>
+              <div class="card">
+                <img src= "<%= meme.image_url %>" class="img-fluid">
+                <h5 class="card-title"><%= meme.title %></h5>
+                <h5 class="card-text">
+                  <span class="badge badge-secondary"><%= meme.category %></span>
+                </h5>
+                <%= link_to "", meme_path(meme), class: "stretched-link" %>
+              </div>
             <% end %>
-
-
           </div>
         </div>
-      </div>
+
       <!-- Right sidebar -->
       <div class="col-sm-0 col-lg-3 d-none d-md-flex flex-column">
         <div class="right-sidebar p-3">

@@ -71,25 +71,21 @@
           <h3>Collections</h3>
           <hr>
 
-          <div class="user-collections-board">
+          <div class="grid-container user-collections-board">
             <div class="row">
-                <div class="card-columns mt-4">
-                  <% @user.collections.each do |collection| %>
-                      <a href="<%= user_collection_path(@user, collection) %>">
-                      <!-- Collection card -->
-                      <div class="collection-card" style="width: auto;">
-                        <!-- Image section-->
-                        <img src="<%= collection.memes.first.image_url %>" class="user-l-sidebar-info-image m-1">
-                        </img>
-                        <!-- Collection infos -->
-                        <div class="collection-infos">
-                          <h5><%= collection.name %></h5>
-                          <p>Contains <%= collection.memes.count %> memes</p>
-                        </div>
+              <div class="card-columns">
+                <% @user.collections.each do |collection| %>
+                    <!-- Collection card -->
+                    <div class="collection-card border" style="width: 20rem; display: inline-block;">
+                      <img class="card-img-top" src="<%= collection.memes.first.image_url %>" alt="Card image cap">
+                      <div class="card-body">
+                        <h5 class="card-title"><%= collection.name %></h5>
+                        <p class="card-text">Contains <%= collection.memes.count %> memes</p>
+                        <a href="<%= user_collection_path(@user, collection) %>" class="btn btn-primary">See details</a>
                       </div>
-                      </a>
-                  <% end %>
-                </div>
+                    </div>
+                <% end %>
+              </div>
             </div>
           </div>
         </div>

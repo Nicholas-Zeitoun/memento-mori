@@ -1,5 +1,5 @@
 body {
-  background-color: #FFF;
+  background-color: #fff;
 }
 
 ///////////// PROPERRR STUFFFF ////////////////
@@ -9,7 +9,6 @@ body {
   flex-direction: column;
   height: 100vh;
 }
-
 .content-dashboard {
   flex: 1;
 }
@@ -17,11 +16,9 @@ body {
 .left-dashboard {
   flex: 1;
 }
-
 .right-dashboard {
   flex: 1;
 }
-
 .dashboard-carousel {
   height: 80px;
 }
@@ -36,20 +33,17 @@ body {
 ///////////// PROPERRR STUFFFF ////////////////
 
 // Stuff to clean up alter!!
-
 .categories-carousel {
-  background-color: #FFF;
+  background-color: #fff;
   z-index: 2;
 }
-
 .layout-toggle {
-  background-color: #FFF;
+  background-color: #fff;
 }
-
 .avatar {
   height: 32px;
   width: 32px;
   margin: 5px;
   border-radius: 50%;
-  background-color: #DDD;
+  background-color: #ddd;
 }
