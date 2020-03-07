@@ -1,0 +1,21 @@
+<!-- Leaderboard -->
+<div class="leaderboard-section d-block justify-content-top p-3">
+    <div class="leaderboard card">
+      <div class="card-body">
+        <h5 class="card-title">Dank Leaders</h5>
+        <div>
+          <% @top_three_users.each do |top_user| %>
+            <div class="user-item mt-1">
+              <%= link_to top_user.username, user_path(top_user) %>
+              &nbsp<span class="badge badge-primary"><i class="fas fa-skull-crossbones"></i>
+              <%= top_user.dank_rank.total_score %></span>
+              &nbsp<span class="badge badge-secondary"> <%= top_user.followers.count %> <i class="fas fa-user"></i></span>
+            </div>
+          <% end %>
+        </div>
+        <div class="mt-2">
+          👀 <%= link_to "See all...", users_path %>
+        </div>
+      </div>
+    </div>
+</div>

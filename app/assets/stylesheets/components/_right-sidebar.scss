@@ -1,5 +1,7 @@
 .right-sidebar {
   flex: 1;
+  // height:auto;
+  max-height:100%;
   display: flex;
   flex-direction: column;
 }
@@ -9,4 +11,10 @@
   color: #CCC;
   text-align: right;
   font-size: 32px;
+}
+
+.scrollDiv {
+    height:auto;
+    max-height:150%;
+    overflow:auto;
 }

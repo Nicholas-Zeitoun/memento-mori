@@ -15,12 +15,12 @@
     <!-- Right Dashboard -->
     <div class="right-dashboard row m-0 p-0">
       <!-- Meme window -->
-      <div class="col-12 col-md-12 col-lg-10 m-0 p-0">
+      <div class="col-12 col-md-12 col-lg-9 m-0 p-0">
         <%= render 'memes/memes_feed' %>
       </div>
       <!-- Right side bar -->
-      <div class="col-0 col-md-0 col-lg-2 d-none d-lg-flex flex-column purple-testing">
-
+      <div class="col-0 col-md-0 col-lg-3 d-none d-lg-flex flex-column p-0">
+        <%= render 'shared/sidebars/right_sidebar' %>
       </div>
     </div>
   </div>
@@ -29,3 +29,7 @@
   <div class="d-block d-lg-none mobile-dash-menu green-testing">
   </div>
 </div>
+
+<%= content_for :after_js do %>
+  <%= javascript_pack_tag 'indexCollectFormValidation' %>
+<% end %>
