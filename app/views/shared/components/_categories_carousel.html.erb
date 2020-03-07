@@ -1,5 +1,6 @@
 <div class="categories-carousel">
   <div class="row m-0 p-0">
+    <!-- CAtegories list (scrollable) section -->
     <div class="col-10 m-0 p-0">
       <div class="scrolls">
         <% @top_categories.each do |category| %>
@@ -8,6 +9,7 @@
         <% end %>
       </div>
     </div>
+    <!-- View categories secion -->
     <div class="view-categories-section col-2 d-flex align-items-center m-0 p-0">
       <%= link_to "View all categories", categories_path %>
     </div>
