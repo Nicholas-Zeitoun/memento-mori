@@ -44,6 +44,25 @@ class User < ApplicationRecord
     end
   end
 
+  #Following funcitonality
+
+  def follow(user_id)
+    # user_to_follow = User.find(user_id)
+    UserFollowing.create!(follower: self, followed_user: User.find(user_id))
+  end
+
+  def unfollow(user_id)
+    # user_to_unfollow = User.find(user_id)
+    UserFollowing.find_by(followed_user: User.find(user_id)).destroy
+  end
+
+  def is_following?(user_id)
+    relationship = UserFollowing.find_by(follower: self, followed_user: User.find(user_id))
+    return true if relationship
+  end
+
+  # Dank rank functionality
+
   def init_dank_rank
     self.dank_rank = DankRank.create!(
       user_id: self.id
