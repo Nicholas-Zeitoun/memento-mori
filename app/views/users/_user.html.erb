@@ -1,0 +1,15 @@
+<div class="user-item mt-1" data-user=<%= user.id %>>
+  <%= link_to user.username, user_path(user) %>
+  &nbsp<span class="badge badge-primary"><i class="fas fa-skull-crossbones"></i>
+  <%= user.dank_rank.total_score %></span>
+  &nbsp<span class="badge badge-secondary"> <%= user.followers.count %> <i class="fas fa-user"></i></span>
+  <div>
+    <% unless current_user.nil? %>
+      <% if current_user.is_following?(user.id) %>
+        <%= link_to "Unfollow", unfollow_user_path(user.id), method: :post, remote: true %>
+      <% else %>
+        <%= link_to "Follow", follow_user_path(user.id), method: :post, remote: true %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

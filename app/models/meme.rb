@@ -28,6 +28,10 @@ class Meme < ApplicationRecord
     )
   end
 
+  def update_rarity
+    self.rarity.set_score(self.likes.count, self.comments.count, self.collects.count)
+  end
+
   # validates :title, presence: true
   # validates :photo, presence: true
   # validates :category, presence: true

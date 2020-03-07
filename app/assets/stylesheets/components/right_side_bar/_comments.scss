@@ -3,5 +3,25 @@
   display: flex;
   align-items: center;
   flex-display: column;
-  justify-content: center;
+  justify-content: space-between;
+}
+
+.meme-comments {
+  width: 100%;
+  max-height: 50vh;
+  overflow: scroll;
+}
+
+.comment-strip {
+  p {
+    color: $light-gray;
+  }
+}
+
+.meme-comment-form {
+  width: 100%;
+}
+
+.comment-input {
+  border-radius: 25px;
 }

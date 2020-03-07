@@ -1,0 +1,14 @@
+<!-- Leaderboard -->
+<div class="d-block justify-content-top p-3">
+  <div class="leaderboard card">
+    <div class="card-body">
+      <h5 class="card-title">Dank Leaders</h5>
+      <div>
+        <%= render @top_ten_users %>
+      </div>
+      <div class="mt-2">
+        👀 <%= link_to "See all...", users_path %>
+      </div>
+    </div>
+  </div>
+</div>

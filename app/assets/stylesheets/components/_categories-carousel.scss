@@ -1,0 +1,31 @@
+.categories-carousel {
+  overflow-x: hidden;
+  // font-size: 24px;
+}
+
+.view-categories-section {
+  display: flex;
+  justify-content: center;
+  &:hover {
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+.scrolls {
+  padding: 8px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space:nowrap
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scrolls::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE and Edge */
+.scrolls {
+    -ms-overflow-style: none;
+}

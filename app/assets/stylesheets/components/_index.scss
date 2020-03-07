@@ -4,22 +4,34 @@
 @import "navbar";
 @import "category-card";
 @import "meme-card";
-@import "interface";
-@import "right-sidebar";
-@import "left-sidebar";
-@import "meme-window";
 @import "page-title";
 @import "user-tab-pane";
 
-//Meme cards
-@import "meme_cards/meme-feed-card";
+//Interface stylings
+@import "interface";
+  @import "left-sidebar";
+  @import "right-sidebar";
+  @import "categories-carousel";
+  @import "meme_window/meme-window";
 
-//Memes index
+//Right sidebar stylings
 @import "right_side_bar/leaderboard";
 @import "right_side_bar/creation";
 @import "right_side_bar/extra-section";
-
-//Memes shadow
 @import "right_side_bar/comments";
-@import "right_side_bar/actions";
+@import "right_side_bar/meme-info-section";
 @import "right_side_bar/creator";
+
+//Left sidebar stylings
+@import "left_side_bar/user-sidebar-info";
+@import "left_side_bar/user-sidebar-login";
+
+//Meme window stylings
+@import "meme_window/memes-feed";
+@import "meme_window/memes-category-view";
+
+//Meme cards
+@import "meme_cards/meme-feed-card";
+@import "meme_cards/meme-catcol-card";
+
+
