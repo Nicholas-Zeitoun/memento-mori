@@ -1,6 +1,11 @@
 .left-sidebar {
   background-color: #EDEDED;
   height: 100%;
+  a {
+    &:hover {
+      text-decoration: none;
+    }
+  }
 }
 
 .left-sidebar-container {
@@ -15,8 +20,6 @@
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  text-align: center;
-  border-bottom: 1px solid #CCC;
 }
 
 .category-list-section {
@@ -24,7 +27,5 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  text-align: center;
-  border-bottom: 1px solid #CCC;
 }
 
