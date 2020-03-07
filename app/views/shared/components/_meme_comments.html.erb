@@ -1,0 +1,12 @@
+<div>
+  <h6>Comments:</h6>
+  <div class="meme-comments p-3">
+    <% @meme.comments.each do |comment| %>
+      <%= render partial: 'shared/atoms/comment_strip', collection: [comment], as: :comment %>
+    <% end %>
+  </div>
+</div>
+
+<div class="red-testing">
+  derp
+</div>

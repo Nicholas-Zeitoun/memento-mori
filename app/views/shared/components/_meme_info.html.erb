@@ -1,9 +1,15 @@
 <div class="meme-info p-3">
   <h5>Posted by: </h5>
-  <div>
+  <div class="meme-user-info d-flex align-items-center">
     <%= render 'shared/atoms/user_avatar' %>
-    <p><%= @meme.user.username %></p>
+    <p class="m-0"> <%= link_to @meme.user.username, user_path(@meme.user) %> </p>
   </div>
-  <p>Likes: <%= @meme.likes.count %></p>
-  <p>Collected: <%= @meme.collects.count %></p>
+  <div class="meme-stats">
+    <div class="engagement-stat mr-3">
+      <p>Likes: <%= @meme.likes.count %></p>
+    </div>
+    <div class="collection-stat mr-3">
+      <p>Collected: <%= @meme.collects.count %></p>
+    </div>
+  </div>
 </div>

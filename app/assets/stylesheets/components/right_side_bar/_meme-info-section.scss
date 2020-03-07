@@ -1,7 +1,25 @@
 .meme-info-section {
   display: flex;
-  min-height: 150px;
+  // min-height: 150px;
 }
 
-.actions-section {
+.meme-info {
+  width: 100%;
+}
+
+.meme-user-info {
+  display: flex;
+  align-items: center;
+}
+
+.meme-stats {
+  display: flex;
+}
+
+.engagement-stat {
+  color: $engagement-pink;
+}
+
+.collection-stat {
+  color: $collection-blue;
 }

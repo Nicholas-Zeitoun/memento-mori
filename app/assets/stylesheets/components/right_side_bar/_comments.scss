@@ -3,5 +3,17 @@
   display: flex;
   align-items: center;
   flex-display: column;
-  justify-content: center;
+  justify-content: space-between;
+}
+
+.meme-comments {
+  width: 100%;
+  max-height: 60vh;
+  overflow: scroll;
+}
+
+.comment-strip {
+  p {
+    color: $light-gray;
+  }
 }
