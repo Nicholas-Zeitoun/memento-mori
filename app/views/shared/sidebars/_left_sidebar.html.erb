@@ -1,4 +1,4 @@
-<div class="left-sidebar col-md-2 d-none d-lg-flex justify-content-center p-0">
+<div class="left-sidebar">
   <div class="left-sidebar-container p-3 pb-0">
     <% if current_user.nil? %>
       <%= render 'shared/sidebar/left_sidebar_login' %>
@@ -19,7 +19,6 @@
             <a href="#" class="badge badge-primary mt-2">89 / 123</a>
       </div>
     </div>
-
     <!-- Collections list -->
     <div class="collection-list-section p-4 pb-0">
       <h6>My Collections</h6>

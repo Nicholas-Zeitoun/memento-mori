@@ -1,81 +1,29 @@
-<div class="content-dashboard row m-0">
-  <!-- Left sidebar -->
-  <%= render 'shared/sidebar/left_sidebar' %>
+<div class="content-dashboard row m-0 p-0">
+  <!-- Left Dashboard -->
+  <div class="col-0 col-lg-2 p-0 d-none d-lg-flex flex-column">
+    <div class="left-dashboard red-testing">
+      <%= render 'shared/sidebars/left_sidebar' %>
+    </div>
+  </div>
 
   <!-- Middle and Right Sections -->
-  <div class="col-md-10 p-0 d-flex flex-column">
+  <div class="col-md-12 col-lg-10 p-0 d-flex flex-column">
+    <!-- Categories topbar: Comment out when not in use -->
+    <div class="dashboard-carousel row m-0 p-0 d-none d-lg-flex">
+      <%= render 'shared/components/categories_carousel' %>
+    </div>
+    <!-- Right Dashboard -->
+    <div class="right-dashboard row m-0 p-0 green-testing">
+      <div class="col-12 col-md-12 col-lg-8 blue-testing">
 
-    <!-- Categories column -->
-    <div class="row m-0 p-0 d-none d-lg-flex">
-      <div class="col-12 m-0 p-0">
-        <div class="categories-carousel p-3">
-          <%= link_to "View categories", categories_path %>
-          <% @top_categories.each do |category| %>
-            <%= link_to category.name, category_path(category), class: "btn btn-primary btn-sm nounderline text-white" %>
-            <span class="badge badge-secondary"> <%= category.memes.count %> <i class="fas fa-images"></i></span>
-          <% end %>
-        </div>
+      </div>
+      <div class="col-0 col-md-0 col-lg-4 d-none d-lg-flex flex-column purple-testing">
+
       </div>
     </div>
+  </div>
 
-    <!-- Main Interface -->
-    <div class="meme-content row m-0 p-0">
-      <!-- Memes feed -->
-      <div class="memes-feed col-sm-12 col-lg-9 m-0">
-        <div class="meme-scroll-window d-flex flex-column">
-          <%= render partial: "meme_feed_card", collection: @memes, as: :meme %>
-        </div>
-      </div>
-
-      <!-- Right sidebar -->
-      <div class="col-sm-0 col-lg-3 d-none d-md-flex flex-column">
-        <div class="right-sidebar p-3" style="backgroud-color: blue;">
-          <!-- Leaderboard -->
-          <div class="leaderboard-section">
-            <div class="leaderboard p-4 text-center d-flex justify-content-top">
-              <h4>Dank Leaders</h4>
-              <div class="mt-3 mb-3 d-flex justify-content-center">
-                <div>
-                  <% @top_three_users.each do |top_user| %>
-                    <div class="user-item d-flex align-items-center">
-                      <img class="avatar"/>
-                      <%= link_to top_user.username, user_path(top_user) %>
-                      &nbsp<span class="badge badge-primary"><i class="fas fa-skull-crossbones"></i>
-                      <%= top_user.dank_rank.total_score %></span>
-                      &nbsp<span class="badge badge-secondary"> <%= top_user.followers.count %> <i class="fas fa-user"></i></span>
-                    </div>
-                  <% end %>
-                </div>
-              </div>
-              <%= link_to "See all...", users_path %>
-            </div>
-          </div>
-          <!-- Meme upload section -->
-          <div class="creation-section">
-            <div class="creation-card p-3 card">
-              <h5><%= link_to "Upload your meme here!", new_meme_path, class: "stretched-link" %></h5>
-              <i class="fas fa-file-upload" style="color: white; font-size: 32px;"></i>
-            </div>
-          </div>
-          <!-- Option buttons -->
-          <div class="extras-section d-flex justify-content-end">
-            <div class="extra-button">
-              <a href=""><i class="fas fa-plus-circle"></i></a>
-            </div>
-            <div class="extra-button">
-              <a href=""><i class="fas fa-comments"></i></a>
-            </div>
-            <div class="extra-button">
-              <a href=""><i class="fas fa-cog"></i></a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="d-block d-lg-none mobile-dash-menu green-testing">
 
   </div>
 </div>
-
-<%= content_for :after_js do %>
-  <%= javascript_pack_tag 'indexCollectFormValidation' %>
-<% end %>

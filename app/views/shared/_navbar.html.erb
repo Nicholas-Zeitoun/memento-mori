@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-dark navbar-memento">
+<div class="navbar navbar-expand-sm navbar-dark navbar-memento m-0 p-0">
 
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-brand" do %>
@@ -13,7 +13,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <!-- Search Bar -->
     <%= render 'shared/components/search_form' %>
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav mr-auto d-flex align-items-center">
       <% if user_signed_in? %>
         <li class="nav-item active">
           <%= link_to "Discover", "#", class: "nav-link" %>
