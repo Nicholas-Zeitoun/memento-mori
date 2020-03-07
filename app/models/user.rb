@@ -51,6 +51,7 @@ class User < ApplicationRecord
   end
 
   def set_dank_rank
+    engagement_score
     self.dank_rank.set_scores(
       engagement_score,
       creation_score,
@@ -65,7 +66,8 @@ class User < ApplicationRecord
   def engagement_score
     followers = self.followers.count # should change this to engagement
     following = self.followed_users.count
-    followers + following
+    interactions = all_comments # need to add method for likes here
+    followers + following + interactions
   end
 
   def creation_score
@@ -74,6 +76,12 @@ class User < ApplicationRecord
 
   def collection_score
     collections = self.collections.count
+  end
+
+  def all_comments
+    comment_count = 0
+    self.memes.each { |meme| comment_count += meme.comments.count }
+    comment_count
   end
 
   # def update_dank_rank
