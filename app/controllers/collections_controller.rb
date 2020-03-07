@@ -12,6 +12,8 @@ class CollectionsController < ApplicationController
     @collection.user = current_user
 
     if @collection.save
+      raise
+      current_user.set_dank_rank
       redirect_to collection_path(@collection)
     else
       render :new

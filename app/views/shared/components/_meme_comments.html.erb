@@ -5,6 +5,9 @@
       <%= render partial: 'shared/atoms/comment_strip', collection: [comment], as: :comment %>
     <% end %>
   </div>
+  <div class="p-2 text-left">
+    <small><%= @meme.comments.count %> comments</small>
+  </div>
 </div>
 
 <div class="meme-comment-form p-3">
