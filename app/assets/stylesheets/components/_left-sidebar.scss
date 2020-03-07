@@ -17,9 +17,11 @@
 //Collection section
 .collection-list-section {
   width: 100%;
+  max-height: 250px;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
+  overflow: scroll;
 }
 
 .category-list-section {
