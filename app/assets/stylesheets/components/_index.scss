@@ -12,7 +12,7 @@
   @import "left-sidebar";
   @import "right-sidebar";
   @import "categories-carousel";
-  @import "meme-window";
+  @import "meme_window/meme-window";
 
 //Right sidebar stylings
 @import "right_side_bar/leaderboard";
@@ -21,6 +21,9 @@
 @import "right_side_bar/comments";
 @import "right_side_bar/actions";
 @import "right_side_bar/creator";
+
+//Meme window stylings
+@import "meme_window/memes-feed";
 
 //Meme cards
 @import "meme_cards/meme-feed-card";
