@@ -1,0 +1,9 @@
+<div class="meme-info p-3">
+  <h5>Posted by: </h5>
+  <div>
+    <%= render 'shared/atoms/user_avatar' %>
+    <p><%= @meme.user.username %></p>
+  </div>
+  <p>Likes: <%= @meme.likes.count %></p>
+  <p>Collected: <%= @meme.collects.count %></p>
+</div>
