@@ -22,6 +22,10 @@
 @import "right_side_bar/actions";
 @import "right_side_bar/creator";
 
+//Left sidebar stylings
+@import "left_side_bar/user-sidebar-info";
+@import "left_side_bar/user-sidebar-login";
+
 //Meme window stylings
 @import "meme_window/memes-feed";
 

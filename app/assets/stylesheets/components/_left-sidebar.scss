@@ -9,48 +9,6 @@
   width: 100%;
 }
 
-//User section
-
-.user-section {
-  height: auto;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  border-bottom: 1px solid #CCC;
-}
-
-.user-l-sidebar-info {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.user-l-sidebar-info-image {
-  height: 80px;
-  width: 80px;
-  border-radius: 50%;
-  margin: 10px;
-}
-
-.dank-bar {
-  height: 12px;
-  width: 90%;
-  border-radius: 25px;
-  background-color: #87629A;
-}
-
-.dank-filler {
-  height: 12px;
-  width: 80%;
-  border-radius: 25px;
-  background-color: $memento-purple;
-}
-
 //Collection section
 .collection-list-section {
   width: 100%;
