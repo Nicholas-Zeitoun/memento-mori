@@ -1,0 +1,25 @@
+.memes-category-view {
+  height: auto;
+  // max-height: 95vh;
+}
+
+.meme-catcol-card {
+  // min-height: 450px;
+  min-width: 300px;
+  max-width: 300px;
+  height: auto;
+  background-color: white;
+  box-shadow: 0px 0px 16px rgba(100, 100, 100, 0.5);
+  border-radius: 12px;
+  margin: 10px;
+  transition: 0.5s;
+  &:hover {
+    box-shadow: 0px 0px 24px rgba(100, 100, 100, 0.7);
+  }
+}
+
+.scrolls {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space:nowrap
+}

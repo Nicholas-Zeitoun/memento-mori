@@ -1,6 +1,7 @@
 .navbar-memento {
   justify-content: space-between;
   background-color: black;
+  font-size: 12px;
 }
 
 .navbar-memento .navbar-collapse {
@@ -9,4 +10,20 @@
 
 .navbar-memento .navbar-brand img {
   width: 100px;
+}
+
+//Nav search bar
+.nav-search-bar {
+  border: none;
+  color: #B8B8B8;
+  padding: 3px 10px 3px 10px;
+  border-radius: 25px;
+  &:focus {
+    outline: none;
+  }
+  .button {
+    &:focus {
+      outline: none;
+    }
+  }
 }

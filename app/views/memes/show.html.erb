@@ -1,68 +1,32 @@
-<div class="content-dashboard row m-0">
-  <!-- Left sidebar -->
-  <%= render "shared/sidebar/left_sidebar" %>
+<div class="content-dashboard row m-0 p-0">
+  <!-- Left Dashboard -->
+  <div class="col-0 col-lg-2 p-0 d-none d-lg-flex flex-column">
+    <div class="left-dashboard red-testing">
+      <%= render 'shared/sidebars/left_sidebar' %>
+    </div>
+  </div>
 
   <!-- Middle and Right Sections -->
-  <div class="col-md-10 p-0 d-flex flex-column">
-
-    <!-- Main Interface -->
-    <div class="meme-content row m-0 p-0">
-
-      <!-- Memes feed -->
-      <div class="memes-feed col-sm-12 col-lg-7 m-0">
-
-        <!-- Title bar -->
-        <div class="row memes-titlebar m-0 justify-content-between">
-          <div class="justify-content-left p-3">
-            <%= link_to 'Back', memes_path %>
-          </div>
-          <div class="justify-content-between p-3">
-            <%= link_to 'Edit', edit_meme_path(@meme) %>
-            <%= link_to 'Delete' %>
-          </div>
-        </div>
-        <div class="meme-show-window d-flex flex-column">
-          <%= render partial: "meme_feed_card", collection: [@meme], as: :meme %>
-          <%#= render partial: 'memes/meme_show_meme_view', collection: [@meme], as: :meme %>
-        </div>
+  <div class="col-md-12 col-lg-10 p-0 d-flex flex-column">
+    <!-- Categories topbar: Comment out when not in use -->
+    <!-- <div class="dashboard-carousel row m-0 p-0 d-none d-lg-flex grey-testing"> -->
+    <!-- </div> -->
+    <!-- Right Dashboard -->
+    <div class="right-dashboard row m-0 p-0">
+      <!-- Meme window -->
+      <div class="col-12 col-md-12 col-lg-8 m-0 p-0">
+        <%= render 'memes/meme_show' %>
       </div>
-
-      <!-- Right sidebar -->
-      <div class="col-sm-0 col-lg-5 d-none d-md-flex flex-column p-0">
-        <div class="right-sidebar" style="backgroud-color: blue;">
-          <!-- Meme engagement actions -->
-          <div class="actions-section">
-            <i class="fas fa-heart"></i>
-            <i class="far fa-plus-square"></i>
-            <i class="fas fa-share-alt"></i>
-          </div>
-          <!-- Meme creator info card -->
-          <div class="meme-creator-section">
-            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="avatar-bordered" style="float:left" />
-            <p>Creator's name</p>
-          </div>
-          <!-- Meme comments section -->
-          <div class="comments-section">
-            comment section
-          </div>
-
-          <!-- Option buttons -->
-          <div class="extras-section d-flex justify-content-end">
-            <div class="extra-button">
-              <a href=""><i class="fas fa-plus-circle"></i></a>
-            </div>
-            <div class="extra-button">
-              <a href=""><i class="fas fa-comments"></i></a>
-            </div>
-            <div class="extra-button">
-              <a href=""><i class="fas fa-cog"></i></a>
-            </div>
-          </div>
-        </div>
+      <!-- Right side bar -->
+      <div class="col-12 col-md-0 col-lg-4 d-flex d-lg-flex flex-column p-0">
+        <%= render 'shared/sidebars/meme_right_sidebar' %>
       </div>
     </div>
   </div>
 
+  <!-- Mobile lower bar menu -->
+  <div class="d-block d-lg-none mobile-dash-menu green-testing">
+  </div>
 </div>
 
 <%= content_for :after_js do %>

@@ -1,0 +1,26 @@
+<div class="left-sidebar">
+  <div class="left-sidebar-container p-0 m-0">
+    <% if current_user.nil? %>
+      <%= render 'shared/sidebars/left_sidebar_login' %>
+    <% else %>
+      <!-- User details -->
+      <div class="user-section">
+        <%= render 'shared/components/user_sidebar_info' %>
+      </div>
+      <!-- Collections list -->
+      <div class="collection-list-section p-4 pb-0 ">
+        <h6>My Collections</h6>
+        <% current_user.collections.each do |collection| %>
+          <%= link_to collection.name, user_collection_path(current_user, collection) %>
+        <% end %>
+      </div>
+      <!-- Categories list -->
+      <div class="category-list-section p-4">
+        <h6>My Categories</h6>
+        <% current_user.categories.each do |category| %>
+            <%= link_to "\##{category.name.gsub(/\s+/, "")}", category_path(category) %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

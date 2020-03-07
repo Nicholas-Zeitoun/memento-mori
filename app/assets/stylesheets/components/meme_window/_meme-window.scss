@@ -3,6 +3,10 @@
   padding: 30px 15px 30px 30px;
 }
 
+.meme-display-toggle {
+  background-color: none;
+}
+
 //NEW PAGE
 .meme-edit-preview {
   flex: 1;
@@ -30,25 +34,6 @@
 
 ///////////// PROPERRR STUFFFF ////////////////
 
-
-.meme-content {
-  flex: 1;
-}
-.memes-feed {
-  background-color: #FFF;
-  flex: 1;
-}
-
-.meme-scroll-window {
-  max-height: 800px;
-  width: 100%;
-  overflow: scroll;
-}
-
-.meme-view {
-  flex: 1;
-}
-
 .index-meme-card {
   max-width: 500px;
   margin: 25px;
@@ -56,7 +41,7 @@
 
 .meme-show-window {
   flex: 1;
-  height: 800px;
+  height: 80%;
   width: 100%;
   justify-content: center;
   overflow: scroll;

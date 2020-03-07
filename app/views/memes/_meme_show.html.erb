@@ -1,0 +1,13 @@
+<!-- Title bar -->
+<div class="row memes-titlebar m-0 align-items-center justify-content-between">
+  <div class="justify-content-left p-3">
+    <%= link_to "< Back", memes_path %>
+  </div>
+  <div class="pr-3">
+    <%= link_to 'Edit', edit_meme_path(@meme), class: "btn btn-primary" %>
+    <%= link_to 'Delete', edit_meme_path(@meme), class: "btn btn-primary" %>
+  </div>
+</div>
+<div class="meme-show-window d-flex flex-column">
+  <%= render partial: "meme_feed_card", collection: [@meme], as: :meme %>
+</div>

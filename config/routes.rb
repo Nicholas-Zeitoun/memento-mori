@@ -13,6 +13,11 @@ Rails.application.routes.draw do
 
   # routes for users note handle by devise
   resources :users, only: [:index, :show] do
+    # member routes for user followings
+    member do
+      post :follow
+      post :unfollow
+    end
     # nested collections routes
     resources :collections, only: [:show]
   end

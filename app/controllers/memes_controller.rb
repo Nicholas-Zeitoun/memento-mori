@@ -5,8 +5,9 @@ class MemesController < ApplicationController
 
   def index
     @memes = Meme.all
+    @users = User.all
     @top_categories = top_categories
-    @top_three_users = top_three_users
+    @top_ten_users = top_ten_users
     @top_three_memes = top_three_memes
     @collect = Collect.new
     @collection = Collection.new
@@ -75,7 +76,7 @@ class MemesController < ApplicationController
   end
 
   # Retrieving top 3 users based on their dank_rank.total_score
-  def top_three_users
+  def top_ten_users
     # Get top 3 dank ranks total scores
     top_danks = DankRank.order('total_score DESC').limit(10)
     # For each top dank_rank, retrieve user

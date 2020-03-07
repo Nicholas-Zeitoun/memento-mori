@@ -1,0 +1,19 @@
+<div class="memes-feed d-flex">
+  <div class="nav flex-column" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+    <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"><i class="fas fa-bars"></i></a>
+    <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><i class="fas fa-th-large"></i></a>
+  </div>
+  <div class="memes-scroll-window tab-content d-flex" id="v-pills-tabContent">
+    <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+      <div class="d-flex flex-column">
+        <%= render partial: "meme_feed_card", collection: @memes, as: :meme %>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+      <div class="card-columns">
+        <%= render partial: "meme_feed_card", collection: @memes, as: :meme %>
+      </div>
+    </div>
+  </div>
+
+</div>

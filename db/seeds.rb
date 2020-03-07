@@ -49,6 +49,7 @@ meme_config[:users].each do |user|
             user: meme_owner,
             category: meme_category
           )
+          new_meme.set_rarity
           file = URI.open(new_meme.image_url)
           new_meme.image.attach(io: file, filename: "#{new_meme.title}.png", content_type: 'image/png')
           new_meme.save!

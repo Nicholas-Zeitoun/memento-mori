@@ -44,6 +44,25 @@ class User < ApplicationRecord
     end
   end
 
+  #Following funcitonality
+
+  def follow(user_id)
+    # user_to_follow = User.find(user_id)
+    UserFollowing.create!(follower: self, followed_user: User.find(user_id))
+  end
+
+  def unfollow(user_id)
+    # user_to_unfollow = User.find(user_id)
+    UserFollowing.find_by(followed_user: User.find(user_id)).destroy
+  end
+
+  def is_following?(user_id)
+    relationship = UserFollowing.find_by(follower: self, followed_user: User.find(user_id))
+    return true if relationship
+  end
+
+  # Dank rank functionality
+
   def init_dank_rank
     self.dank_rank = DankRank.create!(
       user_id: self.id
@@ -65,7 +84,8 @@ class User < ApplicationRecord
   def engagement_score
     followers = self.followers.count # should change this to engagement
     following = self.followed_users.count
-    followers + following
+    interactions = all_comments # need to add method for likes here
+    followers + following + interactions
   end
 
   def creation_score
@@ -75,6 +95,16 @@ class User < ApplicationRecord
   def collection_score
     collections = self.collections.count
   end
+
+  private
+
+  def all_comments
+    comment_count = 0
+    self.memes.each { |meme| comment_count += meme.comments.count }
+    comment_count
+  end
+
+
 
   # def update_dank_rank
   #   followers = self.followers.count # should change this to engagement

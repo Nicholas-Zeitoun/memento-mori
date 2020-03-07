@@ -1,0 +1,12 @@
+<div class="comment-strip card d-flex flex-row mb-2">
+  <div class="pt-3 pl-3">
+    <%= render partial: 'shared/atoms/user_avatar', collection: [comment], as: :meme %>
+  </div>
+  <div class="card-body">
+    <div class="comment-strip">
+      <h6 class="card-title"><%= comment.user.username %></h6>
+      <p class="card-subtitle"><small class="text-muted">Posted - <%=  comment.created_at.to_formatted_s(:long_ordinal) %></small></p>
+      <%= comment.content %>
+    </div>
+  </div>
+</div>

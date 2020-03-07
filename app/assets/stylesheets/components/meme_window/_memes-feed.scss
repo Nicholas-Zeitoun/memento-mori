@@ -1,0 +1,11 @@
+.memes-feed {
+  display: flex;
+}
+
+.memes-scroll-window {
+  flex: 1;
+  overflow: scroll;
+  padding: 15px;
+  max-height: 90vh;
+  justify-content: center;
+}

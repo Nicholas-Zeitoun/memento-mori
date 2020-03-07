@@ -1,42 +1,28 @@
-<div class="content-dashboard row m-0">
-  <!-- Left Sidebar -->
-  <%= render "shared/sidebar/left_sidebar" %>
+<div class="content-dashboard row m-0 p-0">
+  <!-- Left Dashboard -->
+  <div class="col-0 col-lg-2 p-0 d-none d-lg-flex flex-column">
+    <div class="left-dashboard">
+      <%= render "shared/sidebars/left_sidebar" %>
+    </div>
+  </div>
 
   <!-- Middle and Right Sections -->
-  <div class="col-md-10 p-0 d-flex flex-column">
-
-    <!-- Title Bar -->
-    <div class="memes-titlebar m-0">
-      <h1><%= @category.name %></h1>
-    </div>
-
-    <!-- Middle Section -->
-    <div class="memes-content d-none d-md-flex flex-column m-0 p-0">
-
-      <!-- Memes Feed Grid -->
-      <div class="tab-pane" id="v-pills-memes" role="tabpanel" aria-labelledby="v-pills-memes-tab">
-        <div class="category-memes-board">
-          <div class="row">
-            <div class="card-columns col-12 mt-4 justify-content-space-between">
-              <%= render partial: "/memes/meme_feed_card", collection: @memes, as: :meme %>
-            </div>
-          </div>
+  <div class="col-md-12 col-lg-10 p-0 d-flex flex-column">
+    <!-- Right Dashboard -->
+    <div class="right-dashboard row m-0 p-0">
+      <!-- Meme window -->
+      <div class="col-12 col-md-12 col-lg-12 m-0 p-0">
+        <div class="text-center mt-5">
+          <h5> <%= @category.name %> </h5>
         </div>
-      </div>
-
-    <!-- Right Sidebar -->
-    <div class="col-sm-0 col-2 d-none d-md-flex flex-column p-0">
-      <!-- Meme upload section -->
-      <div class="creation-section">
-        <div class="creation-card p-3 stretch-link">
-          <p class="btn btn-primary"><%= link_to "Upload a meme", new_meme_path(@category), class: "text-white" %></p>
-        </div>
+        <%= render 'memes/memes_category_view' %>
+        <%#= render partial: "/memes/meme_feed_card", collection: @memes, as: :meme %>
       </div>
     </div>
+  </div>
 
+  <!-- Mobile lower bar menu -->
+  <div class="d-block d-lg-none mobile-dash-menu green-testing">
   </div>
 </div>
 
-<%= content_for :after_js do %>
-  <%= javascript_pack_tag 'indexCollectFormValidation' %>
-<% end %>

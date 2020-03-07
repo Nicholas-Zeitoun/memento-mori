@@ -1,14 +1,15 @@
 <div class="collection-form p-5">
+  <h5>Add this meme to your collection!</h5>
   <%= simple_form_for [meme, collect] do |f| %>
-    <p>Add this meme to one of your collections:</p>
+    <h6 class="text-white">Select a collection:</h6>
     <!-- retrieve user's collections only -->
-    <%= f.association :collection, collection: Collection.where(user: current_user) %>
+    <%= f.association :collection, prompt: "Select Collection...", label: false, collection: Collection.where(user: current_user) %>
 
-    <p>Or create a new one to add this meme to:</p>
+    <h6 class="text-white">Or create a new one to add this meme to:</h6>
     <%= f.simple_fields_for :collection do |collection| %>
-      <%= collection.input :name, label: "New collection", placeholder: 'New collection name...' %>
+      <%= collection.input :name, label: "New collection", label: false, placeholder: 'New collection name...', class: "comment-input shadow" %>
     <% end %>
     <br>
-    <%= f.submit 'submit', class: "btn btn-primary text-white", id: "magic" %>
+    <%= f.submit 'submit', class: "btn btn-secondary text-white", id: "magic" %>
   <% end %>
 </div>
