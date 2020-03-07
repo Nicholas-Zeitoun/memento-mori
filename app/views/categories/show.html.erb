@@ -12,10 +12,8 @@
     <div class="right-dashboard row m-0 p-0">
       <!-- Meme window -->
       <div class="col-12 col-md-12 col-lg-12 m-0 p-0">
-        <div class="row">
-          <div class="col-12 text-center">
-            <h5> <%= @category.name %> </h5>
-          </div>
+        <div class="text-center mt-5">
+          <h5> <%= @category.name %> </h5>
         </div>
         <%= render 'memes/memes_category_view' %>
         <%#= render partial: "/memes/meme_feed_card", collection: @memes, as: :meme %>

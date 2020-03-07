@@ -1,21 +1,33 @@
-<div class="content-dashboard row m-0">
-  <!-- Left sidebar -->
-  <%= render 'shared/sidebar/left_sidebar' %>
-  
-  <!-- Users section -->
-  <div class="users-section" row m-0">
-    <div class="leaderboard card p-3 border-0 shadow text-center d-flex justify-content-top">
-    <h3>Our users</h3>
-      <div class="pl-3">
-        <% @users.each do |user| %>
-          <div class="d-flex align-items-center">
-            <img class="avatar"/> <%= user.username %>
-            &nbsp<span class="badge badge-primary"><i class="fas fa-skull-crossbones"></i> <%= user.dank_rank.total_score %></span>
-            &nbsp<span class="badge badge-secondary"> <%= user.followers.count %> <i class="fas fa-user"></i></span>
-          </div>
-        <% end %>
+<div class="content-dashboard row m-0 p-0">
+  <!-- Left Dashboard -->
+  <div class="col-0 col-lg-2 p-0 d-none d-lg-flex flex-column">
+    <div class="left-dashboard red-testing">
+      <%= render 'shared/sidebars/left_sidebar' %>
+    </div>
+  </div>
+
+  <!-- Middle and Right Sections -->
+  <div class="col-md-12 col-lg-10 p-0 d-flex flex-column">
+    <!-- Categories topbar: Comment out when not in use -->
+    <div class="dashboard-carousel row m-0 p-0 d-none d-lg-flex grey-testing">
+
+    </div>
+    <!-- Right Dashboard -->
+    <div class="right-dashboard row m-0 p-0">
+      <!-- Meme window -->
+      <div class="col-12 col-md-12 col-lg-8">
+        <%= render 'shared/components/leaderboard' %>
+        <%= render 'shared/components/leaderboard' %>
+      </div>
+      <!-- Right side bar -->
+      <div class="col-0 col-md-0 col-lg-4 d-none d-lg-flex flex-column">
+
       </div>
     </div>
+  </div>
+
+  <!-- Mobile lower bar menu -->
+  <div class="d-block d-lg-none mobile-dash-menu green-testing">
   </div>
 </div>
 
