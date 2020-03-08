@@ -14,11 +14,22 @@
       <% else %>
         <%= image_tag meme.image_url %>
       <% end %>
-      <div class="overlay">
-        <div class="text">
-          <%= render partial: "collections/collection_form", collection: [meme], as: :meme, locals: { collect: @collect } %>
+
+      <% collections = meme.collects.map { |collect| collect.collection } %>
+      <% result = collections.map { |collection| collection.user == current_user } %>
+      <% if result.include?(true) %>
+        <div class="small-overlay">
+          <div class="text">
+            <h5>Meme already collected!</h5>
+          </div>
         </div>
-      </div>
+      <% else %>
+        <div class="form-overlay">
+          <div class="text">
+              <%= render partial: "collections/collection_form", collection: [meme], as: :meme, locals: { collect: @collect } %>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
   <!-- Hearts -->
