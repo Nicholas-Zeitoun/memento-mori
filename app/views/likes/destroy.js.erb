@@ -1,0 +1,9 @@
+function removeLike() {
+  const like = document.querySelector('.js-like');
+  console.log("hey from destroy ajax");
+  like.innerHTML = '<%= j render "shared/components/like_toggle", meme: @meme %>';
+};
+
+removeLike();
+
+// const like = document.querySelector('#js-like[data-meme-id="<%= @meme.id %>"]')
