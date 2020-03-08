@@ -34,12 +34,13 @@ class MemesController < ApplicationController
       @meme = Meme.new(meme_params)
     end
     @meme.user = current_user
-    @meme.set_rarity
     if @meme.save
+      @meme.set_rarity
       redirect_to meme_path(@meme)
     else
       render :new
     end
+    current_user.set_dank_rank
   end
 
   def edit; end
@@ -55,6 +56,7 @@ class MemesController < ApplicationController
   def destroy
     @meme.destroy
     redirect_to user_path(current_user)
+    current_user.set_dank_rank
   end
 
   private

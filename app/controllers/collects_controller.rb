@@ -13,6 +13,9 @@ class CollectsController < ApplicationController
     end
 
     if @collect.save
+      @collect.meme.update_rarity
+      @collect.collection.user.set_dank_rank
+      @collect.meme.user.set_dank_rank
       redirect_to user_collection_path(current_user, @collect.collection)
     else
       redirect_to meme_path(Meme.find(params[:meme_id]))

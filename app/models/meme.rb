@@ -29,7 +29,6 @@ class Meme < ApplicationRecord
   end
 
   def update_rarity
-    raise
     self.rarity.set_score(self.likes.count, self.comments.count, self.collects.count)
   end
 
