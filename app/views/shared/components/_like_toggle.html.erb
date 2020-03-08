@@ -1,0 +1,11 @@
+<% if meme.likes.find_by(user: current_user).nil? %>
+  <div>
+    <%= link_to "<i class='far fa-heart' style='color: #F19B90;'></i>".html_safe, meme_likes_path(meme), method: :post, remote: true %>
+    <%= meme.likes.count %>
+  </div>
+<% else %>
+  <div>
+    <%= link_to "<i class='fas fa-heart' style='color: #F19B90;'></i>".html_safe, meme_like_path(meme, Like.where(user: current_user).find_by(meme: meme)), method: :delete, remote: true %>
+    <%= meme.likes.count %>
+  </div>
+<% end %>
