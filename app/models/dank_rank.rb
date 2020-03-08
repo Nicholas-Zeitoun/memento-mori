@@ -17,6 +17,6 @@ class DankRank < ApplicationRecord
   private
 
   def the_algorithm_of_dankness
-    (self.engagement + self.collection + self.creation) * 4
+    (self.engagement + self.collection + self.creation) * 2
   end
 end

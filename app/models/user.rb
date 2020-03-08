@@ -84,27 +84,40 @@ class User < ApplicationRecord
   def engagement_score
     followers = self.followers.count # should change this to engagement
     following = self.followed_users.count
-    interactions = all_comments # need to add method for likes here
-    followers + following + interactions
+    interactions = all_comments + all_likes # need to add method for likes here
+    (followers + following + interactions) * 4
   end
 
   def creation_score
-    creation = self.memes.count
+    rarities = 0
+    self.memes.each { |meme| rarities += meme.rarity.total_score }
+    (rarities * 3) * (self.memes.count)
   end
 
   def collection_score
     collections = self.collections.count
+    collected_memes = 0
+    self.collections.each { |collection| collected_memes += collection.memes.count }
+    (collections * 4) + (collected_memes * 6)
   end
 
   private
 
   def all_comments
     comment_count = 0
+    # all comments on user's memes
     self.memes.each { |meme| comment_count += meme.comments.count }
-    comment_count
+    # + all comments of user
+    comment_count + self.comments.count
   end
 
-
+  def all_likes
+    like_count = 0
+    # all likes on user's memes
+    self.memes.each { |meme| like_count += meme.likes.count }
+    # + all likes of user
+    like_count + self.likes.count
+  end
 
   # def update_dank_rank
   #   followers = self.followers.count # should change this to engagement

@@ -21,6 +21,9 @@ class CommentsController < ApplicationController
         format.js  # <-- idem
       end
     end
+    @comment.meme.update_rarity
+    @comment.meme.user.set_dank_rank
+    @comment.user.set_dank_rank
   end
 
   def comment_params
