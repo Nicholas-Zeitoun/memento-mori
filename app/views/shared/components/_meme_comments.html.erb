@@ -1,21 +1,19 @@
-<div>
-  <h6>Comments:</h6>
-  <div class="meme-comments p-3">
-    <% @meme.comments.each do |comment| %>
-      <%= render partial: 'shared/atoms/comment_strip', collection: [comment], as: :comment %>
-    <% end %>
-  </div>
-  <div class="p-2 text-left">
-    <small><%= @meme.comments.count %> comments</small>
-  </div>
+<h6>Comments:</h6>
+<div id="comments">
+  <% if @meme.comments.blank? %>
+    Be the first to leave a comment for <%= @meme.title %>
+    <div class="meme-comments p-3">
+    </div>
+  <% else %>
+    <div class="meme-comments p-3">
+      <% @meme.comments.each do |comment| %>
+        <%= render partial: 'shared/atoms/comment_strip', collection: [comment], as: :comment %>
+      <% end %>
+    </div>
+  <% end %>
 </div>
 
 <div class="meme-comment-form p-3">
   <h6>Add a comment</h6>
-  <% @comment = Comment.new %>
-  <%= simple_form_for [@meme, @comment] do |f| %>
-    <%= f.input :content, label: false, required: true, placeholder: 'New comment...' %>
-    <br>
-    <%= f.submit 'submit', class: "btn btn-primary text-white" %>
-  <% end %>
+  <%= render partial: 'shared/components/comment_form', meme: @meme, comment: @comment %>
 </div>

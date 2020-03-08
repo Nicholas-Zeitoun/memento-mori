@@ -1,0 +1,17 @@
+function refreshForm(innerHTML) {
+  const newCommentForm = document.getElementById('new_comment');
+  newCommentForm.innerHTML = innerHTML;
+}
+
+function addComment(commentHTML) {
+  console.log("hello from ajax")
+  const comments = document.querySelector('.meme-comments');
+  comments.insertAdjacentHTML('beforeend', commentHTML);
+}
+
+function ajaxComments() {
+  addComment('<%= j render "shared/atoms/comment_strip", comment: @comment %>');
+  refreshForm('<%= j render "shared/components/comment_form", meme: Meme.find(params[:meme_id]) %>');
+}
+
+ajaxComments();

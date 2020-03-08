@@ -17,6 +17,7 @@ class MemesController < ApplicationController
     @collect = Collect.new
     @collection = Collection.new
     @like = Like.new
+    @comment = Comment.new
   end
 
   def new
