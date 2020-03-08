@@ -26,11 +26,15 @@
             <span class="badge badge-pill badge-primary dank-filler">  </span>
           </div>
           <div class="user-dank-stats-card">
-            <ul>
+            <!-- <ul>
               <li>Engagement score: <%= @user.dank_rank.engagement %></li>
               <li>Creation score: <%= @user.dank_rank.creation %></li>
               <li>Collection score: <%= @user.dank_rank.collection %></li>
-            </ul>
+            </ul> -->
+            <%= content_tag :div, style:"height: 400px", id: "js-chart", data: {creation: @user.dank_rank.creation,
+                                                        engagement: @user.dank_rank.engagement,
+                                                        collection: @user.dank_rank.collection} do %>
+            <% end %>
           </div>
           <br>
 
@@ -165,3 +169,7 @@
         </div>
       </div>
 </div>
+
+<%= content_for :after_js do %>
+  <%= javascript_pack_tag 'renderChart' %>
+<% end %>
