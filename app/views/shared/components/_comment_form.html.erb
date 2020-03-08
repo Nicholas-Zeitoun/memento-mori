@@ -1,14 +1,6 @@
-<div class="comment-form">
-  <div class="row">
-
-    <div class="comment-profile-img">
-      <img src="" alt="">
-    </div>
-
-    <div class="comment-form-input">
-      <form action="" class="comment-input-form">
-      </form>
-    </div>
-
-  </div>
-</div>
+<% @comment = Comment.new %>
+<%= simple_form_for([@meme, @comment], remote: true) do |f| %>
+  <%= f.input :content, label: false, required: true, placeholder: 'New comment...' %>
+  <br>
+  <%= f.submit 'submit', class: "btn btn-primary text-white" %>
+<% end %>
