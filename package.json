@@ -2,6 +2,7 @@
   "name": "memento-mori",
   "private": true,
   "dependencies": {
+    "@amcharts/amcharts4": "^4.9.6",
     "@rails/webpacker": "4.2.2",
     "bootstrap": "^4.4.1",
     "jquery": "^3.4.1",

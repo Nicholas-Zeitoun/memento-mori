@@ -1,7 +1,9 @@
 <div class="user-sidebar-info p-3 mt-3">
   <!-- Presents login form if not logged in -->
   <h4><%= current_user.username %></h4>
-  <%= image_tag current_user.avatar, class: "user-l-sidebar-info-image" %>
+  <a href="<%= user_path(current_user) %>">
+    <%= image_tag current_user.avatar, class: "user-l-sidebar-info-image" %>
+  </a>
     <!-- <img class="user-l-sidebar-info-image m-0"> -->
   <h5> Lvl. <%= current_user.get_dank_rank %></h5>
   <div class="dank-rank-section">
