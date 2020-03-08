@@ -47,4 +47,4 @@ To retrieve categories' data:
 ```Collection.delete_all```
 ```User.delete_all```
 
-```rails db:reset```
+```rails db:seed```
