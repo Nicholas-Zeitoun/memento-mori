@@ -50,7 +50,11 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      resources :users, only: [ :index, :show ]
+      resources :users, only: [ :index, :show ] do
+        member do
+          get :stats
+        end
+      end
     end
   end
 
