@@ -1,0 +1,7 @@
+function followCollection(innerHTML) {
+  const follow = document.querySelector(".js-follow");
+  console.log("hey from ajax follow");
+  follow.innerHTML = innerHTML;
+}
+
+followCollection('<%= j render "follow", collection: @collection %>');

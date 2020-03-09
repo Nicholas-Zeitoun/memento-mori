@@ -1,5 +1,5 @@
 class CollectionsController < ApplicationController
-  before_action :set_collection, only: [:destroy, :show, :edit, :update]
+  before_action :set_collection, only: [:destroy, :show, :edit, :update, :follow, :unfollow]
 
   def show; end
 
@@ -33,6 +33,27 @@ class CollectionsController < ApplicationController
   def destroy
     @collection.destroy
     redirect_to user_path(current_user)
+  end
+
+  # Functionality calling AJAX for following collections
+  def follow
+    if @collection.follow(current_user.id)
+      current_user.set_dank_rank
+      respond_to do |format|
+        format.html { redirect_to collection_path(@collection) }
+        format.js
+      end
+    end
+  end
+
+  def unfollow
+    if @collection.unfollow(current_user.id)
+      current_user.set_dank_rank
+      respond_to do |format|
+        format.html { redirect_to collection_path(@collection) }
+        format.js
+      end
+    end
   end
 
   private

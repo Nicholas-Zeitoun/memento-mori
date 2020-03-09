@@ -1,0 +1,7 @@
+<div class="js-follow">
+  <% if @category.is_followed?(current_user.id) %>
+    <%= link_to "Unfollow", unfollow_category_path(@category.id), method: :post, remote: true %>
+  <% else %>
+    <%= link_to "Follow", follow_category_path(@category.id), method: :post, remote: true %>
+  <% end %>
+</div>

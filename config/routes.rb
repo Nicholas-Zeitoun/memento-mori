@@ -7,9 +7,19 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   # users can't edit categories, can't create categories without creating a meme
-  resources :categories, except: [:new, :create, :edit, :update]
+  resources :categories, except: [:new, :create, :edit, :update] do
+    member do
+      post :follow
+      post :unfollow
+    end
+  end
   # destroy doesn't need to be nested
-  resources :collections, except: [:show, :index]
+  resources :collections, except: [:show, :index] do
+    member do
+      post :follow
+      post :unfollow
+    end
+  end
 
   # routes for users note handle by devise
   resources :users, only: [:index, :show] do
@@ -29,6 +39,14 @@ Rails.application.routes.draw do
     resources :categories, only: [:new, :create]
     resources :comments, except: [:index]
     resources :collects, only: [:new, :create, :destroy]
+  end
+
+  # API routes
+
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :users, only: [ :index, :show ]
+    end
   end
 
 end

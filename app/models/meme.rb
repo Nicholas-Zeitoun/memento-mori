@@ -14,6 +14,14 @@ class Meme < ApplicationRecord
 
   validates :title, presence: true
 
+  include PgSearch::Model
+  pg_search_scope :search_by_title,
+    against: [ :title ],
+    using: {
+      tsearch: { prefix: true }
+    }
+
+
   def set_rarity
     likes = self.likes.count
     collects = self.collects.count
@@ -37,3 +45,5 @@ class Meme < ApplicationRecord
   # validates :category, presence: true
 
 end
+
+

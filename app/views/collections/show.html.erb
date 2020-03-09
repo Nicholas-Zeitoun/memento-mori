@@ -1,12 +1,17 @@
 <div class="content-dashboard row m-0">
   <!-- Left side bar -->
+    <div class="col-0 col-lg-2 p-0 d-none d-lg-flex flex-column">
+    <div class="left-dashboard">
   <%= render "shared/sidebars/left_sidebar" %>
+      </div>
+  </div>
 
   <!-- Main Interface -->
   <!-- Categories menu bar -->
   <div class="col-md-10 p-0 d-flex flex-column">
     <div class="row m-0 p-0 d-none d-lg-flex">
-      Collection show Main Content Menu
+      <h5><%= @collection.name %></h5>
+      <%= render 'follow' %>
     </div>
     <!-- Main Content Row -->
     <div class="category-content row m-0 p-0">
