@@ -13,6 +13,35 @@ class MemesController < ApplicationController
     end
   end
 
+  def trending
+    # Same code than index if we want same rendering
+    @users = User.all
+    @top_categories = top_categories
+    @top_ten_users = top_ten_users
+    @top_three_memes = top_three_memes
+    @collect = Collect.new
+    @collection = Collection.new
+
+    # Order memes by rarity
+    top_rarities = Rarity.order('total_score DESC').limit(200)
+    @memes = top_rarities.map do |rarity|
+      Meme.find(rarity.meme_id)
+    end
+  end
+
+  def news
+    # Same code than index if we want same rendering
+    @users = User.all
+    @top_categories = top_categories
+    @top_ten_users = top_ten_users
+    @top_three_memes = top_three_memes
+    @collect = Collect.new
+    @collection = Collection.new
+
+    # Order memes by date
+    @memes = Meme.order('created_at DESC').limit(100)
+  end
+
   def show
     @collect = Collect.new
     @collection = Collection.new
