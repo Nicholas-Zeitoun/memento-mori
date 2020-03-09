@@ -44,11 +44,11 @@ class DankRank < ApplicationRecord
     self.total_score = self.total_score += 1
   end
 
-  private
-
   def rank_up?
     get_total_exp > next_rank_req_exp(self.total_score + 1)
   end
+
+  private
 
   def get_total_exp
     (self.engagement + self.collection + self.creation) * 4

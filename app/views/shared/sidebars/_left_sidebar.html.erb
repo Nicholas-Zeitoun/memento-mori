@@ -1,5 +1,7 @@
 <div class="left-sidebar">
   <div class="left-sidebar-container p-0 m-0">
+    <button id="sweet-alert-demo" class="btn btn-primary">Click me!</button>
+    <%= link_to "", root_path, id: "delete-link", class: "hidden" %>
     <% if current_user.nil? %>
       <%= render 'shared/sidebars/left_sidebar_login' %>
     <% else %>
@@ -23,4 +25,15 @@
       </div>
     <% end %>
   </div>
+
+  <script>
+    document.querySelector(".category-list-section").addEventListener("click", function() {
+    swal({
+      title: "Dank Rank Increased!",
+      text: "Wow. Very increased. Much Dank 🎉",
+      icon: " <%= asset_path('nyan-cat.gif') %> ",
+      button: false,
+    });
+  });
+  </script>
 </div>

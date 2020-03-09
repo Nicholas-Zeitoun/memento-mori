@@ -6,6 +6,7 @@ if (environment) {
   API_URL = 'http://localhost:3000/api/v1/users/'
 }
 const userSideBar = document.querySelector(".js-dankrefresh")
+let nextLvl = userSideBar.dataset["nextLvl"];
 const userId = userSideBar.dataset["userId"]
 const apiUrl = `${API_URL}${userId}`
 
@@ -33,7 +34,18 @@ const updateDankScore = (dankRank) => {
     </div>`
 };
 
+const levelCheck = () => {
+  let lvlTrigger = userSideBar.dataset["currentLvl"];
+  console.log("current level: " + lvlTrigger);
+  console.log("next level: " + nextLvl);
+  if (lvlTrigger == nextLvl) {
+    console.log("level up!");
+  }
+
+}
+
 const refresh = () => {
+  levelCheck()
   // TODO: Implement the global refresh logic.
   fetch(apiUrl)
     .then(response => response.json())
