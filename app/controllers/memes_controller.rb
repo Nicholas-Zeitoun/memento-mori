@@ -4,13 +4,13 @@ class MemesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @memes = Meme.all
-    @users = User.all
-    @top_categories = top_categories
-    @top_ten_users = top_ten_users
-    @top_three_memes = top_three_memes
-    @collect = Collect.new
-    @collection = Collection.new
+    if params[:query].present?
+      @memes = Meme.search_by_title(params[:query])
+      build_feed
+    else
+      @memes = Meme.all
+      build_feed
+    end
   end
 
   def show
@@ -95,6 +95,15 @@ class MemesController < ApplicationController
     top_rarities.map do |rarity|
       Meme.find(rarity.meme_id)
     end
+  end
+
+  def build_feed
+    @users = User.all
+    @top_categories = top_categories
+    @top_ten_users = top_ten_users
+    @top_three_memes = top_three_memes
+    @collect = Collect.new
+    @collection = Collection.new
   end
 
 end
