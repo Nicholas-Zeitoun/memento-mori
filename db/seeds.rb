@@ -1,7 +1,20 @@
 require "open-uri"
 
+# DankRank.delete_all
+# Meme.delete_all
+# Category.delete_all
+# User.delete_all
+puts 'deleting previous records 😭'
+Like.delete_all
+Comment.delete_all
+UserFollowing.delete_all
+CategoryFollowing.delete_all
+CollectionFollowing.delete_all
+Rarity.delete_all
 DankRank.delete_all
+Collect.delete_all
 Meme.delete_all
+Collection.delete_all
 Category.delete_all
 User.delete_all
 
@@ -34,10 +47,10 @@ puts 'Danking those memes'
 meme_seed_file = Rails.root.join('db', 'seeds', 'memes.yml')
 meme_config = YAML::load_file(meme_seed_file)
 meme_config[:users].each do |user|
-  puts user[:username]
+  # puts user[:username]
   unless user[:categories].nil?
     user[:categories].each do |category|
-      puts category[:category_name]
+      # puts category[:category_name]
       unless category[:memes].nil?
         category[:memes].each do |meme|
           meme_owner = User.where(username: user[:username])[0]
@@ -59,10 +72,14 @@ meme_config[:users].each do |user|
   end
 end
 
+puts 'initiating dank ranks!'
+
 users = User.all
 users.each do |user|
   user.init_dank_rank
   user.set_dank_rank
 end
+
+puts 'jobs done 👍'
 # need to iterate thorugh all users at the end and init and set dank ranks
 

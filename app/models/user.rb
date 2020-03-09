@@ -65,7 +65,11 @@ class User < ApplicationRecord
 
   def init_dank_rank
     self.dank_rank = DankRank.create!(
-      user_id: self.id
+      user_id: self.id,
+      engagement: 0,
+      collection: 0,
+      creation: 0,
+      total_score: 1
     )
   end
 
