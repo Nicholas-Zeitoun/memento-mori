@@ -6,24 +6,25 @@ const apiUrl = `http://localhost:3000/api/v1/users/${userId}`
 const updateDankScore = (dankRank) => {
   // Update the user's dank score board
   userSideBar.innerHTML = `<h5> Lvl. ${dankRank['total_score']}</h5>
-  <div class="dank-rank-section">
-    <div class="dank-bar">
-      <div class="dank-filler">
+    <div class="dank-rank-section">
+      <div class="dank-bar">
+        <div class="dank-filler" style="width: ${dankRank['rank_up_bar']}%;">
+        </div>
       </div>
-    </div>
-    <p><a href="#" class="badge badge-primary mt-2">89 / 123</a> until next level</p>
-    <div class="row text-center">
-      <div class="engagement-score col-4">
-        <i class="fas fa-circle"></i> ${dankRank['engagement']}
+      <p><a href="#" class="badge badge-primary mt-2"> ${dankRank['rank_up_xp_progress']} / ${dankRank['rank_up_xp_required']} </a> until next level</p>
+
+      <div class="row text-center">
+        <div class="engagement-score col-4">
+          <i class="fas fa-circle"></i> ${dankRank['engagement']}
+        </div>
+        <div class="collection-score col-4">
+          <i class="fas fa-circle"></i> ${dankRank['collection']}
+        </div>
+        <div class="creation-score col-4">
+          <i class="fas fa-circle"></i> ${dankRank['creation']}
+        </div>
       </div>
-      <div class="collection-score col-4">
-        <i class="fas fa-circle"></i> ${dankRank['collection']}
-      </div>
-      <div class="creation-score col-4">
-        <i class="fas fa-circle"></i> ${dankRank['creation']}
-      </div>
-    </div>
-  </div>`
+    </div>`
 };
 
 const refresh = () => {
