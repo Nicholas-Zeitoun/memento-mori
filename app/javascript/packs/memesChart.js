@@ -8,7 +8,12 @@ const chartDiv = document.getElementById("js-meme-chart");
 const userId = chartDiv.dataset["userId"];
 const userName = chartDiv.dataset["username"];
 
-const apiUrl = `http://localhost:3000/api/v1/users/${userId}/stats`;
+if (environment) {
+  API_URL = 'https://meme-forest.herokuapp.com/api/v1/users/';
+} else {
+  API_URL = 'http://localhost:3000/api/v1/users/'
+}
+const apiUrl = `${API_URL}${userId}/stats`;
 
 /* Chart code */
 let chart = am4core.create("js-meme-chart", am4plugins_forceDirected.ForceDirectedTree);
