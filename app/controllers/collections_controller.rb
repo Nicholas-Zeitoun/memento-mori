@@ -39,6 +39,7 @@ class CollectionsController < ApplicationController
   def follow
     if @collection.follow(current_user.id)
       current_user.set_dank_rank
+      @collection.user.set_dank_rank
       respond_to do |format|
         format.html { redirect_to collection_path(@collection) }
         format.js
@@ -49,6 +50,7 @@ class CollectionsController < ApplicationController
   def unfollow
     if @collection.unfollow(current_user.id)
       current_user.set_dank_rank
+      @collection.user.set_dank_rank
       respond_to do |format|
         format.html { redirect_to collection_path(@collection) }
         format.js

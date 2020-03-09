@@ -15,7 +15,7 @@
     <%= render 'shared/components/search_form' %>
     <ul class="navbar-nav mr-auto d-flex align-items-center">
       <% if user_signed_in? %>
-        <li class="nav-item active">
+        <li class="nav-item">
           <%= link_to "Freshest memes", news_memes_path, class: "nav-link" %>
         </li>
         <li class="nav-item">

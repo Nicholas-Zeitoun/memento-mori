@@ -51,7 +51,7 @@ class DankRank < ApplicationRecord
   end
 
   def get_total_exp
-    (self.engagement + self.collection + self.creation) * 2
+    (self.engagement + self.collection + self.creation) * 4
   end
 
   def next_rank_req_exp(next_rank)
