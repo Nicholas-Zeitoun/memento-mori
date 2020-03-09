@@ -1,5 +1,4 @@
 <div class="meme-info p-3">
-  <h5>Posted by: </h5>
   <div class="meme-user-info d-flex align-items-center">
     <%= render 'shared/atoms/user_avatar' %>
     <p class="m-0"> <%= link_to @meme.user.username, user_path(@meme.user) %> </p>
