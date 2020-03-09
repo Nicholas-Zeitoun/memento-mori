@@ -1,5 +1,5 @@
 function addLike() {
-  const like = document.querySelector('.js-like');
+  const like = document.querySelector("[data-meme-id='<%= @like.meme_id %>']")
   console.log("hey from create ajax");
   like.innerHTML = '<%= j render "shared/components/like_toggle", meme: Meme.find(params[:meme_id]) %>';
 };
