@@ -1,0 +1,84 @@
+<!-- Meme upload form -->
+<div class="col-12 col-md-12 col-lg-6 m-0 p-0">
+  <div class="meme-window-title">
+    <h3>Upload a meme!</h3>
+  </div>
+
+  <div class="meme-form p-5">
+    <%= simple_form_for @meme do |f| %>
+      <%= f.input :title, placeholder: 'Meme title...' %>
+      
+      <div class="existing-category-input">
+        <%= f.association :category %>
+      </div>
+      
+      <%= link_to "Create a new category", '#', class: "add-category" %>
+        <div class="d-none new-category-input">
+          <%= f.simple_fields_for :category do |category| %>
+            <%= category.input :name, label: "New category", placeholder: 'New category name...' %>
+          <% end %>
+        </div>
+
+      <%= f.input :image, as: :file %>
+      <%= f.input :image_url, placeholder: 'Or paste image url here...', class: "preview", name: "thumbnail" %>
+      <br/>
+
+      <%= f.submit 'Submit', class: "btn btn-primary text-white" %>
+    <% end %>
+  </div>
+</div>
+
+<!-- Meme preview -->
+<div class="col-0 col-md-0 col-lg-6 d-none d-lg-flex flex-column m-0 p-0 purple-testing">
+  <div class="meme-edit-preview">
+    <div class="meme-preview-card">
+    <%# <input name="thumbnail" placeholder="Image url here" /> %>
+    <img src="" class="preview" />
+    </div>
+  </div> 
+</div>
+
+
+<script>
+  const newImageCategory = document.querySelector(".new-category-input");
+  const existingCategories = document.querySelector(".existing-category-input");
+  const newCategoryButton = document.querySelector(".add-category");
+
+  newCategoryButton.addEventListener('click', () => {
+    newImageCategory.classList.toggle("d-none");
+    if (newImageCategory.classList.contains("d-none")) {
+      newCategoryButton.innerText = "Create new category"
+      existingCategories.classList.remove("d-none")
+    } else {
+      newCategoryButton.innerText = "Use existing category"
+      existingCategories.classList.add("d-none")
+    }
+  })
+
+  $(function() {
+    $('#meme_image').on('change', function(event) {
+      console.log("this was clicked derp");
+      var files = event.target.files;
+      var image = files[0]
+      // here's the file size
+      console.log(image.size);
+      var reader = new FileReader();
+      reader.onload = function(file) {
+        var img = new Image();
+        console.log(file);
+        img.src = file.target.result;
+        $('.meme-preview-card')
+          .html(img)
+          .width(100);
+      }
+      reader.readAsDataURL(image);
+      console.log(files);
+    });
+  });
+
+  // $('[name="thumbnail"]').on('change', function() {
+  //   console.log("derp");
+  //     $('img.preview').prop('src', this.value);
+  // });
+
+</script>
