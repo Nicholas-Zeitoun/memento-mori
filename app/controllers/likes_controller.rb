@@ -12,6 +12,7 @@ class LikesController < ApplicationController
       redirect_to request.referer
     end
     @like.meme.update_rarity
+    @like.meme.user.set_dank_rank
     @like.user.set_dank_rank
   end
 
@@ -20,6 +21,7 @@ class LikesController < ApplicationController
     @meme = @like.meme
     @like.destroy
     @like.meme.update_rarity
+    @like.meme.user.set_dank_rank
     @like.user.set_dank_rank
     #redirect_to request.referer
   end

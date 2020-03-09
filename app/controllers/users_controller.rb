@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   def follow
     if current_user.follow(@user.id)
       current_user.set_dank_rank
+      @user.set_dank_rank #setting dank rank of followed user
       respond_to do |format|
         format.html { redirect_to root_path }
         format.js
@@ -25,6 +26,8 @@ class UsersController < ApplicationController
 
   def unfollow
     if current_user.unfollow(@user.id)
+      current_user.set_dank_rank
+      @user.set_dank_rank #setting dank rank of unfollowed user
       respond_to do |format|
         format.html { redirect_to root_path }
         format.js { render action: :follow }
