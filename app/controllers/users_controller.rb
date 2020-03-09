@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+
   # Functionality calling AJAX for following users
   def follow
     if current_user.follow(@user.id)
