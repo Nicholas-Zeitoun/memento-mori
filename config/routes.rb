@@ -14,7 +14,12 @@ Rails.application.routes.draw do
     end
   end
   # destroy doesn't need to be nested
-  resources :collections, except: [:show, :index]
+  resources :collections, except: [:show, :index] do
+    member do
+      post :follow
+      post :unfollow
+    end
+  end
 
   # routes for users note handle by devise
   resources :users, only: [:index, :show] do
