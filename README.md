@@ -35,16 +35,17 @@ To retrieve categories' data:
 
 ## Heroku Deployment
 ### Manual Resetting of the databse
-```Like.delete_all```
-```Comment.delete_all```
-```UserFollowing.delete_all```
-```CategoryFollowing.delete_all```
-```CollectionFollowing.delete_all```
-```Rarity.delete_all```
-```DankRank.delete_all```
-```Collect.delete_all```
-```Meme.delete_all```
-```Collection.delete_all```
-```User.delete_all```
+```Like.delete_all
+Comment.delete_all
+UserFollowing.delete_all
+CategoryFollowing.delete_all
+CollectionFollowing.delete_all
+Rarity.delete_all
+DankRank.delete_all
+Collect.delete_all
+Meme.delete_all
+Collection.delete_all
+Category.delete_all
+User.delete_all```
 
 ```rails db:seed```
