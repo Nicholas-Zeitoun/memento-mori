@@ -4,22 +4,47 @@
   align-items: center;
   flex-display: column;
   justify-content: space-between;
+  background-color: #fff;
+}
+
+.meme-comment-header {
+  text-align: left;
+  font-size: 20px;
+  margin-right: 0;
+  margin-left: auto;
+  margin-bottom: 0;
+  padding: 8px;
+  padding-right: 16px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: sans-serif;
 }
 
 .meme-comments {
   width: 100%;
   max-height: 50vh;
   overflow: scroll;
+  padding: 16px;
+  padding-top: 0;
 }
 
 .comment-strip {
   p {
     color: $light-gray;
+    border: none;
   }
 }
 
 .meme-comment-form {
   width: 100%;
+}
+
+.comment-content {
+  padding: 16px;
+}
+
+.comment-author {
+  padding-top: 5;
 }
 
 .comment-input {

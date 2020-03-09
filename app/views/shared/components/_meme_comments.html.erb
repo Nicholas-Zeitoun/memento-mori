@@ -1,11 +1,11 @@
-<h6>Comments:</h6>
+<h6 class= "meme-comment-header">Comments</h6>
 <div id="comments">
   <% if @meme.comments.blank? %>
     Be the first to leave a comment for <%= @meme.title %>
-    <div class="meme-comments p-3">
+    <div class="meme-comments">
     </div>
   <% else %>
-    <div class="meme-comments p-3">
+    <div class="meme-comments">
       <% @meme.comments.each do |comment| %>
         <%= render partial: 'shared/atoms/comment_strip', collection: [comment], as: :comment %>
       <% end %>

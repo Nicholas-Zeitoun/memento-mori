@@ -1,12 +1,12 @@
-<div class="comment-strip card d-flex flex-row mb-2">
-  <div class="pt-3 pl-3">
+<div class="comment-strip d-flex flex-row">
+  <div class="pt-1">
     <%= render partial: 'shared/atoms/user_avatar', collection: [comment.meme], as: :meme %>
   </div>
-  <div class="card-body">
+  <div class="comment-content">
     <div class="comment-strip">
-      <h6 class="card-title"><%= comment.user.username %></h6>
-      <p class="card-subtitle"><small class="text-muted">Posted - <%=  comment.created_at.to_formatted_s(:long_ordinal) %></small></p>
+      <h6 class="comment-author"><%= comment.user.username %></h6>
       <%= comment.content %>
+      <p class="card-subtitle"><small class="text-muted">Posted - <%=  comment.created_at.to_formatted_s(:long_ordinal) %></small></p>
     </div>
   </div>
 </div>
