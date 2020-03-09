@@ -1,0 +1,11 @@
+<div class="js-follow">
+  <% if @collection.user == current_user %>
+    <span>This is your collection</span>
+  <% else %>
+    <% if @collection.is_followed?(current_user.id) %>
+      <%= link_to "Unfollow", unfollow_collection_path(@collection.id), method: :post, remote: true %>
+    <% else %>
+      <%= link_to "Follow", follow_collection_path(@collection.id), method: :post, remote: true %>
+    <% end %>
+  <% end %>
+</div>
