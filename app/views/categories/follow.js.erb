@@ -1,0 +1,7 @@
+function followCategory(innerHTML) {
+  const follow = document.querySelector(".js-follow");
+  console.log("hey from ajax follow");
+  follow.innerHTML = innerHTML;
+}
+
+followCategory('<%= j render "follow", category: @category %>');
