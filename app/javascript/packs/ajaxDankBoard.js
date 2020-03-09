@@ -1,7 +1,7 @@
 // Retrieve user id and build apiUrl
 console.log(environment);
 if (environment) {
-  API_URL = 'http://meme-forest.herokuapp.com/api/v1/users/';
+  API_URL = 'https://meme-forest.herokuapp.com/api/v1/users/';
 } else {
   API_URL = 'http://localhost:3000/api/v1/users/'
 }
