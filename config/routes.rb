@@ -34,6 +34,11 @@ Rails.application.routes.draw do
 
   # need all routes for memes, not nested
   resources :memes do
+    #trending and new routes
+    collection do
+      get :trending
+      get :news
+    end
     # nest likes and comments routes in meme (always belong to)
     resources :likes, only: [:new, :create, :destroy]
     resources :categories, only: [:new, :create]

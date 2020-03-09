@@ -16,10 +16,10 @@
     <ul class="navbar-nav mr-auto d-flex align-items-center">
       <% if user_signed_in? %>
         <li class="nav-item active">
-          <%= link_to "Discover", "#", class: "nav-link" %>
+          <%= link_to "Freshest memes", news_memes_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Trending", "#", class: "nav-link" %>
+          <%= link_to "Trending", trending_memes_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
           <%= link_to "Upload a meme", new_meme_path(@category), class: "nav-link" %>
