@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def index
     @users = users_ordered_by_dank
-    @top_three_users = top_three_users
+    @top_ten_users = top_ten_users
   end
 
   def show
@@ -36,7 +36,7 @@ class UsersController < ApplicationController
   end
 
   # Retrieving top 3 users based on their dank_rank.total_score
-  def top_three_users
+  def top_ten_users
     # Get top 3 dank ranks total scores
     top_danks = DankRank.order('total_score DESC').limit(10)
     # For each top dank_rank, retrieve user
