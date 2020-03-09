@@ -6,4 +6,3 @@ newCategoryButton.addEventListener('click', () => {
   imageCategory.classList.toggle("d-none");
 })
 
-<!-- .style.display = "none"; -->
