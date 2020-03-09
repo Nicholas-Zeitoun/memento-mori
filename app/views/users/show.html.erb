@@ -31,11 +31,15 @@
               <li>Creation score: <%= @user.dank_rank.creation %></li>
               <li>Collection score: <%= @user.dank_rank.collection %></li>
             </ul> -->
-            <%= content_tag :div, style:"height: 400px", id: "js-chart", data: {creation: @user.dank_rank.creation,
+
+            <!-- previous user chart -->
+
+            <%#= content_tag :div, style:"height: 400px", id: "js-user-chart", data: {creation: @user.dank_rank.creation,
                                                         engagement: @user.dank_rank.engagement,
                                                         collection: @user.dank_rank.collection} do %>
-            <% end %>
+            <%# end %>
           </div>
+          <div id="js-meme-chart" data-user-id="<%= current_user.id %>" data-username="<%= current_user.username %>" style="height: 100vh; font-size: 16px"></div>
           <br>
 
           <div class="user-followers-list">
@@ -171,5 +175,6 @@
 </div>
 
 <%= content_for :after_js do %>
-  <%= javascript_pack_tag 'renderChart' %>
+  <%#= javascript_pack_tag 'renderChart' %>
+  <%= javascript_pack_tag 'memesChart' %>
 <% end %>
