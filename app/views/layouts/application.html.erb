@@ -20,6 +20,9 @@
     <%= yield :after_js %>
 
     <%= javascript_pack_tag 'application' %>
+    <script>
+      let environment = <%= Rails.env.production? %>
+    </script>
     <%= javascript_pack_tag 'ajaxDankBoard' %>
   </body>
 </html>

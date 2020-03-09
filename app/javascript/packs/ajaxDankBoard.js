@@ -1,7 +1,13 @@
 // Retrieve user id and build apiUrl
+console.log(environment);
+if (environment) {
+  API_URL = 'http://meme-forest.herokuapp.com/api/v1/users/';
+} else {
+  API_URL = 'http://localhost:3000/api/v1/users/'
+}
 const userSideBar = document.querySelector(".js-dankrefresh")
 const userId = userSideBar.dataset["userId"]
-const apiUrl = `http://localhost:3000/api/v1/users/${userId}`
+const apiUrl = `${API_URL}${userId}`
 
 const updateDankScore = (dankRank) => {
   // Update the user's dank score board
