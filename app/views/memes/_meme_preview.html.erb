@@ -1,5 +1,33 @@
-<div class="meme-edit-preview">
+<%# <div class="meme-edit-preview">
   <div class="meme-preview-card">
-    <h2>Preview meme goes here!</h2>
+    <input name="thumbnail" placeholder="Image url here" />
+    <img src="" class="preview" />
   </div>
-</div>
+</div> 
+
+<script>  
+  $(function() {
+  $('#meme_image').on('change', function(event) {
+    console.log("this was clicked");
+    var files = event.target.files;
+    var image = files[0]
+    // here's the file size
+    console.log(image.size);
+    var reader = new FileReader();
+    reader.onload = function(file) {
+      var img = new Image();
+      console.log(file);
+      img.src = file.target.result;
+      $('.meme-preview-card')
+        .html(img)
+        .max-width(100);
+    }
+    reader.readAsDataURL(image);
+    console.log(files);
+  });
+});
+
+  $('[name="thumbnail"]').on('change', function() {
+      $('img.preview').prop('src', this.value);
+  });
+</script> %>
