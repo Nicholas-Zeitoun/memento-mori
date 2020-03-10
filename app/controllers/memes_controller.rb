@@ -1,7 +1,7 @@
 class MemesController < ApplicationController
   before_action :set_meme, only: [:destroy, :show, :edit, :update]
 
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :trending, :news]
 
   def index
     if params[:query].present?

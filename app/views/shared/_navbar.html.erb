@@ -38,14 +38,14 @@
         </li>
       <% else %>
       <li class="nav-item active">
-          <%= link_to "Trending", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "New", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
+        <%= link_to "Trending", trending_memes_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Freshest memes", news_memes_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+      </li>
       <% end %>
     </ul>
   </div>
