@@ -3,7 +3,25 @@
   <div class="leaderboard-card card">
     <h5 class="leaderboard-card-title card-title font-weight-bold pt-3 text-center">Dank Leaders</h5>
     <div class="leaderboard-card-body card-body">
-      <%= render @top_ten_users %>
+      <% @top_ten_users.each do |user| %>
+        <div class="user-item row mt-1" data-user=<%= user.id %>>
+          <div class="user-name d-flex justify-content-start col-7">
+            <%= link_to user.username, user_path(user) %>
+          </div>
+
+          <div class="user-stats d-flex justify-content-start col-3">
+            <div class="user-stats-rank mx-1">
+              <span class="badge badge-primary align-baseline"><i class="fas fa-skull-crossbones"></i>
+            <%= user.dank_rank.total_score %></span>
+            </div>
+            <div class="user-stats-follower">
+              <span class="badge badge-secondary align-baseline"><i class="fas fa-trophy"></i>
+                <%= user.dank_rank.rank_up_xp_progress %>
+              </span>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
     <div class="leaderboard-card-see-all card-body mt-2 text-center">
       <%= link_to "See all...", users_path %>

@@ -1,5 +1,5 @@
 json.name @user.username
-json.value @user.dank_rank.rank_up_xp_progress/2
+json.value @user.dank_rank.rank_up_xp_progress
 
 json.children do
   json.array! [@user] do |user|

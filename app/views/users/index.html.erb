@@ -15,7 +15,15 @@
     <!-- Right Dashboard -->
     <div class="right-dashboard row m-0 p-0 mt-3">
       <!-- Meme window -->
-      <%= render 'shared/components/leaderboard_user_index' %>
+      <div class="col-12 col-md-12 col-lg-8">
+        <%= render partial: 'users/leaderboard_users_index' %>
+        <%#= render 'shared/components/leaderboard' %>
+      </div>
+
+    <!-- ELLEN CODE -->
+      <%#= render 'shared/components/leaderboard_user_index' %>
+    <!-- ELLEN CODE -->
+
       <!-- Right side bar -->
       <div class="col-0 col-md-0 col-lg-4 d-none d-lg-flex flex-column">
       </div>
