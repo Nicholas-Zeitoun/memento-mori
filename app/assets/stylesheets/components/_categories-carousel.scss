@@ -17,15 +17,15 @@
   padding: 8px;
   overflow-x: scroll;
   overflow-y: hidden;
-  white-space:nowrap
+  white-space: nowrap;
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
 .scrolls::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 /* Hide scrollbar for IE and Edge */
 .scrolls {
-    -ms-overflow-style: none;
+  -ms-overflow-style: none;
 }

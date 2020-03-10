@@ -1,7 +1,14 @@
-.leaderboard-section {
+.leaderboard-card {
+  border: 1px solid #dcdcdc;
+  border-radius: 12px;
+  line-height: 2;
+}
+
+.leaderboard-card-body {
   min-height: 300px;
-  font-size: 12px;
-  flex-direction: column;
+  font-size: 13px;
+  background-color: white;
+  // flex-direction: column;
 
   a {
     text-decoration: none;
