@@ -5,6 +5,9 @@ class UsersController < ApplicationController
   def index
     @users = users_ordered_by_dank
     @top_ten_users = top_ten_users
+    @top_ten_creations = top_ten_creation
+    @top_ten_collections = top_ten_collection
+    @top_ten_engagements = top_ten_engagement
   end
 
   def show
@@ -41,7 +44,34 @@ class UsersController < ApplicationController
     # Get top 3 dank ranks total scores
     top_danks = DankRank.order('total_score DESC').limit(6)
     # For each top dank_rank, retrieve user
-    @users = top_danks.map do |dank|
+    return top_danks.map do |dank|
+      User.find(dank.user_id)
+    end
+  end
+
+  def top_ten_creation
+    # Get top 6 creation scores
+    top_creations = DankRank.order('creation DESC').limit(6)
+    # For each top creation, retrieve user
+    return top_creations.map do |dank|
+      User.find(dank.user_id)
+    end
+  end
+
+  def top_ten_collection
+    # Get top 6 collection scores
+    top_collections = DankRank.order('collection DESC').limit(6)
+    # For each top collection, retrieve user
+    return top_collections.map do |dank|
+      User.find(dank.user_id)
+    end
+  end
+
+  def top_ten_engagement
+    # Get top 6 engagement scores
+    top_engagements = DankRank.order('engagement DESC').limit(6)
+    # For each top engagement, retrieve user
+    return top_engagements.map do |dank|
       User.find(dank.user_id)
     end
   end
