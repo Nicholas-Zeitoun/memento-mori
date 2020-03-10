@@ -1,4 +1,4 @@
-import "bootstrap";
+// import "bootstrap";
 import img from "images/nyan-cat.gif";
 
 // Retrieve user id and build apiUrl
