@@ -22,6 +22,13 @@ class CollectsController < ApplicationController
     end
   end
 
+  def destroy
+    @collect = Collect.find(params[:id])
+    @collection =  @collect.collection
+    @collect.destroy
+    redirect_to user_collection_path(current_user, @collection)
+  end
+
   private
 
   def collect_params

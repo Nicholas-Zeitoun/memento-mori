@@ -29,7 +29,12 @@
                 <h5 class="card-text">
                   <span class="badge badge-secondary"><%= meme.category %></span>
                 </h5>
-                <%= link_to "", meme_path(meme), class: "stretched-link" %>
+
+                <!-- Link to meme show page (covers all the card so hides the "uncollect", needs to cover only title and image) -->
+                <%#= link_to "", meme_path(meme), class: "stretched-link" %>
+
+                <!-- Uncollect button, no ajax for now -->
+                <%= link_to "Uncollect", meme_collect_path(meme, Collect.where(meme: meme).find_by(collection: @collection)), method: :delete %>
               </div>
             <% end %>
           </div>
