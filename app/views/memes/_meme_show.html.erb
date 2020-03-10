@@ -4,8 +4,10 @@
     <%= link_to "< Back", request.referer %>
   </div>
   <div class="pr-3">
-    <%= link_to 'Edit', edit_meme_path(@meme), class: "btn btn-primary" %>
-    <%= link_to 'Delete', edit_meme_path(@meme), class: "btn btn-primary" %>
+    <% if @meme.user == current_user %>
+      <%= link_to 'Edit', edit_meme_path(@meme), class: "btn btn-primary" %>
+      <%= link_to 'Delete', meme_path(@meme), method: :delete, class: "btn btn-primary" %>
+    <% end %>
   </div>
 </div>
 <div class="meme-show-window d-flex flex-column">

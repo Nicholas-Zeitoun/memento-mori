@@ -83,15 +83,20 @@
             <div class="row">
               <div class="card-columns">
                 <% @user.collections.each do |collection| %>
-                    <!-- Collection card -->
-                    <div class="collection-card border" style="width: 20rem; display: inline-block;">
+                  <!-- Collection card -->
+                  <div class="collection-card border" style="width: 20rem; display: inline-block;">
+                    <!-- Needs something if empty -->
+                    <% unless collection.memes.empty? %>
                       <img class="card-img-top" src="<%= collection.memes.first.image_url %>" alt="Card image cap">
-                      <div class="card-body">
-                        <h5 class="card-title"><%= collection.name %></h5>
+                    <% end %>
+                    <div class="card-body">
+                      <h5 class="card-title"><%= collection.name %></h5>
+                      <% unless collection.memes.empty? %>
                         <p class="card-text">Contains <%= collection.memes.count %> memes</p>
-                        <a href="<%= user_collection_path(@user, collection) %>" class="btn btn-primary">See details</a>
-                      </div>
+                      <% end %>
+                      <a href="<%= user_collection_path(@user, collection) %>" class="btn btn-primary">See details</a>
                     </div>
+                  </div>
                 <% end %>
               </div>
             </div>
