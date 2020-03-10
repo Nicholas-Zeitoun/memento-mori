@@ -30,6 +30,9 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @meme = @comment.meme
     @comment.destroy
+    @comment.meme.update_rarity
+    @comment.meme.user.set_dank_rank
+    @comment.user.set_dank_rank
     # redirect_to meme_path(@meme)
   end
 
