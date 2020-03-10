@@ -1,0 +1,23 @@
+<div class="meme-image-container">
+  <% if meme.image.attached? %>
+    <%= cl_image_tag meme.image.key %>
+  <% else %>
+    <%= image_tag meme.image_url %>
+  <% end %>
+
+  <% collections = meme.collects.map { |collect| collect.collection } %>
+  <% result = collections.map { |collection| collection.user == current_user } %>
+  <% if result.include?(true) %>
+    <div class="small-overlay">
+      <div class="text">
+        <h5>Meme already collected!</h5>
+      </div>
+    </div>
+  <% else %>
+    <div class="form-overlay">
+      <div class="text">
+          <%= render partial: "collections/collection_form", collection: [meme], as: :meme, locals: { collect: @collect } %>
+      </div>
+    </div>
+  <% end %>
+</div>
