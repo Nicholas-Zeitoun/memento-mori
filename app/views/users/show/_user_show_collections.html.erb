@@ -1,13 +1,45 @@
-<div class="user-dashboard-title row p-3 red-testing">
+<div class="user-dashboard-title row p-3">
   <div class="col-12">
-    <h2>My Account:</h2>
+    <h2>My Collections:</h2>
   </div>
 </div>
 
-<div class="user-collections-section row green-testing">
-  <div class="col-12 m-0 p-3">
-
-    Collections
+<div class="row">
+  <div class="user-collections-section col-12 m-0 p-3 d-flex justify-content-center">
+    <div class="collections-window">
+      <%= @user.collections.count %> Collection(s)
+      <hr>
+      <% @user.collections.each do |collection| %>
+        <div class="collection-section">
+          <div class="row">
+            <div class="col-10">
+              <h4><%= collection.name %></h4>
+            </div>
+            <div class="col-2 d-flex align-items-center justify-content-end">
+              <% unless collection.memes.empty? %>
+                <span class="badge badge-primary align-baseline"><i class="fas fa-clone"></i>
+                <%= collection.memes.count %></span>
+                &nbsp<span class="badge badge-secondary align-baseline"><i class="fas fa-user"></i>
+                <%= collection.followers.count %></span>
+              <% end %>
+            </div>
+          </div>
+          <div class="meme-collection-cards">
+            <% collection.memes.each do |collection_meme| %>
+              <div class="meme-collection-card">
+                <%= collection_meme.title %>
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 d-flex justify-content-end">
+            <%= link_to 'View collection', user_collection_path(@user, collection), class: "btn btn-primary" %>
+          </div>
+        </div>
+        <hr>
+      <% end %>
+    </div>
   </div>
 </div>
 

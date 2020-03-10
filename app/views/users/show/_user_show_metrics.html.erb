@@ -1,11 +1,36 @@
-<div class="user-dashboard-title row red-testing">
-  <div class="col-12">
-    My Metrics
+<div class="row p-3">
+  <div class="user-dashboard-title col-2">
+    <h2>My Metrics</h2>
+  </div>
+
+  <div class="user-metrics-section col-10 p-4">
+    <h3>Corona Virus Chart</h3>
+    <hr>
+    <div class="card mb-4">
+      <div id="js-meme-chart" data-user-id="<%= current_user.id %>" data-username="<%= current_user.username %>" style="height: 500px; font-size: 16px"></div>
+    </div>
+
+    <h3>Two charts Next To Each other</h3>
+    <hr>
+    <div class="row">
+      <div class="col-6">
+        <div class="card">
+          <%= content_tag :div, style:"height: 400px", id: "js-user-chart", data: {creation: @user.dank_rank.creation,
+                                                          engagement: @user.dank_rank.engagement,
+                                                          collection: @user.dank_rank.collection} do %>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-6 flex-1">
+        <div class="card">
+          Next chart
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
-<div class="user-collections-section row green-testing">
-  <div class="col-12">
-    Metrics
-  </div>
-</div>
+<%= content_for :after_js do %>
+  <%= javascript_pack_tag 'renderChart' %>
+  <%= javascript_pack_tag 'memesChart' %>
+<% end %>

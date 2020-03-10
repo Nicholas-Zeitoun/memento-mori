@@ -1,11 +1,19 @@
-<div class="user-dashboard-title row red-testing">
-  <div class="col-12">
-    My Memes
+<div class="row p-3">
+  <div class="user-dashboard-title col-2">
+    <h2>My Memes</h2>
   </div>
-</div>
 
-<div class="user-memes-section row green-testing">
-  <div class="col-12">
-    Memes
+  <div class="user-memes-section col-10 p-4">
+  <%= @user.memes.count %> meme(s)
+  <hr>
+    <div class="collection-section">
+      <div class="meme-collection-cards">
+        <% @user.memes.each do |collection_meme| %>
+          <div class="meme-collection-card">
+            <%= collection_meme.title %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
