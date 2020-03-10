@@ -8,19 +8,21 @@ const chartDiv = document.getElementById("js-meme-chart");
 const userId = chartDiv.dataset["userId"];
 const userName = chartDiv.dataset["username"];
 
-if (environment) {
-  API_URL = 'https://meme-forest.herokuapp.com/api/v1/users/';
-} else {
-  API_URL = 'http://localhost:3000/api/v1/users/'
+const createApiUrl = () => {
+  if (environment) {
+    let apiUrl = 'https://meme-forest.herokuapp.com/api/v1/users/';
+    return `${apiUrl}${userId}`
+  } else {
+    const apiUrl = 'http://localhost:3000/api/v1/users/'
+    return `${apiUrl}${userId}/stats`
+  }
 }
-const apiUrl = `${API_URL}${userId}/stats`;
 
 /* Chart code */
 let chart = am4core.create("js-meme-chart", am4plugins_forceDirected.ForceDirectedTree);
 let networkSeries = chart.series.push(new am4plugins_forceDirected.ForceDirectedSeries())
 
-
-chart.dataSource.url = apiUrl;
+chart.dataSource.url = createApiUrl();
 
 // for later refresh purposes:
 // chart.dataSource.reloadFrequency = 5000;
