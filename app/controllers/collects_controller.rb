@@ -27,7 +27,7 @@ class CollectsController < ApplicationController
     @collect = Collect.find(params[:id])
     @collection =  @collect.collection
     @collect.destroy
-    redirect_to user_collection_path(current_user, @collection)
+    #redirect_to user_collection_path(current_user, @collection)
   end
 
   private
