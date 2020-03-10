@@ -26,6 +26,16 @@ class CommentsController < ApplicationController
     @comment.user.set_dank_rank
   end
 
+  def destroy
+    @comment = Comment.find(params[:id])
+    @meme = @comment.meme
+    @comment.destroy
+    # redirect_to meme_path(@meme)
+  end
+
+
+  private
+
   def comment_params
     params.require(:comment).permit(:content, :user_id, :meme)
   end
