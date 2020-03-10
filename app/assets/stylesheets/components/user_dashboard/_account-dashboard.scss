@@ -1,0 +1,149 @@
+.account_dashboard {
+
+}
+
+//Account window stylings
+.dank-info-section {
+  height: 500px;
+  .user-info {
+    margin: 40px;
+    min-width: 600px;
+    background-color: white;
+    border-radius: 15px;
+    text-align: center;
+    flex-direction: column;
+    box-shadow: 0px 0px 16px rgba(100, 100, 100, 0.5);
+  }
+  .user-l-sidebar-info-image {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+.user-badges-section {
+  // text-align: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .badge-section {
+    // max-height: 500px;
+
+  }
+
+  .badge-box {
+    margin: 15px;
+  }
+  .badge {
+    background-color: white;
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 8px rgba(100, 100, 100, 0.7);
+  }
+}
+
+.user-dashboard-title {
+  height: 80px;
+  position: sticky;
+  top: 30px;
+
+}
+
+.user-followings-section {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .following-box {
+    text-align: center;
+  }
+  .user-list {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0px 0px 16px rgba(100, 100, 100, 0.5);
+    min-width: 600px;
+    // min-height: 400px;
+    max-height: 300px;
+    overflow: scroll;
+  }
+  .user-deets {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .foll-avatar {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+}
+
+// Collection window stylings
+.user-collections-section {
+  // height: 700px;
+  flex-direction: column;
+  // justify-content: center;
+  align-items: center;
+  .collection-window {
+    width: 100%;
+    flex: 1;
+  }
+  .collection-section {
+    // min-width: 600px;
+    // max-width: 800px;
+    width: 100%;
+    flex: 1;
+  }
+}
+
+.meme-collection-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+//Meme window stylings
+.user-memes-section {
+  min-height: 1500px;
+}
+
+//Metric window stylings
+.user-metrics-section {
+  min-height: 1500px;
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .meme-collection-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .meme-collection-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .meme-collection-cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .meme-collection-cards {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .meme-collection-cards {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+}
