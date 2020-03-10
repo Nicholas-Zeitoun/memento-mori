@@ -19,6 +19,7 @@ class User < ApplicationRecord
   has_many :categories, dependent: :destroy # as creator => user.categories
   has_many :category_followings, dependent: :destroy
 
+  after_create :init_dank_rank
 
   def followed_collections
     CollectionFollowing.where(follower: self).map do |collfoll|
