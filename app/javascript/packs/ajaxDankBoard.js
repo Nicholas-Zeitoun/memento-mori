@@ -30,13 +30,16 @@ const updateDankScore = (dankRank) => {
 
       <div class="row text-center">
         <div class="engagement-score col-4">
-          <i class="fas fa-circle"></i> ${dankRank['engagement']}
+          <i class="fas fa-circle"></i>
+          <div> ${dankRank['engagement']} </div>
         </div>
         <div class="collection-score col-4">
-          <i class="fas fa-circle"></i> ${dankRank['collection']}
+          <i class="fas fa-circle"></i>
+          <div> ${dankRank['collection']} </div>
         </div>
         <div class="creation-score col-4">
-          <i class="fas fa-circle"></i> ${dankRank['creation']}
+          <i class="fas fa-circle"></i>
+          <div> ${dankRank['creation']} </div>
         </div>
       </div>
     </div>`
