@@ -33,11 +33,10 @@
   <div class="meme-edit-preview">
     <div class="meme-preview-card">
     <%# <input name="thumbnail" placeholder="Image url here" /> %>
-    <img src="" class="preview" />
     </div>
+    <img src="" id="preview" />
   </div> 
 </div>
-
 
 <script>
   const newImageCategory = document.querySelector(".new-category-input");
@@ -73,6 +72,7 @@
       }
       reader.readAsDataURL(image);
       console.log(files);
+      document.getSelector('.meme-preview-card').style.display = "none"; 
     });
   });
 
@@ -80,5 +80,13 @@
   //   console.log("derp");
   //     $('img.preview').prop('src', this.value);
   // });
+
+  // var image = img.src;
+ 
+  // if (image.value !== nill) {
+  //   document.getElementById('memePreviewCard.background-image').style.display = "none"; 
+  // }, else {
+  //   document.getElementById('memePreviewCard.background-image').style.visibility = "visible";
+  // }, end
 
 </script>
