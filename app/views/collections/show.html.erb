@@ -23,7 +23,7 @@
           <div class="col-4 flex-wrap">
             <% @collection.memes.each do |meme| %>
               <!-- Card will be contained in a 4 columns on large screens -->
-              <div class="card">
+              <div class="card" data-collected-meme-id="<%= meme.id %>">
                 <img src= "<%= meme.image_url %>" class="img-fluid">
                 <h5 class="card-title"><%= meme.title %></h5>
                 <h5 class="card-text">
@@ -34,7 +34,7 @@
                 <%#= link_to "", meme_path(meme), class: "stretched-link" %>
 
                 <!-- Uncollect button, no ajax for now -->
-                <%= link_to "Uncollect", meme_collect_path(meme, Collect.where(meme: meme).find_by(collection: @collection)), method: :delete %>
+                <%= link_to "Uncollect", meme_collect_path(meme, Collect.where(meme: meme).find_by(collection: @collection)), method: :delete, remote: true %>
               </div>
             <% end %>
           </div>
