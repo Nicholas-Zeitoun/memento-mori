@@ -1,0 +1,27 @@
+//swal
+.swal-overlay {
+  background-color: rgba(57, 9, 95, 0.3);
+}
+
+.swal-modal {
+  background-color: rgb(57, 9, 95);
+  color: white;
+}
+
+.swal-title {
+  color: white;
+}
+
+.swal-text {
+  color: white;
+}
+
+.swal-button {
+  padding: 7px 19px;
+  border-radius: 2px;
+  background-color: #ed9418;
+}
+
+.swal-button:not([disabled]):hover {
+  background-color: #d4800b;
+}

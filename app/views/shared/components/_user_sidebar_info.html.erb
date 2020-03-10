@@ -5,7 +5,7 @@
     <%= image_tag current_user.avatar, class: "user-l-sidebar-info-image" %>
   </a>
     <!-- <img class="user-l-sidebar-info-image m-0"> -->
-  <div class="js-dankrefresh" data-user-id="<%= current_user.id %>">
+  <div class="js-dankrefresh" data-user-id="<%= current_user.id %>" data-current-lvl="<%= current_user.dank_rank.total_score %>" data-next-lvl="<%= current_user.dank_rank.total_score + 1 %>">
     <h5> Lvl. <%= current_user.get_dank_rank %></h5>
     <div class="dank-rank-section">
       <div class="dank-bar">
@@ -14,7 +14,7 @@
       </div>
       <p><a href="#" class="badge badge-primary mt-2"> <%= current_user.dank_rank.rank_up_xp_progress %> / <%= current_user.dank_rank.rank_up_xp_required %> </a> until next level</p>
 
-      <div class="row text-center">    
+      <div class="row text-center">
         <div class="engagement-score col-4">
           <i class="fas fa-circle"></i> <%= current_user.engagement_score %>
         </div>
@@ -23,7 +23,7 @@
         </div>
         <div class="creation-score col-4">
           <i class="fas fa-circle"></i> <%= current_user.creation_score %>
-        </div>    
+        </div>
       </div>
 
     </div>

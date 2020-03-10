@@ -1,13 +1,22 @@
+import "bootstrap";
+import img from "images/nyan-cat.gif";
+
 // Retrieve user id and build apiUrl
-console.log(environment);
-if (environment) {
-  API_URL = 'https://meme-forest.herokuapp.com/api/v1/users/';
-} else {
-  API_URL = 'http://localhost:3000/api/v1/users/'
+
+const createApiUrl = () => {
+  if (environment) {
+    let apiUrl = 'https://meme-forest.herokuapp.com/api/v1/users/';
+    return `${apiUrl}${userId}`
+  } else {
+    const apiUrl = 'http://localhost:3000/api/v1/users/'
+    return `${apiUrl}${userId}`
+  }
 }
+
 const userSideBar = document.querySelector(".js-dankrefresh")
+let nextLvl = parseInt(userSideBar.dataset["nextLvl"]);
 const userId = userSideBar.dataset["userId"]
-const apiUrl = `${API_URL}${userId}`
+// const apiUrl = `${API_URL}${userId}`
 
 const updateDankScore = (dankRank) => {
   // Update the user's dank score board
@@ -33,13 +42,36 @@ const updateDankScore = (dankRank) => {
     </div>`
 };
 
+
+const levelUp = () => {
+  confetti.start(2000);
+  swal({
+      title: "Dank Rank Increased!",
+      text: "Wow. Very increased. Much Dank 🎉",
+      icon: img,
+      button: false,
+    });
+}
+
+
+const levelCheck = (currentLvl) => {
+  if (currentLvl == nextLvl) {
+    console.log("level up!");
+    levelUp();
+    nextLvl += 1;
+    userSideBar.dataset.nextLvl = nextLvl
+  }
+}
+
 const refresh = () => {
   // TODO: Implement the global refresh logic.
+  const apiUrl = createApiUrl();
   fetch(apiUrl)
     .then(response => response.json())
     .then((data) => {
       const dankRank = data['dank_rank'];
       updateDankScore(dankRank);
+      levelCheck(dankRank['total_score'])
     });
 };
 
