@@ -83,6 +83,10 @@ class MemesController < ApplicationController
   end
 
   def destroy
+    @meme.rarity.destroy
+    @meme.collects.destroy_all
+    @meme.comments.destroy_all
+    @meme.likes.destroy
     @meme.destroy
     redirect_to user_path(current_user)
     current_user.set_dank_rank
