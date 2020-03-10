@@ -1,0 +1,161 @@
+<div class="user-dashboard-title row p-3">
+  <div class="col-12">
+    <h2>My Account:</h2>
+  </div>
+</div>
+
+<!-- User dank rank stats -->
+<div class="row">
+  <div class="dank-info-section col-12 d-flex justify-content-center">
+    <div class="user-info d-flex justify-content-center align-items-center">
+      <!-- Username -->
+      <h3><%= current_user.username %></h3>
+      <!-- Avatar -->
+      <% if current_user.avatar.attached? %>
+        <%= image_tag current_user.avatar, class: "user-l-sidebar-info-image" %>
+      <% else %>
+        <%= image_tag asset_path('default-avatar.png'), class: "user-l-sidebar-info-image" %>
+      <% end %>
+      <h5> Lvl. <%= current_user.get_dank_rank %></h5>
+      <!-- Dank bar -->
+      <div class="dank-rank-section">
+        <div class="dank-bar">
+          <div class="dank-filler" style="width: <%= current_user.dank_rank.rank_up_bar %>%;">
+          </div>
+        </div>
+        <p><a href="#" class="badge badge-primary mt-2"> <%= current_user.dank_rank.rank_up_xp_progress %> / <%= current_user.dank_rank.rank_up_xp_required %> </a> until next level</p>
+        <div class="row text-center">
+          <div class="engagement-score col-4">
+            <i class="fas fa-circle"></i>
+            Engagements: <%= current_user.engagement_score %>
+          </div>
+          <div class="collection-score col-4">
+            <i class="fas fa-circle"></i>
+            Collections: <%= current_user.collection_score %>
+          </div>
+          <div class="creation-score col-4">
+            <i class="fas fa-circle"></i>
+            Creations: <%= current_user.creation_score %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- User badges section -->
+<div class="row">
+  <div class="user-badges-section col-12 m-0 p-3 d-flex justify-content-center">
+    <h3>User badges:</h3>
+    <div class="badge-section d-flex">
+      <div class="badge-box">
+        <div class="badge d-flex align-items-center justify-content-center mb-2">
+          <i class="fas fa-skull" style="font-size: 46px;"></i>
+        </div>
+        <h6><small>Fresh Badge</small></h6>
+      </div>
+      <div class="badge-box">
+        <div class="badge d-flex align-items-center justify-content-center mb-2">
+          <i class="fas fa-skull" style="font-size: 46px;"></i>
+        </div>
+        <h6><small>Fresh Badge</small></h6>
+      </div>
+      <div class="badge-box">
+        <div class="badge d-flex align-items-center justify-content-center mb-2">
+          <i class="fas fa-skull" style="font-size: 46px;"></i>
+        </div>
+        <h6><small>Fresh Badge</small></h6>
+      </div>
+      <div class="badge-box">
+        <div class="badge d-flex align-items-center justify-content-center mb-2">
+          <i class="fas fa-skull" style="font-size: 46px;"></i>
+        </div>
+        <h6><small>Fresh Badge</small></h6>
+      </div>
+      <div class="badge-box">
+        <div class="badge d-flex align-items-center justify-content-center mb-2">
+          <i class="fas fa-skull" style="font-size: 46px;"></i>
+        </div>
+        <h6><small>Fresh Badge</small></h6>
+      </div>
+      <div class="badge-box">
+        <div class="badge d-flex align-items-center justify-content-center mb-2">
+          <i class="fas fa-skull" style="font-size: 46px;"></i>
+        </div>
+        <h6><small>Fresh Badge</small></h6>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- User followers section -->
+<div class="row">
+  <div class="user-followings-section col-12 m-0 p-3 d-flex justify-content-center">
+    <div class="following-box mt-4">
+      <h3>Followers</h3>
+      <div class="user-list mt-2 p-4">
+        <% if @user.followers.empty? %>
+          <p>No Followers yet! 😭</p>
+        <% else %>
+          <% @user.followers.each do |follower| %>
+            <div class="user-deets p-2">
+              <% if follower.avatar.attached? %>
+                <%= image_tag follower.avatar, class: "foll-avatar" %>
+              <% else %>
+                <%= image_tag asset_path('default-avatar.png'), class: "foll-avatar" %>
+              <% end %>
+              <p class="m-0"><%= follower.username %></p>
+              <div class="user-stats-rank mx-1">
+                <span class="badge badge-primary align-baseline"><i class="fas fa-skull-crossbones"></i>
+              <%= follower.dank_rank.total_score %></span>
+              </div>
+              <div class="user-stats-follower">
+                <span class="badge badge-secondary align-baseline"><i class="fas fa-user"></i> <%= follower.followers.count %></span>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="following-box mt-4 mb-4">
+      <h3>Followed users</h3>
+      <div class="user-list mt-2 p-4">
+        <% if @user.followed_users.empty? %>
+          <p>Not following anyone yet! 😭</p>
+        <% else %>
+          <% @user.followed_users.each do |followed| %>
+            <div class="user-deets p-2">
+              <% if followed.avatar.attached? %>
+                <%= image_tag followed.avatar, class: "foll-avatar" %>
+              <% else %>
+                <%= image_tag asset_path('default-avatar.png'), class: "foll-avatar" %>
+              <% end %>
+              <p class="m-0"><%= followed.username %></p>
+              <div class="user-stats-rank mx-1">
+                <span class="badge badge-primary align-baseline"><i class="fas fa-skull-crossbones"></i>
+              <%= followed.dank_rank.total_score %></span>
+              </div>
+              <div class="user-stats-follower">
+                <span class="badge badge-secondary align-baseline"><i class="fas fa-user"></i> <%= followed.followers.count %></span>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="following-box mt-4">
+      <h3>Categories</h3>
+      <div class="user-list mt-2 p-4">
+        <% if @user.followed_categories.empty? %>
+          <p>No categories followed yet! 😭</p>
+        <% else %>
+          <% @user.followed_categories.each do |category| %>
+            <div class="user-deets p-2">
+              <%= link_to "\##{category.name.gsub(/\s+/, "")}", category_path(category) %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -8,6 +8,5 @@ initSweetalert('#sweet-alert-demo', {
 }, (value) => {
   console.log('confetti!!');
   confetti.start(2000)
-  // const link = document.querySelector('#delete-link');
-  // link.click();
 });
+
