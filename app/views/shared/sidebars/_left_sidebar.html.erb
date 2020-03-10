@@ -9,11 +9,8 @@
         <%= render 'shared/components/user_sidebar_info' %>
       </div>
       <!-- Collections list -->
-      <div class="collection-list-section p-4 pb-0 ">
-        <h6>My Collections</h6>
-        <% current_user.collections.each do |collection| %>
-          <%= link_to collection.name, user_collection_path(current_user, collection) %>
-        <% end %>
+      <div class="collection-list-section p-4 pb-0 js-ajax-mycollections">
+        <%= render partial: 'shared/sidebars/left_sidebar_mycollect' %>
       </div>
       <!-- Categories list -->
       <div class="category-list-section p-4">

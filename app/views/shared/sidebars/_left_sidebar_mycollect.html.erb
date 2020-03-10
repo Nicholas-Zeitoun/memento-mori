@@ -1,0 +1,4 @@
+<h6>My Collections</h6>
+<% current_user.collections.each do |collection| %>
+  <%= link_to collection.name, user_collection_path(current_user, collection) %>
+<% end %>
