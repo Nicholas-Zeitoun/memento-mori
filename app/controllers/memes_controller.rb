@@ -114,7 +114,7 @@ class MemesController < ApplicationController
   # Retrieving top 3 users based on their dank_rank.total_score
   def top_ten_users
     # Get top 3 dank ranks total scores
-    top_danks = DankRank.order('total_score DESC').limit(10)
+    top_danks = DankRank.order('total_score DESC').limit(6)
     # For each top dank_rank, retrieve user
     top_danks.map do |dank|
       User.find(dank.user_id)

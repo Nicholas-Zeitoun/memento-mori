@@ -54,6 +54,9 @@ Rails.application.routes.draw do
         member do
           get :stats
         end
+        collection do
+          get :leaderboard
+        end
       end
     end
   end

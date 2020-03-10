@@ -1,0 +1,12 @@
+<!-- Leaderboard -->
+<div class="d-block justify-content-top p-2">
+  <div class="leaderboard-card card">
+    <h5 class="leaderboard-card-title card-title font-weight-bold pt-3 text-center">Dank Leaders</h5>
+    <div class="leaderboard-card-body card-body">
+      <%= render partial: "users/users_list", collection: [@top_ten_users] %>
+    </div>
+    <div class="leaderboard-card-see-all card-body mt-2 text-center">
+      <%= link_to "See all...", users_path %>
+    </div>
+  </div>
+</div>
