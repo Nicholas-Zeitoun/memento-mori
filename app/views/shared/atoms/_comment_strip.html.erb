@@ -6,7 +6,7 @@
     <div class="comment-strip">
       <h6 class="comment-author"><%= comment.user.username %></h6>
       <%= comment.content %>
-      <p class="card-subtitle"><small class="text-muted">Posted - <%=  comment.created_at.to_formatted_s(:long_ordinal) %></small></p>
+      <p class="card-subtitle"><small class="text-muted"><%= time_ago_in_words(comment.created_at) %> ago</small></p>
     </div>
   </div>
 </div>

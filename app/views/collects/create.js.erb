@@ -1,0 +1,7 @@
+function createCollect() {
+  const imgForm = document.querySelector("[data-meme='<%= @collect.meme_id %>']")
+  console.log("hey from collect ajax");
+  imgForm.innerHTML = '<%= j render "/shared/components/meme_feed_card_image", meme: Meme.find(params[:meme_id]) %>';
+}
+
+createCollect();

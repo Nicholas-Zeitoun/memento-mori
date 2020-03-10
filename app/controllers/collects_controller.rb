@@ -13,13 +13,21 @@ class CollectsController < ApplicationController
     end
 
     if @collect.save
-      @collect.meme.update_rarity
-      @collect.collection.user.set_dank_rank
-      @collect.meme.user.set_dank_rank
-      redirect_to user_collection_path(current_user, @collect.collection)
-    else
-      redirect_to meme_path(Meme.find(params[:meme_id]))
+      respond_to do |format|
+        format.html { redirect_to request.referer }
+        format.js  # <-- will render `app/views/collects/create.js.erb`
+      end
     end
+    @collect.meme.update_rarity
+    @collect.collection.user.set_dank_rank
+    @collect.meme.user.set_dank_rank
+  end
+
+  def destroy
+    @collect = Collect.find(params[:id])
+    @collection =  @collect.collection
+    @collect.destroy
+    redirect_to user_collection_path(current_user, @collection)
   end
 
   private

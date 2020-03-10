@@ -19,6 +19,7 @@ class User < ApplicationRecord
   has_many :categories, dependent: :destroy # as creator => user.categories
   has_many :category_followings, dependent: :destroy
 
+  after_create :init_dank_rank
 
   def followed_collections
     CollectionFollowing.where(follower: self).map do |collfoll|
@@ -79,10 +80,19 @@ class User < ApplicationRecord
       creation_score,
       collection_score
     )
+    if self.dank_rank.rank_up?
+      level_up_alert
+    end
   end
 
   def get_dank_rank
     self.dank_rank.return_rank
+  end
+
+  def level_up_alert
+    respond_to do |format|
+      format.js { render :js => "my_function();" }
+    end
   end
 
   def engagement_score

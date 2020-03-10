@@ -2,6 +2,7 @@
   <!-- Top link card -->
   <div class="card border-0 rounded-tops">
     <h6 class="card-title p-3 m-0"> <%= meme.title %> </h6>
+    <%= link_to '', meme_path(meme), class: "hidden stretched-link" %>
   </div>
   <!-- Image -->
   <div class="meme-card-image">
@@ -11,11 +12,13 @@
       <% else %>
         <%= image_tag meme.image_url %>
       <% end %>
+      <%= link_to '', meme_path(meme), class: "hidden stretched-link" %>
     </div>
   </div>
+
   <!-- Hearts -->
-  <div class="p-3">
-    <i class="fas fa-heart" style="color: #F19B90;"></i> <%= meme.likes.count %>
+  <div data-meme-id="<%= meme.id %>" class="p-3 like-toggle js-like">
+    <%= render partial: "/shared/components/like_toggle", collection: [meme], as: :meme %>
   </div>
-  <%= link_to '', meme_path(meme), class: "hidden stretched-link" %>
 </div>
+

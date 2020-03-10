@@ -1,6 +1,6 @@
 <div class="collection-form p-5">
   <h5>Add this meme to your collection!</h5>
-  <%= simple_form_for [meme, collect] do |f| %>
+  <%= simple_form_for [meme, collect], remote: true do |f| %>
     <h6 class="text-white">Select a collection:</h6>
     <!-- retrieve user's collections only -->
     <%= f.association :collection, prompt: "Select Collection...", label: false, collection: Collection.where(user: current_user) %>
