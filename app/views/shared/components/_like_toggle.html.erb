@@ -1,10 +1,10 @@
 <% if meme.likes.find_by(user: current_user).nil? %>
-  <div class="dank-tagged d-flex justify-content-end">
-    <%= link_to "<i class='fas fa-skull' style='color: #FFFFFF;'></i>".html_safe, meme_likes_path(meme), method: :post, remote: true %>
+  <div class="dank-tag d-flex justify-content-end">
+    <%= link_to "<i class='fas fa-skull' style='color: #8E8E8E;'></i>".html_safe, meme_likes_path(meme), method: :post, remote: true %>
   </div>
 <% else %>
-  <div class="dank-tag d-flex justify-content-end">
-    <%= link_to "<i class='fas fa-skull' style='color: #8E8E8E;'></i>".html_safe, meme_like_path(meme, Like.where(user: current_user).find_by(meme: meme)), method: :delete, remote: true %>
+  <div class="dank-tagged d-flex justify-content-end">
+    <%= link_to "<i class='fas fa-skull' style='color: #FFFFFF;'></i>".html_safe, meme_like_path(meme, Like.where(user: current_user).find_by(meme: meme)), method: :delete, remote: true %>
   </div>
 <% end %>
 

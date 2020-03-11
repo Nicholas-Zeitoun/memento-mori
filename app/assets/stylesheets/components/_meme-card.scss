@@ -22,9 +22,9 @@
     border-radius: 12px;
   }
   position: relative;
-  &:hover .meme-collect-form-overlay {
-      height: 100%;
-    }
+  // &:hover .meme-collect-form-overlay {
+  //     height: 100%;
+  //   }
 }
 
 .meme-card-badge {
@@ -121,5 +121,5 @@
 }
 
 .expand-overlay {
-  // height: 100%;
+  height: 100%;
 }
