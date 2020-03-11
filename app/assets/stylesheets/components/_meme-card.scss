@@ -7,6 +7,15 @@
 
 .meme-card-header {
   padding: 6px;
+  a {
+    color: #535353;
+    text-decoration: none;
+    opacity: 0.5;
+    transition: 0.3s;
+    &:hover {
+      opacity: 1;
+    }
+  }
 }
 
 .meme-card-content {
@@ -22,9 +31,7 @@
     border-radius: 12px;
   }
   position: relative;
-  // &:hover .meme-collect-form-overlay {
-  //     height: 100%;
-  //   }
+  transition: 0.5s;
 }
 
 .meme-card-badge {
@@ -53,52 +60,62 @@
 .meme-card-tags {
   position: absolute;
   // z-index: -1;
-  right: -40px;
+  left: 100%;
   bottom: 20px;
+
+  overflow: hidden;
+  padding-top: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
 }
 
 .dank-tag {
   height: 70px;
-  width: 58px;
-  padding-right: 10px;
+  width: 45px;
+  padding: 10px;
   background-color: white;
   font-size: 24px;
-  border-radius: 4px;
+  border-radius: 0px 4px 4px 0px;
   color: $memento-dark-gray;
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: center;
   position: relative;
   box-shadow: 0px 0px 8px rgba(0,0,0, 0.25);
 }
 
 .dank-tagged {
   height: 70px;
-  width: 58px;
-  padding-right: 10px;
+  width: 45px;
+  padding: 10px;
   background-color: $memento-purple;
   font-size: 24px;
-  border-radius: 4px;
+  border-radius: 0px 4px 4px 0px;
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: center;
   position: relative;
   box-shadow: 0px 0px 8px rgba(0,0,0, 0.25);
 }
 
 .collect-tag {
   height: 70px;
-  width: 58px;
-  padding-right: 10px;
-  background-color: #E3B064;
-  color: white;
+  width: 45px;
+  padding: 10px;
+  background-color: white;
+  color: #8E8E8E;
   font-size: 24px;
-  border-radius: 4px;
+  border-radius: 0px 4px 4px 0px;
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: center;
   position: relative;
   box-shadow: 0px 0px 8px rgba(0,0,0, 0.25);
+}
+
+.collect-tag-selected {
+  background-color: #E3B064;
+  color: white;
 }
 
 .meme-collect-form-overlay {
