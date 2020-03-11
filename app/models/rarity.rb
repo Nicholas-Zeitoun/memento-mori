@@ -33,4 +33,6 @@ class Rarity < ApplicationRecord
       'dank-rank.png'
     end
   end
+
+  #test comment
 end
