@@ -51,7 +51,7 @@ dateAxis.renderer.labels.template.fill = am4core.color("#39095F");
 dateAxis.renderer.labels.template.dy = 3;
 
 let valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-valueAxis.renderer.labels.template.fill = am4core.color("#39095F");
+valueAxis.renderer.labels.template.fillOpacity = 0.3;
 
 // Create series
 let series = chart.series.push(new am4charts.LineSeries());
