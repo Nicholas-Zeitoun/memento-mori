@@ -1,8 +1,14 @@
-<div class="row ">
+<div class="content-dashboard row m-0 p-0">
 
-  <div class="col-md-6 p-5">
+  <!-- Middle and Right Sections -->
+  <div class="col-md-12 col-lg-12 p-0 d-flex flex-column">
 
-    <h2>Log in</h2>
+    <!-- Right Dashboard -->
+    <div class="right-dashboard row m-0 p-0">
+      <!-- Meme window -->
+      <div class="col-12 col-md-12 col-lg-6 p-5">
+
+        <h2>Log in</h2>
 
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-inputs">
@@ -25,14 +31,16 @@
     <br>
     <%= render "devise/shared/links" %>
 
-  </div>
-
-  <div class="col-md-6 grey-obloid p-5">
-    <div class="banner-image p-5">
+      </div>
+      <!-- Right side bar -->
+      <div class="col-0 col-md-0 col-lg-6 d-none d-lg-flex flex-column text-center bg-primary p-5">
+            <div class="banner-image p-5">
 
       <!-- REPLACE Image with random Memento meme?? -->
-      <%= image_tag asset_path("https://res.cloudinary.com/practicaldev/image/fetch/s--OoBLh7-Q--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://cdn-images-1.medium.com/max/1614/1%2A8BlqJ8lNVZzuRjAg1mZ50w.png"), class: "banner-image" %>
+      <%= image_tag asset_path("https://media.giphy.com/media/xTiTnIdG44UV8Lkl4A/giphy.gif"), class: "banner-image" %>
+    </div>
+      </div>
     </div>
   </div>
-
 </div>
+
