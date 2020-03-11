@@ -20,8 +20,10 @@
         <!-- Categories List -->
         <div class="categories-list text-center p-5">
           <% @categories.each do |category| %>
-            <%= link_to "\##{category.name.gsub(/\s+/, "")}", category_path(category) %>
-            <span class="badge badge-secondary mr-2"> <%= category.memes.count %> <i class="fas fa-images"></i></span>
+            <span class= "d-inline-block">
+              <%= link_to "\##{category.name.gsub(/\s+/, "")}", category_path(category) %>
+              <span class="badge badge-secondary mr-2"> <%= category.memes.count %> <i class="fas fa-images"></i></span>
+            </span>
           <% end %>
         </div>
       </div>
