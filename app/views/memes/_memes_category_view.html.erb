@@ -1,5 +1,7 @@
 <div class="memes-category-view scrolls d-flex p-3g">
   <!-- <div class="card-columns"> -->
-    <%= render partial: "/memes/meme_card", collection: [@memes], as: :meme %>
+    <%= render partial: "/memes/meme_card", collection: @memes, as: :meme %>
   <!-- </div> -->
 </div>
+
+<%= javascript_pack_tag 'memeCard' %>

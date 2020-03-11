@@ -8,6 +8,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard_template
+    @meme = Meme.first
     @memes = Meme.all
     @collect = Collect.new
   end
