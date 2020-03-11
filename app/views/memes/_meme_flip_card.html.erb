@@ -39,13 +39,12 @@
                 <h6><i class="fas fa-skull"></i>&nbsp<%= meme.likes.count %></h6>
               </div>
             </div>
-            <%#= link_to "Uncollect", meme_collect_path(meme, Collect.where(meme: meme).find_by(collection: @collection)), method: :delete, remote: true %>
           </div>
 
         </div>
         <!-- Meme badge -->
         <div class="meme-flip-card-badge">
-          <%#= image_tag asset_path(meme.rarity.get_rarity)%>
+          <%= image_tag asset_path(meme.rarity.get_rarity)%>
         </div>
       </div>
     </div>

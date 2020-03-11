@@ -91,16 +91,17 @@
   }
   .collection-section {
     // min-width: 600px;
-    // max-width: 800px;
-    width: 100%;
-    flex: 1;
+    max-width: 1000px;
+    // width: 100%;
+    // flex: 1;
+    display: flex;
+    flex-wrap: wrap;
   }
 }
 
 .meme-collection-cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  grid-gap: 16px;
+  display: flex;
+    flex-wrap: wrap;
 }
 
 //Meme window stylings
@@ -113,37 +114,40 @@
   min-height: 1500px;
 }
 
-// Smallest device
-@media (min-width: 100px) and (max-width: 575px) {
-  .meme-collection-cards {
-    grid-template-columns: 1fr;
-  }
-}
+//Alternate user
 
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) {
-  .meme-collection-cards {
-    grid-template-columns: 1fr;
-  }
-}
 
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-  .meme-collection-cards {
-    grid-template-columns: 1fr 1fr;
-  }
-}
+// // Smallest device
+// @media (min-width: 100px) and (max-width: 575px) {
+//   .meme-collection-cards {
+//     grid-template-columns: 1fr;
+//   }
+// }
 
-// Large devices (desktops, 992px and up)
-@media (min-width: 992px) {
-  .meme-collection-cards {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-  }
-}
+// // Small devices (landscape phones, 576px and up)
+// @media (min-width: 576px) {
+//   .meme-collection-cards {
+//     grid-template-columns: 1fr;
+//   }
+// }
 
-// Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) {
-  .meme-collection-cards {
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-  }
-}
+// // Medium devices (tablets, 768px and up)
+// @media (min-width: 768px) {
+//   .meme-collection-cards {
+//     grid-template-columns: 1fr 1fr;
+//   }
+// }
+
+// // Large devices (desktops, 992px and up)
+// @media (min-width: 992px) {
+//   .meme-collection-cards {
+//     grid-template-columns: 1fr 1fr 1fr 1fr;
+//   }
+// }
+
+// // Extra large devices (large desktops, 1200px and up)
+// @media (min-width: 1200px) {
+//   .meme-collection-cards {
+//     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+//   }
+// }
