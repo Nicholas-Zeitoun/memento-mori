@@ -6,6 +6,7 @@
 @import "meme-card";
 @import "page-title";
 @import "user-tab-pane";
+@import "leaderboard_user_index";
 
 //Interface stylings
 @import "interface";
@@ -37,6 +38,4 @@
 
 //User dashboard
 @import "user_dashboard/user-dashboard-window";
-@import "user_dashboard/account-dashboard"
-
-
+@import "user_dashboard/account-dashboard";
