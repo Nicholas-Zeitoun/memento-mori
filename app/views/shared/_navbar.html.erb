@@ -1,9 +1,10 @@
 <div class="navbar navbar-expand-sm navbar-dark navbar-memento m-0 p-0">
-
-  <!-- Logo -->
-  <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag asset_path('memento-logo.png') %>
-  <% end %>
+  <div class="col-2">
+    <!-- Logo -->
+    <%= link_to root_path, class: "navbar-brand" do %>
+      <%= image_tag asset_path('memento-logo.png') %>
+    <% end %>
+  </div>
 
   <!-- Links -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
