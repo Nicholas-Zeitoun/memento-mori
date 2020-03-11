@@ -1,30 +1,102 @@
-<div class="content-dashboard row m-0 p-0">
-  <!-- Left Dashboard -->
-  <div class="col-0 col-lg-2 p-0 d-none d-lg-flex flex-column">
-    <div class="left-dashboard red-testing">
+<div class="content-dashboard d-flex flex-column justify-content-center align-items-center row m-0 p-0">
+  <% @memes.each do |meme| %>
+  <div class="meme-card mt-4 mb-4">
+
+    <!-- Meme header -->
+    <div class="meme-card-header">
+      <h5><%= meme.title %><h5>
+    </div>
+
+    <!-- Meme content -->
+    <div class="meme-card-content">
+      <!-- Meme image -->
+      <div class="meme-card-content-image">
+        <% if meme.image.attached? %>
+          <%= cl_image_tag meme.image.key %>
+        <% else %>
+          <%= image_tag meme.image_url %>
+        <% end %>
+        <!-- Overlay -->
+        <div class="meme-collect-form-overlay">
+          derp
+          <!-- <div class="text"> -->
+              <%#= render partial: "collections/collection_form", collection: [meme], as: :meme, locals: { collect: @collect } %>
+          <!-- </div> -->
+        </div>
+      </div>
+      <!-- Meme badge -->
+      <div class="meme-card-badge">
+        <%= image_tag asset_path('blank-rank.png')%>
+      </div>
+      <!-- Tags -->
+      <div class="meme-card-tags">
+        <!-- Collect tag -->
+        <div class="collect-tag d-flex justify-content-center">
+          <i class="fas fa-bookmark"></i>
+        </div>
+        <!-- Dank! Tag -->
+        <div data-meme-id="<%= meme.id %>" class="mt-2 like-toggle js-like">
+          <%= render partial: "/shared/components/like_toggle", collection: [meme], as: :meme %>
+        </div>
+      </div>
+    </div>
+
+    <!-- Meme info -->
+    <div class="meme-card-info d-flex">
+      <div>
+        <% if meme.user.avatar.attached? %>
+          <%= image_tag meme.user.avatar, class: "avatar" %>
+        <% end %>
+        <%= meme.user.username %>
+      </div>
+      <div>
+        <i class="fas fa-comment-alt"></i>&nbsp<%= meme.comments.count %>
+      </div>
     </div>
   </div>
+  <% end %>
+</div>
+
+<script>
+var coll = document.getElementsByClassName("collect-tag");
+var overlays = document.querySele
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function(e) {
+    overlay = e.currentTarget.parentElement.parentElement.querySelector(".meme-collect-form-overlay")
+    overlay.classList.toggle("expand-overlay")
+  });
+}
+</script>
+
+<!-- <div class="content-dashboard row m-0 p-0"> -->
+  <!-- Left Dashboard -->
+  <!-- <div class="col-0 col-lg-2 p-0 d-none d-lg-flex flex-column"> -->
+    <!-- <div class="left-dashboard red-testing"> -->
+    <!-- </div> -->
+  <!-- </div> -->
 
   <!-- Middle and Right Sections -->
-  <div class="col-md-12 col-lg-10 p-0 d-flex flex-column">
+  <!-- <div class="col-md-12 col-lg-10 p-0 d-flex flex-column"> -->
     <!-- Categories topbar: Comment out when not in use -->
-    <div class="dashboard-carousel row m-0 p-0 d-none d-lg-flex grey-testing">
+    <!-- <div class="dashboard-carousel row m-0 p-0 d-none d-lg-flex grey-testing"> -->
 
-    </div>
+    <!-- </div> -->
     <!-- Right Dashboard -->
-    <div class="right-dashboard row m-0 p-0 green-testing">
+    <!-- <div class="right-dashboard row m-0 p-0 green-testing"> -->
       <!-- Meme window -->
-      <div class="col-12 col-md-12 col-lg-8 blue-testing">
+      <!-- <div class="col-12 col-md-12 col-lg-8 blue-testing"> -->
 
-      </div>
+      <!-- </div> -->
       <!-- Right side bar -->
-      <div class="col-0 col-md-0 col-lg-4 d-none d-lg-flex flex-column purple-testing">
+      <!-- <div class="col-0 col-md-0 col-lg-4 d-none d-lg-flex flex-column purple-testing"> -->
 
-      </div>
-    </div>
-  </div>
+      <!-- </div> -->
+    <!-- </div> -->
+  <!-- </div> -->
 
   <!-- Mobile lower bar menu -->
-  <div class="d-block d-lg-none mobile-dash-menu green-testing">
-  </div>
-</div>
+  <!-- <div class="d-block d-lg-none mobile-dash-menu green-testing"> -->
+  <!-- </div> -->
+<!-- </div> -->

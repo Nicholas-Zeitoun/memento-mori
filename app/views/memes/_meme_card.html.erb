@@ -1,0 +1,79 @@
+<div class="content-dashboard d-flex flex-column justify-content-center align-items-center row m-0 p-0">
+  <% @memes.each do |meme| %>
+  <div class="meme-card mt-4 mb-4">
+
+    <!-- Meme header -->
+    <div class="meme-card-header">
+      <h5><%= link_to meme.title, meme_path(meme) %><h5>
+    </div>
+
+    <!-- Meme content -->
+    <div class="meme-card-content">
+      <!-- Meme image -->
+      <div class="meme-card-content-image">
+        <% if meme.image.attached? %>
+          <%= cl_image_tag meme.image.key %>
+        <% else %>
+          <%= image_tag meme.image_url %>
+        <% end %>
+        <!-- Overlay -->
+        <% collections = meme.collects.map { |collect| collect.collection } %>
+        <% result = collections.map { |collection| collection.user == current_user } %>
+        <% if result.include?(true) %>
+          <div class="meme-collect-form-overlay">
+            <div class="text">
+              <h5 class="text-white">Meme already collected!</h5>
+            </div>
+          </div>
+        <% else %>
+          <div class="meme-collect-form-overlay">
+            <div class="text">
+              <%= render partial: "collections/collection_form", collection: [meme], as: :meme, locals: { collect: @collect } %>
+            </div>
+          </div>
+        <% end %>
+
+      </div>
+      <!-- Meme badge -->
+      <div class="meme-card-badge">
+        <%= image_tag asset_path('blank-rank.png')%>
+      </div>
+      <!-- Tags -->
+      <div class="meme-card-tags">
+        <!-- Collect tag -->
+        <!-- <div class="collect-tag d-flex justify-content-center"> -->
+          <!-- <i class="fas fa-bookmark"></i> -->
+        <!-- </div> -->
+
+        <% if result.include?(true) %>
+          <div class="collect-tag collect-tag-selected d-flex justify-content-center">
+            <i class="fas fa-bookmark"></i>
+          </div>
+        <% else %>
+          <div class="collect-tag d-flex justify-content-center">
+            <i class="fas fa-bookmark"></i>
+          </div>
+        <% end %>
+
+        <!-- Dank! Tag -->
+        <div data-meme-id="<%= meme.id %>" class="mt-2 like-toggle js-like">
+          <%= render partial: "/shared/components/like_toggle", collection: [meme], as: :meme %>
+        </div>
+      </div>
+    </div>
+
+    <!-- Meme info -->
+    <div class="meme-card-info d-flex">
+      <div>
+        <% if meme.user.avatar.attached? %>
+          <%= image_tag meme.user.avatar, class: "avatar" %>
+        <% end %>
+        <%= meme.user.username %>
+      </div>
+      <div>
+        <i class="fas fa-comment-alt"></i>&nbsp<%= meme.comments.count %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

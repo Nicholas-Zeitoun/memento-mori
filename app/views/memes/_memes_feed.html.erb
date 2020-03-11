@@ -6,14 +6,16 @@
   <div class="memes-scroll-window tab-content d-flex" id="v-pills-tabContent">
     <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
       <div class="d-flex flex-column">
-        <%= render partial: "meme_feed_card", collection: @memes, as: :meme %>
+        <%= render partial: "meme_card", collection: @memes, as: :meme %>
       </div>
     </div>
     <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
       <div class="card-columns">
-        <%= render partial: "meme_feed_card", collection: @memes, as: :meme %>
+        <%= render partial: "meme_card", collection: @memes, as: :meme %>
       </div>
     </div>
   </div>
-
 </div>
+
+<%= javascript_pack_tag 'memeCard' %>
+
