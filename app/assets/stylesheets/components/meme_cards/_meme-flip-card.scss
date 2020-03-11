@@ -1,0 +1,77 @@
+.flip-card {
+  background-color: transparent;
+  width: 240px;
+  height: 280px;
+  perspective: 1000px;
+  transform: perspective(1000px);
+  border-radius: 8px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 0px 8px 0 rgba(0,0,0,0.2);
+  border-radius: 8px;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+  .meme-flip-card-badge {
+    opacity: 0;
+  }
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  .flip-card-image {
+    display: relative;
+  }
+  img {
+    display: block;
+    width: auto;
+    height: 350px;
+    border-radius: 8px;
+  }
+}
+
+.flip-card-back {
+  background-color: #F8F8F8;
+  color: #8D8D8D;
+  transform: rotateY(180deg);
+  border-radius: 8px;
+}
+
+.meme-flip-card-badge {
+  height: 36px;
+  width: 36px;
+  box-shadow: 0px 0px 16px rgba(0,0,0, 0.2);
+  position: absolute;
+  right: -18px;
+  top: 20px;
+  border-radius: 50%;
+  transition: 0.6s;
+  // z-index: 2;
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+

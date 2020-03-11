@@ -26,8 +26,11 @@
           </div>
           <div class="meme-collection-cards">
             <% collection.memes.each do |collection_meme| %>
-              <div class="meme-collection-card">
-                <%= collection_meme.title %>
+              <!-- <div class="meme-collection-card"> -->
+                <%#= collection_meme.title %>
+              <!-- </div> -->
+              <div class="catcol-card border-0 d-flex flex-column justify-content-center align-items-center row">
+                <%= render partial: 'memes/meme_flip_card', collection: [collection_meme], as: :meme %>
               </div>
             <% end %>
           </div>

@@ -1,54 +1,51 @@
-<div class="content-dashboard row m-0">
-  <!-- Left side bar -->
-    <div class="col-0 col-lg-2 p-0 d-none d-lg-flex flex-column">
-    <div class="left-dashboard">
-  <%= render "shared/sidebars/left_sidebar" %>
-      </div>
+<div class="content-dashboard row m-0 p-0">
+  <!-- Left Dashboard -->
+  <div class="col-0 col-lg-2 p-0 d-none d-lg-flex flex-column">
+    <div class="left-dashboard red-testing">
+      <%= render "shared/sidebars/left_sidebar" %>
+    </div>
   </div>
 
-  <!-- Main Interface -->
-  <!-- Categories menu bar -->
-  <div class="col-md-10 p-0 d-flex flex-column">
-    <div class="row m-0 p-0 d-none d-lg-flex">
-      <h5><%= @collection.name %></h5>
-      <%= render 'follow' %>
-    </div>
-    <!-- Main Content Row -->
-    <div class="category-content row m-0 p-0">
-      <!-- Main Content Col's -->
-      <div class="col-sm-12 col-lg-8 m-0">
-
-        <!-- Memes feed grid -->
-        <div class="row meme-feed-grid p-3">
-          <div class="col-4 flex-wrap">
-            <% @collection.memes.each do |meme| %>
-              <!-- Card will be contained in a 4 columns on large screens -->
-              <div class="card" data-collected-meme-id="<%= meme.id %>">
-                <img src= "<%= meme.image_url %>" class="img-fluid">
-                <h5 class="card-title"><%= meme.title %></h5>
-                <h5 class="card-text">
-                  <span class="badge badge-secondary"><%= meme.category %></span>
-                </h5>
-
-                <!-- Link to meme show page (covers all the card so hides the "uncollect", needs to cover only title and image) -->
-                <%#= link_to "", meme_path(meme), class: "stretched-link" %>
-
-                <!-- Uncollect button, no ajax for now -->
-                <%= link_to "Uncollect", meme_collect_path(meme, Collect.where(meme: meme).find_by(collection: @collection)), method: :delete, remote: true %>
-              </div>
-            <% end %>
-          </div>
-        </div>
-
-      <!-- Right sidebar -->
-      <div class="col-sm-0 col-lg-3 d-none d-md-flex flex-column">
-        <div class="right-sidebar p-3">
-          right side bar
-        </div>
+  <!-- Middle and Right Sections -->
+  <div class="col-md-12 col-lg-10 p-0 d-flex flex-column">
+    <!-- Categories topbar: Comment out when not in use -->
+    <!-- Title bar -->
+    <div class="row category-title-bar m-0 align-items-center justify-content-between">
+      <div class="justify-content-left p-3">
+        <%= link_to "< Back", request.referer %>
+      </div>
+      <div class="pr-3 mt-3">
+        <h3><%= @collection.name %></h3>
+        <%= render 'follow' %>
+        <% if @collection.user != current_user %>
+          Follow collection
+        <% end %>
       </div>
     </div>
+    <!-- Right Dashboard -->
+    <div class="right-dashboard row m-0 p-0">
+      <!-- Meme window -->
+      <div class="col-12 col-md-12 col-lg-12 m-0 p-0">
+        <div class="memes-category-view">
+          <% @collection.memes.each do |meme| %>
+            <div class="meme-cate-card d-flex flex-column">
+              <div class="catcol-card border-0 d-flex flex-column justify-content-center align-items-center row">
+                <%= render partial: 'memes/meme_flip_card', collection: [meme], as: :meme %>
+              </div>
+                <small class="ml-4"><%= link_to "Uncollect", meme_collect_path(meme, Collect.where(meme: meme).find_by(collection: @collection)), method: :delete, remote: true %></small>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Mobile lower bar menu -->
+  <div class="d-block d-lg-none mobile-dash-menu green-testing">
   </div>
 </div>
+
 
 <%= content_for :after_js do %>
   <%= javascript_pack_tag 'indexCollectFormValidation' %>

@@ -10,6 +10,9 @@
     <% end %>
   </div>
 </div>
-<div class="meme-show-window d-flex flex-column">
-  <%= render partial: "meme_feed_card", collection: [@meme], as: :meme %>
+<div class="meme-show-window d-flex flex-column align-items-center">
+  <%= render partial: "meme_card", collection: [@meme], as: :meme %>
 </div>
+
+<%= javascript_pack_tag 'memeCard' %>
+

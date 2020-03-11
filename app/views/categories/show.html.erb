@@ -2,22 +2,51 @@
   <!-- Left Dashboard -->
   <div class="col-0 col-lg-2 p-0 d-none d-lg-flex flex-column">
     <div class="left-dashboard">
-      <%= render "shared/sidebars/left_sidebar" %>
+      <%= render 'shared/sidebars/left_sidebar' %>
     </div>
   </div>
 
   <!-- Middle and Right Sections -->
-  <div class="col-md-12 col-lg-10 p-0 d-flex flex-column">
+  <div class="meme-window col-md-12 col-lg-10 p-0 d-flex flex-column">
+
     <!-- Right Dashboard -->
     <div class="right-dashboard row m-0 p-0">
       <!-- Meme window -->
-      <div class="col-12 col-md-12 col-lg-12 m-0 p-0">
-        <div class="text-center mt-5">
-          <h5> <%= @category.name %> </h5>
-          <%= render 'follow' %>
+      <div class="col-12 col-md-12 col-lg-9 m-0 p-0">
+        <!-- Categories topbar: Comment out when not in use -->
+        <div class="dashboard-carousel row m-0 p-0 d-none d-lg-flex blue testing">
+          <div class="row category-title-bar m-0 align-items-center justify-content-between">
+            <div class="justify-content-left p-3">
+              <%= link_to "< Back", request.referer %>
+            </div>
+          </div>
         </div>
-        <%= render 'memes/memes_category_view' %>
-        <%#= render partial: "/memes/meme_feed_card", collection: @memes, as: :meme %>
+        <div class="memes-feed d-flex">
+          <div class="nav flex-column" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+            <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true"><i class="fas fa-bars"></i></a>
+            <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><i class="fas fa-th-large"></i></a>
+          </div>
+          <div class="memes-scroll-window tab-content d-flex" id="v-pills-tabContent">
+            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+              <div class="d-flex flex-column">
+                <%= render partial: "memes/meme_card", collection: @category.memes, as: :meme %>
+              </div>
+            </div>
+            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+              <div class="card-columns">
+                <%= render partial: "memes/meme_card", collection: @category.memes, as: :meme %>
+              </div>
+            </div>
+          </div>
+        </div>
+        <%#= render 'memes/memes_feed' %>
+      </div>
+      <!-- Right side bar -->
+      <div class="right-sidebar col-0 col-md-0 col-lg-3 d-none d-lg-flex flex-column p-3">
+        <h3><%= "\##{@category.name.gsub(/\s+/, "")}".downcase %></h3>
+         <h4><i class="fas fa-book-dead"></i>&nbsp</i><%= @category.memes.count %></h4>
+          <h4><i class="fas fa-users"></i>&nbsp</i><%= @category.followers.count %></h4>
+         <%= render 'follow' %>
       </div>
     </div>
   </div>
@@ -25,5 +54,5 @@
   <!-- Mobile lower bar menu -->
   <div class="d-block d-lg-none mobile-dash-menu green-testing">
   </div>
+  <!-- change? -->
 </div>
-

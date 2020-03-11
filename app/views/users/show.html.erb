@@ -41,15 +41,53 @@
     </div>
 </div>
 <% else %>
-
-<li data-user=<%= @user.id %>>
-  <%= @user.email %>
-  <% if current_user.is_following?(@user.id) %>
-    <%= link_to "Unfollow", unfollow_user_path(@user.id), method: :post, remote: true %>
-  <% else %>
-    <%= link_to "Follow", follow_user_path(@user.id), method: :post, remote: true %>
-  <% end %>
-</li>
+  <div class="alt-user d-flex justify-content-center align-items-center flex-column">
+    <!-- User dank rank stats -->
+    <div class="row">
+      <div class="dank-info-section col-12 d-flex justify-content-center">
+        <div class="user-info d-flex justify-content-center align-items-center">
+          <!-- Username -->
+          <h3><%= @user.username %></h3>
+          <!-- Avatar -->
+          <% if @user.avatar.attached? %>
+            <%= image_tag @user.avatar, class: "user-l-sidebar-info-image" %>
+          <% else %>
+            <%= image_tag asset_path('default-avatar.png'), class: "user-l-sidebar-info-image" %>
+          <% end %>
+          <h5> Lvl. <%= @user.get_dank_rank %></h5>
+          <!-- Dank bar -->
+          <div class="dank-rank-section">
+            <div class="dank-bar">
+              <div class="dank-filler" style="width: <%= @user.dank_rank.rank_up_bar %>%;">
+              </div>
+            </div>
+            <p><a href="#" class="badge badge-primary mt-2"> <%= @user.dank_rank.rank_up_xp_progress %> / <%= current_user.dank_rank.rank_up_xp_required %> </a> until next level</p>
+            <div class="row text-center">
+              <div class="engagement-score col-4">
+                <i class="fas fa-circle"></i>
+                Engagements: <%= @user.engagement_score %>
+              </div>
+              <div class="collection-score col-4">
+                <i class="fas fa-circle"></i>
+                Collections: <%= @user.collection_score %>
+              </div>
+              <div class="creation-score col-4">
+                <i class="fas fa-circle"></i>
+                Creations: <%= @user.creation_score %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div data-user=<%= @user.id %>>
+      <% if current_user.is_following?(@user.id) %>
+        <%= link_to "Unfollow", unfollow_user_path(@user.id), method: :post, remote: true %>
+      <% else %>
+        <%= link_to "Follow", follow_user_path(@user.id), method: :post, remote: true %>
+      <% end %>
+    </div>
+  </div>
 <% end %>
 
 <%= content_for :after_js do %>

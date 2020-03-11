@@ -1,17 +1,17 @@
 <div class="user-item row mt-1 p-1" data-user=<%= user.id %>>
-  <div class="user-name d-flex justify-content-start col-8">
-    <%= link_to user.username, user_path(user) %>
-  </div>
+  <!-- <div class="user-name d-flex justify-content-start col-8"> -->
+    <%#= link_to user.username, user_path(user) %>
+  <!-- </div> -->
 
-  <div class="user-stats d-flex justify-content-start col-2">
-    <div class="user-stats-rank mx-1">
-      <span class="badge badge-primary align-baseline"><i class="fas fa-skull-crossbones"></i>
-    <%= user.dank_rank.total_score %></span>
-    </div>
-    <div class="user-stats-follower">
-      <span class="badge badge-secondary align-baseline"><i class="fas fa-user"></i> <%= user.followers.count %></span>
-    </div>
-  </div>
+  <!-- <div class="user-stats d-flex justify-content-start col-2"> -->
+    <!-- <div class="user-stats-rank mx-1"> -->
+      <!-- <span class="badge badge-primary align-baseline"><i class="fas fa-skull-crossbones"></i> -->
+    <!-- <%#= user.dank_rank.total_score %></span> -->
+    <!-- </div> -->
+    <!-- <div class="user-stats-follower"> -->
+      <!-- <span class="badge badge-secondary align-baseline"><i class="fas fa-user"></i> <%= user.followers.count %></span> -->
+    <!-- </div> -->
+  <!-- </div> -->
 
   <div class="user-follow-btn d-flex justify-content-start col-2">
     <% unless current_user.nil? %>

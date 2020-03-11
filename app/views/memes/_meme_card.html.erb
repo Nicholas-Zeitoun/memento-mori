@@ -1,5 +1,5 @@
-<div class="content-dashboard d-flex flex-column justify-content-center align-items-center row m-0 p-0">
-  <% @memes.each do |meme| %>
+<!-- <div class="content-dashboard d-flex flex-column justify-content-center align-items-center row m-0 p-0"> -->
+  <%# @memes.each do |meme| %>
   <div class="meme-card mt-4 mb-4">
 
     <!-- Meme header -->
@@ -63,6 +63,8 @@
       <div>
         <% if meme.user.avatar.attached? %>
           <%= image_tag meme.user.avatar, class: "avatar" %>
+        <% else %>
+               <%= image_tag asset_path('default-avatar.png'), class: "avatar" %>
         <% end %>
         <%= meme.user.username %>
       </div>
@@ -71,5 +73,5 @@
       </div>
     </div>
   </div>
-  <% end %>
-</div>
+  <%# end %>
+<!-- </div> -->

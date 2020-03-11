@@ -1,3 +1,22 @@
 .memes-category-view {
-  flex: 1;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-height: 95vh;
+  overflow: scroll;
+}
+
+.meme-category-card {
+  display: flex;
+
+}
+
+.category-title-bar {
+  background-color: none;
+}
+
+.catcol-card {
+  height: 350px;
+  width: 300px;
+  margin: 5px;
 }
