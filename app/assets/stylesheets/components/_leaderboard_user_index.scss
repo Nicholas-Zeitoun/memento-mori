@@ -1,0 +1,76 @@
+#leaderboard-overall {
+  background-color: #f8f9fa;
+  a {
+    text-decoration: none;
+  }
+
+  .leaderboard-card-title {
+    font-size: 30px;
+  }
+
+  .user-item {
+    height: 80px;
+    border-radius: 12px;
+    margin: 5px;
+  }
+
+  .user-avatar img {
+    height: 50px;
+    width: 50px;
+  }
+
+  .user-name {
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .user-stats {
+    font-size: 20px;
+    font-weight: 800;
+  }
+
+  .user-item:nth-last-child(n + 4) {
+    background-color: #be95c4;
+    border-radius: 12px;
+    margin: 5px;
+    h5,
+    a {
+      color: white;
+      font-size: 24px;
+      font-weight: 500;
+    }
+  }
+
+  .user-item:nth-last-child(n + 5) {
+    background-color: #57237b;
+    border-radius: 12px;
+    margin: 5px;
+    h5,
+    a {
+      color: white;
+      font-size: 24px;
+      font-weight: 500;
+    }
+  }
+
+  .user-item:nth-last-child(n + 6) {
+    background-color: #2f004f;
+    border-radius: 12px;
+    margin: 5px;
+    h5,
+    a {
+      color: white;
+      font-size: 24px;
+      font-weight: 500;
+    }
+  }
+}
+
+#leaderboard-creativity,
+#leaderboard-collection,
+#leaderboard-engagement {
+  background-color: #f8f9fa;
+  a {
+    text-decoration: none;
+  }
+}

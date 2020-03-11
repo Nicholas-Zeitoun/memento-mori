@@ -1,20 +1,24 @@
-.leaderboard-card {
-  // border: 1px solid #dcdcdc;
-  // border-radius: 12px;
-  // line-height: 2;
-}
-
-.leaderboard-card-body {
-  // min-height: 300px;
-  font-size: 13px;
-  background-color: white;
-  // flex-direction: column;
-
-  a {
-    text-decoration: none;
+#leaderboard-meme-index {
+  .leaderboard-card {
+    // border: 1px solid #dcdcdc;
+    // border-radius: 12px;
+    // line-height: 2;
   }
-}
 
-.leaderboard {
-  // width: auto;
+  .leaderboard-card-body {
+    a {
+      text-decoration: none;
+      font-size: 13px;
+    }
+  }
+
+  .leaderboard-card-see-all {
+    a {
+      border-radius: 12px;
+      background-color: #39095f;
+      color: white;
+      padding: 8px 95px;
+      text-decoration: none;
+    }
+  }
 }
