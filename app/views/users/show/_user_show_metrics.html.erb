@@ -3,27 +3,53 @@
     <h2>My Metrics</h2>
   </div>
 
-  <div class="user-metrics-section col-10 p-4">
-    <h3>Corona Virus Chart</h3>
+  <div class="user-metrics-section col-9 p-4">
+    <h3>Latest Memes Rarity Race</h3>
     <hr>
     <div class="card mb-4">
-      <div id="js-meme-chart" data-user-id="<%= current_user.id %>" data-username="<%= current_user.username %>" style="height: 500px; font-size: 16px"></div>
+      <% latest_memes = [ @user.memes[-1],
+                          @user.memes[-2],
+                          @user.memes[-3],
+                          @user.memes[-4],
+                          @user.memes[-5],
+                          @user.memes[-6],
+                          @user.memes[-7] ] %>
+
+      <% dataArray = [] %>
+      <% latest_memes.each_with_index do |meme, ind| %>
+        <% dataArray << { name: (meme.title[0,6] + "..."),
+                   steps: meme.rarity.total_score,
+                   href: cl_image_path(meme.image.key) } %>
+      <% end %>
+
+      <%= content_tag :div, style:"height: 400px", id: "js-meme-chart",
+      data: { meme1: dataArray[0],
+              meme2: dataArray[1],
+              meme3: dataArray[2],
+              meme4: dataArray[3],
+              meme5: dataArray[4],
+              meme6: dataArray[5],
+              meme7: dataArray[6] } do %>
+      <% end %>
     </div>
 
-    <h3>Two charts Next To Each other</h3>
+    <h3>Mementer Stats</h3>
     <hr>
     <div class="row">
       <div class="col-6">
         <div class="card">
-          <%= content_tag :div, style:"height: 400px", id: "js-user-chart", data: {creation: @user.dank_rank.creation,
-                                                          engagement: @user.dank_rank.engagement,
-                                                          collection: @user.dank_rank.collection} do %>
+          <%= content_tag :div, style:"height: 400px", id: "js-triangle-chart",
+          data: {creation: @user.dank_rank.creation,
+          engagement: @user.dank_rank.engagement,
+          collection: @user.dank_rank.collection} do %>
           <% end %>
         </div>
       </div>
       <div class="col-6 flex-1">
         <div class="card">
-          Next chart
+          <div id="js-time-chart" data-user-id="<%= current_user.id %>"
+            data-username="<%= current_user.username %>"
+            style="height: 400px"></div>
         </div>
       </div>
     </div>
@@ -31,6 +57,7 @@
 </div>
 
 <%= content_for :after_js do %>
-  <%= javascript_pack_tag 'renderChart' %>
-  <%= javascript_pack_tag 'memesChart' %>
+  <%= javascript_pack_tag 'memeChart' %>
+  <%= javascript_pack_tag 'triangleChart' %>
+  <%= javascript_pack_tag 'timeChart' %>
 <% end %>
