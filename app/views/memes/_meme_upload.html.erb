@@ -1,29 +1,38 @@
 <!-- Meme upload form -->
-<div class="col-12 col-md-12 col-lg-6 m-0 p-0">
+<div class="col-12 col-md-12 col-lg-6 m-0 p-0 purple-background">
   <div class="meme-window-title">
-    <h3>Upload a meme!</h3>
+    <h3 style="color: white">Build your meme</h3>
   </div>
 
   <div class="meme-form p-5">
     <%= simple_form_for @meme do |f| %>
-      <%= f.input :title, placeholder: 'Meme title...' %>
-      
-      <div class="existing-category-input">
-        <%= f.association :category %>
-      </div>
-      
-      <%= link_to "Create a new category", '#', class: "add-category" %>
-        <div class="d-none new-category-input">
-          <%= f.simple_fields_for :category do |category| %>
-            <%= category.input :name, label: "New category", placeholder: 'New category name...' %>
-          <% end %>
-        </div>
+      <%= f.input :title, label: false, placeholder: 'Meme title...' %>
 
-      <%= f.input :image, as: :file %>
-      <%= f.input :image_url, placeholder: 'Or paste image url here...', class: "preview", name: "thumbnail" %>
+      <div class="existing-category-input">
+        <%= f.association :category, label: false, prompt: "Choose a Category" %>
+      </div>
+
+      <div class="d-none new-category-input">
+        <%= f.simple_fields_for :category do |category| %>
+          <%= category.input :name, label: false, placeholder: "New category" %>
+        <% end %>
+      </div>
+
+      <%= link_to "...or create a new category", '#', class: "add-category" %>
+
+      <div class="upload-meme-input mt-3">
+        <%= f.input :image, input_html: { class: 'no-display'}, label_html: { class: 'upload-photo'}, label: '📷 Upload a meme' %>
+      </div>
+      <div class="url-meme-input d-none mt-3">
+        <%= f.input :image_url, label: false, placeholder: 'Or paste image url here...', class: "preview", name: "thumbnail" %>
+      </div>
+
+      <%= link_to "...or use a url", '#', class: "choose-url" %>
       <br/>
 
-      <%= f.submit 'Submit', class: "btn btn-primary text-white" %>
+      <div class="mt-4">
+        <%= f.submit 'Submit', class: "btn btn-primary text-white" %>
+      </div>
     <% end %>
   </div>
 </div>
@@ -35,7 +44,7 @@
     <%# <input name="thumbnail" placeholder="Image url here" /> %>
     </div>
     <img src="" id="preview" />
-  </div> 
+  </div>
 </div>
 
 <script>
@@ -46,11 +55,26 @@
   newCategoryButton.addEventListener('click', () => {
     newImageCategory.classList.toggle("d-none");
     if (newImageCategory.classList.contains("d-none")) {
-      newCategoryButton.innerText = "Create new category"
+      newCategoryButton.innerText = "...or create new category"
       existingCategories.classList.remove("d-none")
     } else {
-      newCategoryButton.innerText = "Use existing category"
+      newCategoryButton.innerText = "...or use existing category"
       existingCategories.classList.add("d-none")
+    }
+  })
+
+  const uploadFile = document.querySelector(".upload-meme-input");
+  const urlMeme = document.querySelector(".url-meme-input");
+  const chooseUrlButton = document.querySelector(".choose-url");
+
+  chooseUrlButton.addEventListener('click', () => {
+    uploadFile.classList.toggle("d-none");
+    if (uploadFile.classList.contains("d-none")) {
+      chooseUrlButton.innerText = "...or upload a file?"
+      urlMeme.classList.remove("d-none")
+    } else {
+      chooseUrlButton.innerText = "...or use a url"
+      urlMeme.classList.add("d-none")
     }
   })
 
@@ -72,7 +96,7 @@
       }
       reader.readAsDataURL(image);
       console.log(files);
-      document.getSelector('.meme-preview-card').style.display = "none"; 
+      document.getSelector('.meme-preview-card').style.display = "none";
     });
   });
 
@@ -82,9 +106,9 @@
   // });
 
   // var image = img.src;
- 
+
   // if (image.value !== nill) {
-  //   document.getElementById('memePreviewCard.background-image').style.display = "none"; 
+  //   document.getElementById('memePreviewCard.background-image').style.display = "none";
   // }, else {
   //   document.getElementById('memePreviewCard.background-image').style.visibility = "visible";
   // }, end

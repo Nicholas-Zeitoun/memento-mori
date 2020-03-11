@@ -1,0 +1,27 @@
+.meme-form {
+  background-color: $light-gray;
+  width: 400px;
+  position: relative;
+  float: right;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  a {
+    text-decoration: none;
+    color: $memento-purple;
+  }
+}
+
+.upload-photo {
+  border: 1px solid #d3d3d3;
+  padding: 8px 16px;
+  margin-bottom: 0px;
+  cursor: pointer;
+  font-weight: 500;
+  background: white;
+  border-radius: 4px;
+  color: $memento-dark-gray;
+}
+
+.no-display {
+  display: none !important;
+}
