@@ -8,10 +8,6 @@
   flex-grow: 0;
 }
 
-.navbar-memento .navbar-brand img {
-  width: 100px;
-}
-
 //Nav search bar
 .nav-search-bar {
   border: none;
@@ -26,4 +22,11 @@
       outline: none;
     }
   }
+}
+
+.navbar-brand img {
+  position: absolute;
+  z-index: 2;
+  left: 40px;
+  width: 130px;
 }
