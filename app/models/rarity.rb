@@ -11,6 +11,8 @@ class Rarity < ApplicationRecord
 
   def get_rarity
     case self.total_score
+    when 0
+      'blank-rank.png'
     when 1
       'blank-rank.png'
     when 2
