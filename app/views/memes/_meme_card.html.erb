@@ -36,14 +36,10 @@
       </div>
       <!-- Meme badge -->
       <div class="meme-card-badge">
-        <%= image_tag asset_path('blank-rank.png')%>
+        <%= image_tag asset_path(meme.rarity.get_rarity)%>
       </div>
       <!-- Tags -->
       <div class="meme-card-tags">
-        <!-- Collect tag -->
-        <!-- <div class="collect-tag d-flex justify-content-center"> -->
-          <!-- <i class="fas fa-bookmark"></i> -->
-        <!-- </div> -->
 
         <% if result.include?(true) %>
           <div class="collect-tag collect-tag-selected d-flex justify-content-center">
