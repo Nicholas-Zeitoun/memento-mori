@@ -1,3 +1,4 @@
+<% if @user == current_user %>
 <div class="content-dashboard row m-0">
   <!-- Left side bar -->
   <div class="left-sidebar pt-4 pl-0 pr-0 col-md-2 d-none d-lg-flex">
@@ -39,6 +40,17 @@
       </div>
     </div>
 </div>
+<% else %>
+
+<li data-user=<%= @user.id %>>
+  <%= @user.email %>
+  <% if current_user.is_following?(@user.id) %>
+    <%= link_to "Unfollow", unfollow_user_path(@user.id), method: :post, remote: true %>
+  <% else %>
+    <%= link_to "Follow", follow_user_path(@user.id), method: :post, remote: true %>
+  <% end %>
+</li>
+<% end %>
 
 <%= content_for :after_js do %>
   <%#= javascript_pack_tag 'renderChart' %>
