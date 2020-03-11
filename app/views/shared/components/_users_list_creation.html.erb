@@ -1,0 +1,28 @@
+<% rank = 0 %> 
+<% @top_ten_creations.each do |user| %>
+  <div class="user-item row align-items-center" data-user=<%= user.id %>>
+    <div class="user-rank col-1">
+      <h5><%= rank += 1 %></h5>
+    </div>
+    <div class="user-avatar col-2">
+      <% if user.avatar.attached? %>
+        <%= image_tag user.avatar, class: "avatar" %>
+      <% end %>
+    </div>
+    <div class="user-name col-5">
+      <%= link_to user.username, user_path(user) %>
+    </div>
+    <div class="user-stats d-flex col-3">
+      <div class="user-stats-rank mx-1">
+        <span class="badge badge-primary"><i class="fas fa-skull-crossbones"></i>
+          <%= user.dank_rank.total_score %>
+        </span>
+      </div>
+      <div class="user-stats-follower">
+        <span class="badge badge-secondary"><i class="fas fa-trophy"></i>
+          <%= user.dank_rank.rank_up_xp_progress %>
+        </span>
+      </div>
+    </div>
+  </div>
+<% end %>
