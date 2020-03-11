@@ -4,7 +4,7 @@ import * as am4charts from "@amcharts/amcharts4/charts";
 import * as am4plugins_forceDirected from "@amcharts/amcharts4/plugins/forceDirected";
 
 // Get api data
-const chartDiv = document.getElementById("js-meme-chart");
+const chartDiv = document.getElementById("js-full-chart");
 const userId = chartDiv.dataset["userId"];
 const userName = chartDiv.dataset["username"];
 
@@ -19,7 +19,7 @@ const createApiUrl = () => {
 }
 
 /* Chart code */
-let chart = am4core.create("js-meme-chart", am4plugins_forceDirected.ForceDirectedTree);
+let chart = am4core.create("js-full-chart", am4plugins_forceDirected.ForceDirectedTree);
 let networkSeries = chart.series.push(new am4plugins_forceDirected.ForceDirectedSeries())
 
 chart.dataSource.url = createApiUrl();
