@@ -6,32 +6,36 @@
   <div class="user-metrics-section col-9 p-4">
     <h3>Latest Memes Rarity Race</h3>
     <hr>
-    <div class="card mb-4">
-      <% latest_memes = [ @user.memes[-1],
-                          @user.memes[-2],
-                          @user.memes[-3],
-                          @user.memes[-4],
-                          @user.memes[-5],
-                          @user.memes[-6],
-                          @user.memes[-7] ] %>
+    <% unless @user.memes.length < 7 %>
+      <div class="card mb-4">
+        <% latest_memes = [ @user.memes[-1],
+                            @user.memes[-2],
+                            @user.memes[-3],
+                            @user.memes[-4],
+                            @user.memes[-5],
+                            @user.memes[-6],
+                            @user.memes[-7] ] %>
 
-      <% dataArray = [] %>
-      <% latest_memes.each_with_index do |meme, ind| %>
-        <% dataArray << { name: (meme.title[0,6] + "..."),
-                   steps: meme.rarity.total_score,
-                   href: cl_image_path(meme.image.key) } %>
-      <% end %>
+        <% dataArray = [] %>
+        <% latest_memes.each_with_index do |meme, ind| %>
+          <% dataArray << { name: (meme.title[0,6] + "..."),
+                     steps: meme.rarity.total_score,
+                     href: cl_image_path(meme.image.key) } %>
+        <% end %>
 
-      <%= content_tag :div, style:"height: 400px", id: "js-meme-chart",
-      data: { meme1: dataArray[0],
-              meme2: dataArray[1],
-              meme3: dataArray[2],
-              meme4: dataArray[3],
-              meme5: dataArray[4],
-              meme6: dataArray[5],
-              meme7: dataArray[6] } do %>
-      <% end %>
-    </div>
+        <%= content_tag :div, style:"height: 400px", id: "js-meme-chart",
+        data: { meme1: dataArray[0],
+                meme2: dataArray[1],
+                meme3: dataArray[2],
+                meme4: dataArray[3],
+                meme5: dataArray[4],
+                meme6: dataArray[5],
+                meme7: dataArray[6] } do %>
+        <% end %>
+        </div>
+        <% else %>
+        <h6 class="pb-2">Looks like don't have enough memes for a race...</h6>
+        <% end %>
 
     <h3>Mementer Stats</h3>
     <hr>
