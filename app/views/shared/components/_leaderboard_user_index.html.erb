@@ -1,44 +1,38 @@
-<!-- Leaderboard user index -->
-<div class="col-4 col-md-4 col-lg-3 justify-content-between">
+<div class="col-12 col-md-7 col-lg-7 justify-content-between">
   <div class="d-block justify-content-between p-2">
     <div class="leaderboard-card card">
-      <h5 class="leaderboard-card-title card-title font-weight-bold pt-3 text-center">Overall Dank Leaders</h5>
+      <h5 class="leaderboard-card-title card-title font-weight-bold pt-3 text-center">Most Dank</h5>
       <div class="leaderboard-card-body card-body">
-        <%= render @top_ten_users %>
+        <%= render 'shared/components/users_list' %>
       </div>
     </div>
   </div>
 </div>
 
-<div class="col-4 col-md-4 col-lg-3 justify-content-between">
+<div class="col-12 col-md-5 col-lg-5 justify-content-between">
   <div class="d-block justify-content-between p-2">
     <div class="leaderboard-card card">
-      <h5 class="leaderboard-card-title card-title font-weight-bold pt-3 text-center">Creativity Dank Leaders</h5>
+      <h5 class="leaderboard-card-title card-title font-weight-bold pt-3 text-center">Most Creative</h5>
       <div class="leaderboard-card-body card-body">
-        <%= render @top_ten_users %>
+        <%= render 'shared/components/users_list' %>
+      </div>
+    </div>
+  </div>
+  <div class="d-block justify-content-between p-2">
+    <div class="leaderboard-card card">
+      <h5 class="leaderboard-card-title card-title font-weight-bold pt-3 text-center">Most Collective</h5>
+      <div class="leaderboard-card-body card-body">
+        <%= render 'shared/components/users_list' %>
+      </div>
+    </div>
+  </div>
+  <div class="d-block justify-content-between p-2">
+    <div class="leaderboard-card card">
+      <h5 class="leaderboard-card-title card-title font-weight-bold pt-3 text-center">Most Engaged</h5>
+      <div class="leaderboard-card-body card-body">
+        <%= render 'shared/components/users_list' %>
       </div>
     </div>
   </div>
 </div>
 
-<div class="col-4 col-md-4 col-lg-3 justify-content-between">
-  <div class="d-block justify-content-between p-2">
-    <div class="leaderboard-card card">
-      <h5 class="leaderboard-card-title card-title font-weight-bold pt-3 text-center">Engagement Dank Leaders</h5>
-      <div class="leaderboard-card-body card-body">
-        <%= render @top_ten_users %>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="col-4 col-md-4 col-lg-3 justify-content-between">
-  <div class="d-block justify-content-between p-2">
-    <div class="leaderboard-card card">
-      <h5 class="leaderboard-card-title card-title font-weight-bold pt-3 text-center">Collection Dank Leaders</h5>
-      <div class="leaderboard-card-body card-body">
-        <%= render @top_ten_users %>
-      </div>
-    </div>
-  </div>
-</div>
