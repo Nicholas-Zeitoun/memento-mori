@@ -4,6 +4,7 @@ class CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
+    @top_ten_users = top_ten_users
   end
 
   def show
@@ -53,6 +54,16 @@ class CategoriesController < ApplicationController
   end
 
   private
+
+  def top_ten_users
+    # Get top 3 dank ranks total scores
+    # Get top 3 dank ranks total scores
+    top_danks = DankRank.order('total_score DESC').limit(6)
+    # For each top dank_rank, retrieve user
+    @users = top_danks.map do |dank|
+      User.find(dank.user_id)
+    end
+  end
 
   def set_category
     @category = Category.find(params[:id])

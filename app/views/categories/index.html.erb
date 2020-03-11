@@ -1,22 +1,45 @@
-<div class="content-dashboard row m-0">
-  <!-- Left side bar -->
-  <%= render 'shared/sidebars/left_sidebar' %>
+<div class="content-dashboard row m-0 p-0">
+  <!-- Left Dashboard -->
+  <div class="col-0 col-lg-2 p-0 d-none d-lg-flex flex-column">
+    <div class="left-dashboard">
+      <%= render 'shared/sidebars/left_sidebar' %>
+    </div>
+  </div>
 
-  <!-- Categories section -->
-  <div class="col-md-10 p-0 d-flex flex-column">
-    <div class="row m-0 p-0 d-none d-lg-flex">
-      <div class="col-12 m-0 p-0">
-        <div class="categories-carousel p-3">
+  <!-- Middle and Right Sections -->
+  <div class="meme-window col-md-12 col-lg-10 p-0 d-flex flex-column">
+
+    <!-- Right Dashboard -->
+    <div class="right-dashboard row m-0 p-0">
+      <!-- Meme window -->
+      <div class="col-12 col-md-12 col-lg-9 m-0 p-0">
+        <!-- Back Button Row -->
+        <div class="row justify-content-left p-3">
+          <%= link_to "< Back", request.referer %>
+        </div>
+        <!-- Categories List -->
+        <div class="categories-list text-center p-5">
           <% @categories.each do |category| %>
-            <a href="<%= category_path(category) %>">
-              <button type="button" class="btn btn-primary btn-sm"><%= category.name %>
-                <span class="badge badge-secondary"> <%= category.memes.count %> <i class="fas fa-images"></i></span>
-              </button>
-            </a>
+            <%= link_to "\##{category.name.gsub(/\s+/, "")}", category_path(category) %>
+            <span class="badge badge-secondary mr-2"> <%= category.memes.count %> <i class="fas fa-images"></i></span>
           <% end %>
         </div>
       </div>
+      <!-- Right side bar -->
+      <div class="right-sidebar col-0 col-md-0 col-lg-3 d-none d-lg-flex flex-column p-0">
+        <%= render 'shared/sidebars/right_sidebar' %>
+      </div>
     </div>
+  </div>
+
+  <!-- Mobile lower bar menu -->
+  <div class="d-block d-lg-none mobile-dash-menu green-testing">
   </div>
 </div>
 
+<%= content_for :after_js do %>
+  <%= javascript_pack_tag 'indexCollectFormValidation' %>
+<% end %>
+
+<!-- This code is crashing the app? -->
+<%= javascript_pack_tag 'liveLeaderboard' %>
