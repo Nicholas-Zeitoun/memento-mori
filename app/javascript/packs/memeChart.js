@@ -17,7 +17,6 @@ const meme7 = JSON.parse(chartDiv.dataset["meme7"]);
 // Themes begin
 am4core.useTheme(am4themes_animated);
 // Themes end
-// #535353
 
 
 let chart = am4core.create("js-meme-chart", am4charts.XYChart);
