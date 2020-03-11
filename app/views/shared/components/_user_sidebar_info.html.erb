@@ -1,6 +1,5 @@
-<div class="user-sidebar-info p-3 mt-3">
+<div class="user-sidebar-info p-3">
   <!-- Presents login form if not logged in -->
-  <h4><%= current_user.username %></h4>
   <a href="<%= user_path(current_user) %>">
     <% if current_user.avatar.attached? %>
       <%= image_tag current_user.avatar, class: "user-l-sidebar-info-image" %>
@@ -8,9 +7,10 @@
       <%= image_tag asset_path('default-avatar.png'), class: "user-l-sidebar-info-image" %>
     <% end %>
   </a>
+  <h4><%= current_user.username %></h4>
     <!-- <img class="user-l-sidebar-info-image m-0"> -->
   <div class="js-dankrefresh" data-user-id="<%= current_user.id %>" data-current-lvl="<%= current_user.dank_rank.total_score %>" data-next-lvl="<%= current_user.dank_rank.total_score + 1 %>">
-    <h5> Lvl. <%= current_user.get_dank_rank %></h5>
+    <h5 class="mb-3"> Lvl. <%= current_user.get_dank_rank %></h5>
     <div class="dank-rank-section">
       <div class="dank-bar">
         <div class="dank-filler" style="width: <%= current_user.dank_rank.rank_up_bar %>%;">
