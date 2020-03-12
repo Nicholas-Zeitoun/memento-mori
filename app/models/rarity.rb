@@ -10,30 +10,25 @@ class Rarity < ApplicationRecord
   end
 
   def get_rarity
-    case self.total_score
-    when 0
-      'blank-rank.png'
-    when 1
-      'blank-rank.png'
-    when 2
-      'bronze-rank.png'
-    when 3
-      'silver-rank.png'
-    when 4
-      'gold-rank.png'
-    when 5
-      'sapphire-rank.png'
-    when 6
-      'ruby-rank.png'
-    when 7
-      'emerald-rank.png'
-    when 8
-      'diamond-rank.png'
-    when 9
-      'diamond-rank.png'
-    else
+    if self.total_score > 100
       'dank-rank.png'
-    end
+    elsif self.total_score > 90
+      'diamond-rank.png'
+    elsif self.total_score > 80
+      'emerald-rank.png'
+    elsif self.total_score > 70
+      'ruby-rank.png'
+    elsif self.total_score > 60
+      'sapphire-rank.png'
+    elsif self.total_score > 50
+      'gold-rank.png'
+    elsif self.total_score > 20
+      'silver-rank.png'
+    elsif self.total_score > 10
+      'bronze-rank.png'
+    else
+     'blank-rank.png'
+   end
   end
 
   #test comment
