@@ -1,14 +1,9 @@
-<div class="meme-info p-3">
-  <div class="meme-user-info d-flex align-items-center">
-    <%= render 'shared/atoms/user_avatar' %>
-    <p class="m-0"> <%= link_to @meme.user.username, user_path(@meme.user) %> </p>
-  </div>
-  <div class="meme-stats">
-    <div class="engagement-stat mr-3">
-      <p>Likes: <%= @meme.likes.count %></p>
-    </div>
-    <div class="collection-stat mr-3">
-      <p>Collected: <%= @meme.collects.count %></p>
-    </div>
+
+<!-- Right side bar -->
+<div class="right-sidebar d-none d-lg-flex flex-column p-3">
+  <h3><%= @meme.title %></h3>
+  <div class="container-fluid d-flex p-0">
+  <h4><i class="fas fa-skull"></i>&nbsp<%= @meme.likes.count %>&nbsp</h4>
+  <h4>&nbsp<i class="fas fa-bookmark"></i>&nbsp<%= @meme.collects.count %></h4>
   </div>
 </div>
