@@ -1,8 +1,7 @@
 <div class="content-dashboard row m-0 p-0">
   <!-- Left Dashboard -->
   <div class="col-0 col-lg-2 p-0 d-none d-lg-flex flex-column">
-    <div class="left-dashboard red-testing">
-      <%#= render 'memes/meme_edit_left_sidebar' %>
+    <div class="left-dashboard">
       <%= render 'shared/sidebars/left_sidebar' %>
     </div>
   </div>
@@ -10,13 +9,19 @@
   <!-- Middle and Right Sections -->
   <div class="col-md-12 col-lg-10 p-0 d-flex flex-column">
     <!-- Categories topbar: Comment out when not in use -->
-    <!-- <div class="dashboard-carousel row m-0 p-0 d-none d-lg-flex grey-testing"> -->
-    <!-- </div> -->
-
-    <!-- Right Dashboard -->
-    <div class="right-dashboard row m-0 p-0">
-      <!-- Meme Window -->
-      <%= render 'memes/meme_upload' %>
+    <div class="back-bar row m-0 p-0 d-none d-lg-flex">
+      <div class="row category-title-bar m-0 align-items-center justify-content-between">
+        <div class="justify-content-left p-3">
+          <%= link_to "< Back", request.referer %>
+        </div>
+      </div>
+    </div>
+    <!-- Upload Dashboard -->
+    <div class="right-dashboard purple-back row m-0 p-0 d-flex justify-content-center align-items-center">
+      <!-- Meme window -->
+      <div class="meme-creation-section">
+        <%= render 'memes/meme_upload' %>
+      </div>
     </div>
   </div>
 
