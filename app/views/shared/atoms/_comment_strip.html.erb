@@ -1,6 +1,11 @@
 <div class="comment-strip d-flex flex-row" data-comment-id="<%= comment.id %>">
   <div class="pt-1">
-    <%= render partial: 'shared/atoms/user_avatar', collection: [comment.meme], as: :meme %>
+    <%#= render partial: 'shared/atoms/user_avatar', collection: [comment.meme], as: :meme %>
+    <% if comment.user.avatar.attached? %>
+      <%= image_tag comment.user.avatar, class: "avatar" %>
+    <% else %>
+      <%= image_tag asset_path('default-avatar.png'), class: "avatar" %>
+    <% end %>
   </div>
   <div class="comment-content container-fluid">
     <div class="comment-strip">
