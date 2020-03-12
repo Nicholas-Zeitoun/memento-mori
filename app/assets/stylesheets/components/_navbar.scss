@@ -1,19 +1,23 @@
 .navbar-memento {
   justify-content: space-between;
   background-color: black;
-  // font-size: 12px;
 }
 
 .navbar-memento .navbar-collapse {
   flex-grow: 0;
 }
 
+.navbar-logo {
+  padding: 20px;
+}
+
 //Nav search bar
 .nav-search-bar {
   border: none;
-  color: #B8B8B8;
+  color: #b8b8b8;
   padding: 3px 10px 3px 10px;
   border-radius: 25px;
+  font-size: 16px;
   &:focus {
     outline: none;
   }
