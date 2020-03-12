@@ -1,7 +1,9 @@
 function removeLike() {
   const like = document.querySelector("[data-meme-id='<%= @meme.id %>']");
+  const badge = document.querySelector("[data-meme-badge='<%= @like.meme_id %>']")
   console.log("hey from destroy ajax");
   like.innerHTML = '<%= j render "shared/components/like_toggle", meme: @meme %>';
+  badge.innerHTML = '<%= j render "shared/components/meme_badge", meme: Meme.find(params[:meme_id]) %>'
 };
 
 removeLike();

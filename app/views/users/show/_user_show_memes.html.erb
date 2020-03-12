@@ -1,10 +1,6 @@
-<div class="row p-3">
-  <div class="user-dashboard-title col-2">
-    <h2>My Memes</h2>
-  </div>
-
-  <div class="user-memes-section col-10 p-4">
-  <%= @user.memes.count %> meme(s)
+<div class="row p-4 d-flex justify-content-center">
+  <div class="user-memes-section col-10 p-3">
+  <h4><%= @user.memes.count %> meme(s)</h4>
   <hr>
     <div class="collection-section">
       <div class="meme-collection-cards">

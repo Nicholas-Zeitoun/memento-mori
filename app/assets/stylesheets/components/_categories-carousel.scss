@@ -1,11 +1,17 @@
 .categories-carousel {
   overflow-x: hidden;
-  // font-size: 24px;
 }
 
 .view-categories-section {
   display: flex;
   justify-content: center;
+  a {
+    border-radius: 4px;
+    background-color: #39095f;
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+  }
   &:hover {
     a {
       text-decoration: none;
@@ -13,19 +19,26 @@
   }
 }
 
-.scrolls {
-  padding: 8px;
+.categories-carousel-scrolls {
+  span {
+    padding: 8px;
+    font-size: 18px;
+  }
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
+  padding: 16px;
+  -webkit-box-shadow: inset -13px 10px 5px -15px rgba(136, 136, 136, 0.88);
+  -moz-box-shadow: inset -13px 10px 5px -15px rgba(136, 136, 136, 0.88);
+  box-shadow: inset -13px 10px 5px -15px rgba(136, 136, 136, 0.88);
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
-.scrolls::-webkit-scrollbar {
+.categories-carousel-scrolls::-webkit-scrollbar {
   display: none;
 }
 
 /* Hide scrollbar for IE and Edge */
-.scrolls {
+.categories-carousel-scrolls {
   -ms-overflow-style: none;
 }

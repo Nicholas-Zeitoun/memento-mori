@@ -1,5 +1,4 @@
 var coll = document.getElementsByClassName("collect-tag");
-var overlays = document.querySele
 var i;
 
 for (i = 0; i < coll.length; i++) {

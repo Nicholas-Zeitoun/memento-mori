@@ -28,7 +28,7 @@
       <div class="col-12 col-md-12 col-lg-12 m-0 p-0">
         <div class="memes-category-view">
           <% @collection.memes.each do |meme| %>
-            <div class="meme-cate-card d-flex flex-column">
+            <div data-collected-meme-id="<%= meme.id %>" class="meme-cate-card d-flex flex-column">
               <div class="catcol-card border-0 d-flex flex-column justify-content-center align-items-center row">
                 <%= render partial: 'memes/meme_flip_card', collection: [meme], as: :meme %>
               </div>
