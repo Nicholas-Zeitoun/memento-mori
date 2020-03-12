@@ -1,6 +1,6 @@
 function createCollect() {
   swal({
-    text: "meme collected!",
+    text: "<%= @collect.meme.title %> collected! 👏",
     icon: "success",
   });
   const imgForm = document.querySelector("[data-meme='<%= @collect.meme_id %>']")
