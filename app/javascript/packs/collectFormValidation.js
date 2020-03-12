@@ -12,3 +12,4 @@ newCollectionButton.addEventListener('click', () => {
     existingCollection.classList.add("d-none")
   }
 })
+

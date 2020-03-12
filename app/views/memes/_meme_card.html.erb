@@ -24,7 +24,7 @@
         </div>
       </div>
       <!-- Meme badge -->
-      <div class="meme-card-badge">
+      <div data-meme-badge="<%= meme.id %>" class="meme-card-badge">
         <%= image_tag asset_path(meme.rarity.get_rarity)%>
       </div>
       <!-- Tags -->

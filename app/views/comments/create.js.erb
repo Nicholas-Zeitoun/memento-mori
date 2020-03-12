@@ -9,9 +9,18 @@ function addComment(commentHTML) {
   comments.insertAdjacentHTML('beforeend', commentHTML);
 }
 
+function updateBadge(badgeHTML) {
+  console.log("hello from badge update")
+  const memeBadge = document.querySelector("[data-meme-badge='<%= params[:meme_id] %>']")
+  memeBadge.innerHTML = badgeHTML
+}
+
 function ajaxComments() {
   addComment('<%= j render "shared/atoms/comment_strip", comment: @comment %>');
   refreshForm('<%= j render "shared/components/comment_form", meme: Meme.find(params[:meme_id]) %>');
+  updateBadge('<%= j render "/shared/components/meme_badge", meme: Meme.find(params[:meme_id]) %>');
 }
 
 ajaxComments();
+
+
