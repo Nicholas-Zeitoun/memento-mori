@@ -19,22 +19,9 @@
           <% end %>
         </a>
         <!-- Overlay -->
-        <% collections = meme.collects.map { |collect| collect.collection } %>
-        <% result = collections.map { |collection| collection.user == current_user } %>
-        <% if result.include?(true) %>
-          <div class="meme-collect-form-overlay">
-            <div class="text">
-              <h5 class="text-white">Meme already collected!</h5>
-            </div>
-          </div>
-        <% else %>
-          <div class="meme-collect-form-overlay">
-            <div class="text">
-              <%= render partial: "collections/collection_form", collection: [meme], as: :meme, locals: { collect: @collect } %>
-            </div>
-          </div>
-        <% end %>
-
+        <div data-meme="<%= meme.id %>" class="js-ajax-collect">
+          <%= render partial: "memes/meme_card_overlay", collection: [meme], as: :meme %>
+        </div>
       </div>
       <!-- Meme badge -->
       <div class="meme-card-badge">
@@ -42,7 +29,8 @@
       </div>
       <!-- Tags -->
       <div class="meme-card-tags">
-
+      <% collections = meme.collects.map { |collect| collect.collection } %>
+      <% result = collections.map { |collection| collection.user == current_user } %>
         <% if result.include?(true) %>
           <div class="collect-tag collect-tag-selected d-flex justify-content-center">
             <i class="fas fa-bookmark"></i>

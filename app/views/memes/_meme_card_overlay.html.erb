@@ -1,0 +1,15 @@
+<% collections = meme.collects.map { |collect| collect.collection } %>
+<% result = collections.map { |collection| collection.user == current_user } %>
+<% if result.include?(true) %>
+  <div class="meme-collect-form-overlay">
+    <div class="text">
+      <h5 class="text-white">Meme already collected!</h5>
+    </div>
+  </div>
+<% else %>
+  <div class="meme-collect-form-overlay">
+    <div class="text">
+      <%= render partial: "collections/collection_form", collection: [meme], as: :meme, locals: { collect: @collect } %>
+    </div>
+  </div>
+<% end %>
