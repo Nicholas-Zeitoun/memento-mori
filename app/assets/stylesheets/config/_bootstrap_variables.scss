@@ -3,25 +3,25 @@
 // 2. These variables are defined with default value (see https://robots.thoughtbot.com/sass-default)
 // 3. You can override them below!
 // memento colours
-$memento-primary: #39095F;
+$memento-primary: #39095f;
 
 // General style
-$font-family-sans-serif:  $body-font;
-$headings-font-family:    $headers-font;
-$body-bg:                 $light-gray;
+$font-family-sans-serif: $body-font;
+$headings-font-family: $headers-font;
+$body-bg: $light-gray;
 $font-size-base: 1rem;
 
 // Colors
 $body-color: $gray;
-$primary:    $memento-primary;
-$success:    $green;
-$info:       $yellow;
-$danger:     $red;
-$warning:    $orange;
+$primary: $memento-primary;
+$success: $green;
+$info: $yellow;
+$danger: $red;
+$warning: $orange;
 
 // Buttons & inputs' radius
-$border-radius:    2px;
-$border-radius-lg: 2px;
-$border-radius-sm: 2px;
+$border-radius: 4px;
+$border-radius-lg: 4px;
+$border-radius-sm: 4px;
 
 // Override other variables below!
