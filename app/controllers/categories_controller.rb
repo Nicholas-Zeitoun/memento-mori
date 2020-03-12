@@ -57,12 +57,13 @@ class CategoriesController < ApplicationController
 
   def top_ten_users
     # Get top 3 dank ranks total scores
-    # Get top 3 dank ranks total scores
     top_danks = DankRank.order('total_score DESC').limit(6)
-    # For each top dank_rank, retrieve user
-    @users = top_danks.map do |dank|
-      User.find(dank.user_id)
-    end
+    # For each top dank_rank, retrieve [lvl, points, id]
+    top_users = top_danks.map { |dank| [User.find(dank.user_id).dank_rank.total_score, User.find(dank.user_id).dank_rank.rank_up_xp_progress, User.find(dank.user_id).id] }
+    # Sort that array by level and then points
+    top_users.sort!{|a, b| b <=> a}
+    # Return the users
+    return top_users.map { |array| User.find(array[2]) }
   end
 
   def set_category
