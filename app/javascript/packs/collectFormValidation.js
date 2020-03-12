@@ -1,25 +1,15 @@
-const existingCollection = document.querySelector("#collect_collection_id")
-const newCollection = document.querySelector("#collect_collection_name")
-document.querySelector("#magic").disabled = true
+const newCollection = document.querySelector(".new-collection-input");
+const existingCollection = document.querySelector(".existing-collection-input");
+const newCollectionButton = document.querySelector(".add-collection");
 
-const checkValid = () => {
-  if (existingCollection.value == '' && newCollection.value == '') {
-    document.querySelector("#magic").disabled = true
-  } else if (existingCollection.value !== '' && newCollection.value !== '') {
-    document.querySelector("#magic").disabled = true
+newCollectionButton.addEventListener('click', () => {
+  newCollection.classList.toggle("d-none");
+  if (newCollection.classList.contains("d-none")) {
+    newCollectionButton.innerText = "Or use an existing collection"
+    existingCollection.classList.remove("d-none")
   } else {
-    document.querySelector("#magic").disabled = false
+    newCollectionButton.innerText = "Or create a new one to add this meme to"
+    existingCollection.classList.add("d-none")
   }
-}
-
-existingCollection.addEventListener('change', () => {
-  checkValid();
 })
 
-newCollection.addEventListener('change', () => {
-  checkValid();
-})
-
-// grab both form fields
-// check if either have a value
-// if neither have a value; disable

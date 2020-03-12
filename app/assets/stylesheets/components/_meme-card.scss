@@ -1,7 +1,7 @@
 .meme-card {
   // height: 100px;
   width: 500px;
-
+  z-index: 1;
   // background-color: blue;
 }
 
@@ -57,9 +57,21 @@
   color: #8D8D8D;
 }
 
+.meme-card-username {
+  color: #8D8D8D;
+  opacity: 0.7;
+  text-decoration: none;
+  transition: 0.3s;
+  &:hover {
+    text-decoration: none;
+    color: #8D8D8D;
+    opacity: 1;
+  }
+}
+
 .meme-card-tags {
   position: absolute;
-  // z-index: -1;
+  z-index: 1;
   left: 100%;
   bottom: 20px;
 
@@ -135,6 +147,18 @@
   right: 0;
   overflow: hidden;
   transition: .5s ease;
+}
+
+.add-collection {
+  color: white;
+  text-decoration: none;
+  opacity: 1;
+  transition: .5s ease;
+  &:hover {
+    text-decoration: none;
+    color: white;
+    opacity: 0.7;
+  }
 }
 
 .expand-overlay {

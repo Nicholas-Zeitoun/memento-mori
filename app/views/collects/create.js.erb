@@ -1,9 +1,15 @@
 function createCollect() {
+  swal({
+    text: "meme collected!",
+    icon: "success",
+  });
   const imgForm = document.querySelector("[data-meme='<%= @collect.meme_id %>']")
   const myColl = document.querySelector(".js-ajax-mycollections")
+  const memeBadge = document.querySelector("[data-meme-badge='<%= @collect.meme_id %>']")
   console.log("hey from collect ajax");
-  imgForm.innerHTML = '<%= j render "/shared/components/meme_feed_card_image", meme: Meme.find(params[:meme_id]) %>';
+  imgForm.innerHTML = '<%= j render "/memes/meme_card_overlay", meme: Meme.find(params[:meme_id]) %>';
   myColl.innerHTML = '<%= j render "/shared/sidebars/left_sidebar_mycollect" %>';
+  memeBadge.innerHTML = '<%= j render "/shared/components/meme_badge", meme: Meme.find(params[:meme_id]) %>';
 }
 
 createCollect();

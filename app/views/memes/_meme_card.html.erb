@@ -11,36 +11,26 @@
     <div class="meme-card-content">
       <!-- Meme image -->
       <div class="meme-card-content-image">
-        <% if meme.image.attached? %>
-          <%= cl_image_tag meme.image.key %>
-        <% else %>
-          <%= image_tag meme.image_url %>
-        <% end %>
+        <a href="<%= meme_path(meme) %>">
+          <% if meme.image.attached? %>
+            <%= cl_image_tag meme.image.key %>
+          <% else %>
+            <%= image_tag meme.image_url %>
+          <% end %>
+        </a>
         <!-- Overlay -->
-        <% collections = meme.collects.map { |collect| collect.collection } %>
-        <% result = collections.map { |collection| collection.user == current_user } %>
-        <% if result.include?(true) %>
-          <div class="meme-collect-form-overlay">
-            <div class="text">
-              <h5 class="text-white">Meme already collected!</h5>
-            </div>
-          </div>
-        <% else %>
-          <div class="meme-collect-form-overlay">
-            <div class="text">
-              <%= render partial: "collections/collection_form", collection: [meme], as: :meme, locals: { collect: @collect } %>
-            </div>
-          </div>
-        <% end %>
-
+        <div data-meme="<%= meme.id %>" class="js-ajax-collect">
+          <%= render partial: "memes/meme_card_overlay", collection: [meme], as: :meme %>
+        </div>
       </div>
       <!-- Meme badge -->
-      <div class="meme-card-badge">
+      <div data-meme-badge="<%= meme.id %>" class="meme-card-badge">
         <%= image_tag asset_path(meme.rarity.get_rarity)%>
       </div>
       <!-- Tags -->
       <div class="meme-card-tags">
-
+      <% collections = meme.collects.map { |collect| collect.collection } %>
+      <% result = collections.map { |collection| collection.user == current_user } %>
         <% if result.include?(true) %>
           <div class="collect-tag collect-tag-selected d-flex justify-content-center">
             <i class="fas fa-bookmark"></i>
@@ -60,14 +50,16 @@
 
     <!-- Meme info -->
     <div class="meme-card-info d-flex">
-      <div>
-        <% if meme.user.avatar.attached? %>
-          <%= image_tag meme.user.avatar, class: "avatar" %>
-        <% else %>
-               <%= image_tag asset_path('default-avatar.png'), class: "avatar" %>
-        <% end %>
-        <%= meme.user.username %>
-      </div>
+      <!-- <a href="<%= user_path(meme.user) %>" class="meme-card-username"> -->
+        <div>
+          <% if meme.user.avatar.attached? %>
+            <%= image_tag meme.user.avatar, class: "avatar" %>
+          <% else %>
+                 <%= image_tag asset_path('default-avatar.png'), class: "avatar" %>
+          <% end %>
+          <%= link_to meme.user.username, user_path(meme.user), class: "meme-card-username" %>
+        </div>
+      <!-- </a> -->
       <div>
         <i class="fas fa-comment-alt"></i>&nbsp<%= meme.comments.count %>
       </div>
