@@ -11,11 +11,13 @@
     <div class="meme-card-content">
       <!-- Meme image -->
       <div class="meme-card-content-image">
-        <% if meme.image.attached? %>
-          <%= cl_image_tag meme.image.key %>
-        <% else %>
-          <%= image_tag meme.image_url %>
-        <% end %>
+        <a href="<%= meme_path(meme) %>">
+          <% if meme.image.attached? %>
+            <%= cl_image_tag meme.image.key %>
+          <% else %>
+            <%= image_tag meme.image_url %>
+          <% end %>
+        </a>
         <!-- Overlay -->
         <% collections = meme.collects.map { |collect| collect.collection } %>
         <% result = collections.map { |collection| collection.user == current_user } %>
@@ -60,14 +62,16 @@
 
     <!-- Meme info -->
     <div class="meme-card-info d-flex">
-      <div>
-        <% if meme.user.avatar.attached? %>
-          <%= image_tag meme.user.avatar, class: "avatar" %>
-        <% else %>
-               <%= image_tag asset_path('default-avatar.png'), class: "avatar" %>
-        <% end %>
-        <%= meme.user.username %>
-      </div>
+      <!-- <a href="<%= user_path(meme.user) %>" class="meme-card-username"> -->
+        <div>
+          <% if meme.user.avatar.attached? %>
+            <%= image_tag meme.user.avatar, class: "avatar" %>
+          <% else %>
+                 <%= image_tag asset_path('default-avatar.png'), class: "avatar" %>
+          <% end %>
+          <%= link_to meme.user.username, user_path(meme.user), class: "meme-card-username" %>
+        </div>
+      <!-- </a> -->
       <div>
         <i class="fas fa-comment-alt"></i>&nbsp<%= meme.comments.count %>
       </div>
