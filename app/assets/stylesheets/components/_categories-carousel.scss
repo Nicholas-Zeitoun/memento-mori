@@ -31,6 +31,14 @@
   -webkit-box-shadow: inset -13px 10px 5px -15px rgba(136, 136, 136, 0.88);
   -moz-box-shadow: inset -13px 10px 5px -15px rgba(136, 136, 136, 0.88);
   box-shadow: inset -13px 10px 5px -15px rgba(136, 136, 136, 0.88);
+
+  a {
+    transition: 0.5s;
+    &:hover {
+      text-decoration: none;
+      opacity: 0.6;
+    }
+  }
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
