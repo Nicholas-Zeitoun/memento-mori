@@ -7,19 +7,19 @@
   </div>
 
   <!-- Middle and Right Sections -->
-  <div class="col-md-12 col-lg-10 p-0 d-flex flex-column">
-    <!-- Categories topbar: Comment out when not in use -->
-    <div class="dashboard-carousel row m-0 p-0 d-none d-lg-flex">
-      <%= render 'shared/components/categories_carousel' %>
-    </div>
+  <div class="meme-window col-md-12 col-lg-10 p-0 d-flex flex-column">
     <!-- Right Dashboard -->
     <div class="right-dashboard row m-0 p-0">
       <!-- Meme window -->
       <div class="col-12 col-md-12 col-lg-9 m-0 p-0">
+        <!-- Categories topbar: Comment out when not in use -->
+        <%# <div class="dashboard-carousel row m-0 p-0 d-none d-lg-flex"> %>
+          <%= render 'shared/components/categories_carousel' %>
+        <%# </div> %>
         <%= render 'memes/memes_feed' %>
       </div>
       <!-- Right side bar -->
-      <div class="col-0 col-md-0 col-lg-3 d-none d-lg-flex flex-column p-0">
+      <div class="right-sidebar col-0 col-md-0 col-lg-3 d-none d-lg-flex flex-column p-0">
         <%= render 'shared/sidebars/right_sidebar' %>
       </div>
     </div>
