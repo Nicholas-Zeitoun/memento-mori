@@ -27,7 +27,7 @@
         <div class="categories-list flex-wrap p-5">
           <% @categories.each do |category| %>
             <span class= "d-inline-block">
-              <%= link_to "\##{category.name.gsub(/\s+/, "")}", category_path(category) %>
+              <%= link_to "\##{category.name.gsub(/\s+/, "")}".downcase, category_path(category) %>
               <!-- <%# <span class="badge badge-secondary mr-2"> <%# category.memes.count %> <i class="fas fa-images"></i></span> -->
             </span>
           <% end %>

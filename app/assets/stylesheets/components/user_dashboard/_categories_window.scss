@@ -2,13 +2,16 @@
   background-color: #3b0655;
   a {
     color: white;
+    text-decoration: none;
+    transition: 0.5s;
+    &:hover {
+      text-decoration: none;
+      opacity: 0.5;
+    }
   }
 }
 
 .categories-title-bar {
-  a {
-    text-decoration: none;
-  }
   h5 {
     color: white;
   }
