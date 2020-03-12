@@ -1,25 +1,16 @@
-<div class="row pt-4 d-flex justify-content-center">
+<div class="row p-4 d-flex justify-content-center">
   <div class="user-collections-section col-12 m-0 p-3 d-flex justify-content-center">
     <div class="collections-window">
       <h4><%= @user.collections.count %> Collection(s)</h4>
       <hr>
       <% @user.collections.each do |collection| %>
         <div class="collection-section">
-          <div class="row">
-            <div class="col-10">
-              <h4><%= collection.name %></h4>
+            <div class="container-fluid d-flex justify-content-between">
+              <h5><%= collection.name %></h5>
+                <%= link_to 'View collection', user_collection_path(@user, collection), class: "btn btn-primary" %>
             </div>
-            <div class="col-2 d-flex align-items-center justify-content-end">
-              <% unless collection.memes.empty? %>
-                <span class="badge badge-primary align-baseline"><i class="fas fa-clone"></i>
-                <%= collection.memes.count %></span>
-                &nbsp<span class="badge badge-secondary align-baseline"><i class="fas fa-user"></i>
-                <%= collection.followers.count %></span>
-              <% end %>
-            </div>
-          </div>
           <div class="meme-collection-cards">
-            <% collection.memes.each do |collection_meme| %>
+            <% collection.memes[0,3].each do |collection_meme| %>
               <!-- <div class="meme-collection-card"> -->
                 <%#= collection_meme.title %>
               <!-- </div> -->
@@ -30,9 +21,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-12 d-flex justify-content-end">
-            <%= link_to 'View collection', user_collection_path(@user, collection), class: "btn btn-primary" %>
-          </div>
+
         </div>
         <hr>
       <% end %>
