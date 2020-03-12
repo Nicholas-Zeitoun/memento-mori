@@ -1,0 +1,24 @@
+.categories-window {
+  background-color: #3b0655;
+  a {
+    color: white;
+  }
+}
+
+.categories-title-bar {
+  a {
+    text-decoration: none;
+  }
+  h5 {
+    color: white;
+  }
+}
+
+.categories-list {
+  font-size: 22px;
+  span {
+    padding: 10px;
+    margin: 10px;
+    justify-content: space-between;
+  }
+}
