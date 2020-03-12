@@ -14,7 +14,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-
   # Functionality calling AJAX for following users
   def follow
     if current_user.follow(@user.id)
@@ -41,39 +40,46 @@ class UsersController < ApplicationController
   # Retrieving top 3 users based on their dank_rank.total_score
   def top_ten_users
     # Get top 3 dank ranks total scores
-    # Get top 3 dank ranks total scores
     top_danks = DankRank.order('total_score DESC').limit(6)
-    # For each top dank_rank, retrieve user
-    return top_danks.map do |dank|
-      User.find(dank.user_id)
-    end
+    # For each top dank_rank, retrieve [lvl, points, id]
+    top_users = top_danks.map { |dank| [User.find(dank.user_id).dank_rank.total_score, User.find(dank.user_id).dank_rank.rank_up_xp_progress, User.find(dank.user_id).id] }
+    # Sort that array by level and then points
+    top_users.sort!{|a, b| b <=> a}
+    # Return the users
+    return top_users.map { |array| User.find(array[2]) }
   end
 
   def top_ten_creation
     # Get top 6 creation scores
     top_creations = DankRank.order('creation DESC').limit(6)
-    # For each top creation, retrieve user
-    return top_creations.map do |dank|
-      User.find(dank.user_id)
-    end
+    # For each top creation, retrieve [lvl, points, id]
+    top_users = top_creations.map { |dank| [User.find(dank.user_id).dank_rank.total_score, User.find(dank.user_id).dank_rank.rank_up_xp_progress, User.find(dank.user_id).id] }
+    # Sort that array by level and then points
+    top_users.sort!{|a, b| b <=> a}
+    # Return the users
+    return top_users.map { |array| User.find(array[2]) }
   end
 
   def top_ten_collection
     # Get top 6 collection scores
     top_collections = DankRank.order('collection DESC').limit(6)
-    # For each top collection, retrieve user
-    return top_collections.map do |dank|
-      User.find(dank.user_id)
-    end
+    # For each top collections, retrieve [lvl, points, id]
+    top_users = top_collections.map { |dank| [User.find(dank.user_id).dank_rank.total_score, User.find(dank.user_id).dank_rank.rank_up_xp_progress, User.find(dank.user_id).id] }
+    # Sort that array by level and then points
+    top_users.sort!{|a, b| b <=> a}
+    # Return the users
+    return top_users.map { |array| User.find(array[2]) }
   end
 
   def top_ten_engagement
     # Get top 6 engagement scores
     top_engagements = DankRank.order('engagement DESC').limit(6)
-    # For each top engagement, retrieve user
-    return top_engagements.map do |dank|
-      User.find(dank.user_id)
-    end
+    # For each top engagement, retrieve [lvl, points, id]
+    top_users = top_engagements.map { |dank| [User.find(dank.user_id).dank_rank.total_score, User.find(dank.user_id).dank_rank.rank_up_xp_progress, User.find(dank.user_id).id] }
+    # Sort that array by level and then points
+    top_users.sort!{|a, b| b <=> a}
+    # Return the users
+    return top_users.map { |array| User.find(array[2]) }
   end
 
   private
