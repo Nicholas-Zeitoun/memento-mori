@@ -10,7 +10,7 @@
     <!-- Meme content -->
     <div class="meme-card-content">
       <!-- Meme image -->
-      <div class="meme-card-content-image">
+      <div class="meme-card-content-image grow">
         <a href="<%= meme_path(meme) %>">
           <% if meme.image.attached? %>
             <%= cl_image_tag meme.image.key %>

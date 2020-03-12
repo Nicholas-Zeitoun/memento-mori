@@ -49,6 +49,16 @@
   }
 }
 
+.grow { transition: all .3s ease-in-out; }
+.grow:hover {
+  transform: translate(0px, -3px);
+  .meme-card-content-image {
+    img {
+      box-shadow: 0px 3px 24px rgba(0,0,0, 1);
+    }
+  }
+}
+
 .meme-card-info {
   padding: 6px;
   display: flex;
