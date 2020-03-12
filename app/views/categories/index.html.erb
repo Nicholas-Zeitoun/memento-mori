@@ -12,17 +12,23 @@
     <!-- Right Dashboard -->
     <div class="right-dashboard row m-0 p-0">
       <!-- Meme window -->
-      <div class="col-12 col-md-12 col-lg-9 m-0 p-0">
-        <!-- Back Button Row -->
-        <div class="row justify-content-left p-3">
-          <%= link_to "< Back", request.referer %>
+      <div class="categories-window col-12 col-md-12 col-lg-9 m-0 p-0">
+        <!-- Title bar -->
+        <div class="row categories-title-bar d-flex align-items-center justify-content-center">
+          <%# <div class="categories-title-bar-back-btn p-3">
+            <%= link_to "< Back", request.referer %>
+          <%# </div> %>
+          <div class="categories-title-bar-title p-3">
+            <h5>All Categories</h5>
+          </div>
         </div>
+  
         <!-- Categories List -->
-        <div class="categories-list text-center p-5">
+        <div class="categories-list flex-wrap p-5">
           <% @categories.each do |category| %>
             <span class= "d-inline-block">
-              <%= link_to "\##{category.name.gsub(/\s+/, "")}", category_path(category) %>
-              <span class="badge badge-secondary mr-2"> <%= category.memes.count %> <i class="fas fa-images"></i></span>
+              <%= link_to "\##{category.name.gsub(/\s+/, "")}".downcase, category_path(category) %>
+              <!-- <%# <span class="badge badge-secondary mr-2"> <%# category.memes.count %> <i class="fas fa-images"></i></span> -->
             </span>
           <% end %>
         </div>

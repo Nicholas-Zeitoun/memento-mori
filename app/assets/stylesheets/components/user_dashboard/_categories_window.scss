@@ -1,0 +1,29 @@
+.categories-window {
+  background-color: #3b0655;
+  a {
+    color: white;
+    text-decoration: none;
+    transition: 0.5s;
+    &:hover {
+      text-decoration: none;
+      opacity: 0.5;
+    }
+  }
+}
+
+.categories-title-bar {
+  h5 {
+    color: white;
+  }
+}
+
+.categories-list {
+  font-size: 22px;
+  span {
+    padding: 10px;
+    margin: 10px;
+    justify-content: space-between;
+  }
+  height: 500px;
+  overflow: scroll;
+}
