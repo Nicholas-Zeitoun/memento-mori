@@ -26,7 +26,7 @@ const updateDankScore = (dankRank) => {
         <div class="dank-filler" style="width: ${dankRank['rank_up_bar']}%;">
         </div>
       </div>
-      <p><a href="#" class="badge badge-primary mt-2"> ${dankRank['rank_up_xp_progress']} / ${dankRank['rank_up_xp_required']} </a> until next level</p>
+      <p class="d-flex justify-content-center"><a href="#" class="badge badge-primary mt-2"> ${dankRank['rank_up_xp_progress']} / ${dankRank['rank_up_xp_required']} </a></p>
 
       <div class="row text-center">
         <div class="engagement-score col-4">
