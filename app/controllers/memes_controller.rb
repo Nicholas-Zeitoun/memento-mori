@@ -86,7 +86,7 @@ class MemesController < ApplicationController
     @meme.rarity.destroy
     @meme.collects.destroy_all
     @meme.comments.destroy_all
-    @meme.likes.destroy
+    @meme.likes.destroy_all
     @meme.destroy
     redirect_to user_path(current_user)
     current_user.set_dank_rank

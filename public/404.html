@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The page you were looking for doesn't exist (404)</title>
+  <title>Uh oh!</title>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <style>
   .rails-default-error-page {
@@ -9,7 +9,11 @@
     color: #2E2F30;
     text-align: center;
     font-family: arial, sans-serif;
-    margin: 0;
+    /*margin: 0;*/
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .rails-default-error-page div.dialog {
@@ -32,8 +36,8 @@
   }
 
   .rails-default-error-page h1 {
-    font-size: 100%;
-    color: #730E15;
+    font-size: 48px;
+    color: #3B0655;
     line-height: 1.5em;
   }
 
@@ -51,17 +55,20 @@
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
+
+  img {
+    height: 400px;
+    border-radius: 12px;
+    box-shadow: 0 0px 16px rgba(50, 50, 50, 0.5);
+  }
   </style>
 </head>
 
 <body class="rails-default-error-page">
   <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <div>
-      <h1>The page you were looking for doesn't exist.</h1>
-      <p>You may have mistyped the address or the page may have moved.</p>
-    </div>
-    <p>If you are the application owner check the logs for more information.</p>
+  <div>
+    <h1>Uh oh!</h1>
+    <img src="http://localhost:3000/404.png" style="height: 400px;">
   </div>
 </body>
 </html>
