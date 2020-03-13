@@ -1,4 +1,6 @@
 <% if @meme.user.avatar.attached? %>
   <%= image_tag @meme.user.avatar, class: "avatar" %>
+<% else %>
+  <%= image_tag asset_path('default-avatar.png'), class: "avatar" %>
 <% end %>
 <!-- Should add a default avatar for users without one -->
