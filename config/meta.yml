@@ -1,0 +1,5 @@
+meta_product_name: "Memento Mori - Meme Forrest"
+meta_title: "Memento ☠️"
+meta_description: "The best place to create, collect and engage with yo dank memes!"
+meta_image: "memento-thumbnail.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
