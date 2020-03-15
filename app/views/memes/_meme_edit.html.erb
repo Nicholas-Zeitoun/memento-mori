@@ -1,0 +1,125 @@
+<%= simple_form_for @meme do |f| %>
+<div class="meme-form-section row">
+    <!-- Meme info inputs -->
+    <div class="meme-form-left text-center col-4">
+      <h3 class="mb-4">Edit your meme</h3>
+      <%= f.input :title, label: false, input_html: { class: 'memento-input'}, placeholder: 'Meme title...' %>
+
+      <div class="existing-category-input">
+        <%= f.association :category, label: false, input_html: { class: 'memento-input'}, prompt: "Choose a Category" %>
+      </div>
+
+      <div class="d-none new-category-input">
+        <%= f.simple_fields_for :category do |category| %>
+          <%= category.input :name, label: false, input_html: { class: 'memento-input'}, placeholder: "New category" %>
+        <% end %>
+      </div>
+
+      <%= link_to "...or create a new category", '#', class: "add-category" %>
+
+      <div class="upload-photo mt-4">
+        <%= f.input :image, input_html: { class: 'hidden', id: 'photo-input' }, label: '📷 Change your meme!' %>
+      </div>
+    </div>
+
+    <!-- Meme upload input -->
+    <div class="meme-form-right d-flex align-items-center flex-column col-8 bg-white">
+      <div>
+        <div class="meme-card-content" style="width: 350px;">
+          <div class="meme-card-content-image trump-back mt-3">
+            <%= image_tag asset_path('logo.png'), width: 300, class: "hidden", id: "photo-preview" %>
+            <!-- Meme badge -->
+          </div>
+          <div class="meme-card-badge">
+            <%= image_tag asset_path('blank-rank.png')%>
+          </div>
+        </div>
+
+          <!-- Meme info -->
+          <div class="meme-card-info d-flex">
+            <div>
+              <% if current_user.avatar.attached? %>
+                <%= image_tag current_user.avatar, class: "avatar" %>
+              <% else %>
+                     <%= image_tag asset_path('default-avatar.png'), class: "avatar" %>
+              <% end %>
+              <%= current_user.username %>
+            </div>
+        </div>
+      </div>
+
+      <!-- <div class="url-meme-input d-none mt-3"> -->
+        <%#= f.input :image_url, label: false, placeholder: 'Or paste image url here...', class: "preview", name: "thumbnail" %>
+      <!-- </div> -->
+        <%#= link_to "...or use a url", '#', class: "choose-url" %>
+      <div class="mt-4">
+        <%= f.submit 'Create!', class: "btn btn-primary text-white" %>
+      </div>
+    </div>
+</div>
+<% end %>
+
+<script>
+  const newImageCategory = document.querySelector(".new-category-input");
+  const existingCategories = document.querySelector(".existing-category-input");
+  const newCategoryButton = document.querySelector(".add-category");
+
+  newCategoryButton.addEventListener('click', () => {
+    newImageCategory.classList.toggle("d-none");
+    if (newImageCategory.classList.contains("d-none")) {
+      newCategoryButton.innerText = "...or create new category"
+      existingCategories.classList.remove("d-none")
+    } else {
+      newCategoryButton.innerText = "...or use existing category"
+      existingCategories.classList.add("d-none")
+    }
+  })
+
+  $(function() {
+    $('#meme_image').on('change', function(event) {
+      console.log("this was clicked derp");
+      var files = event.target.files;
+      var image = files[0]
+      // here's the file size
+      console.log(image.size);
+      var reader = new FileReader();
+      reader.onload = function(file) {
+        var img = new Image();
+        console.log(file);
+        img.src = file.target.result;
+        $('.meme-preview-card')
+          .html(img)
+          .width(100);
+      }
+      reader.readAsDataURL(image);
+      console.log(files);
+      document.getSelector('.meme-preview-card').style.display = "none";
+    });
+  });
+
+  const previewImageOnFileSelect = () => {
+    // we select the photo input
+    const uploadedMeme = document.getElementById('photo-input');
+    if (uploadedMeme) {
+      // we add a listener to know when a new picture is uploaded
+      uploadedMeme.addEventListener('change', () => {
+        // we call the displayPreview function (who retrieve the image url and display it)
+        console.log("chhcanged!");
+        displayPreview(uploadedMeme);
+      })
+    }
+  }
+
+  const displayPreview = (input) => {
+    if (input.files && input.files[0]) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        document.getElementById('photo-preview').src = event.currentTarget.result;
+      }
+      reader.readAsDataURL(input.files[0])
+      document.getElementById('photo-preview').classList.remove('hidden');
+    }
+  }
+
+  previewImageOnFileSelect()
+</script>

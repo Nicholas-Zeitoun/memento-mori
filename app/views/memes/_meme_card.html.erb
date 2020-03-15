@@ -15,7 +15,11 @@
           <% if meme.image.attached? %>
             <%= cl_image_tag meme.image.key %>
           <% else %>
-            <%= image_tag meme.image_url %>
+            <% if meme.image_url.nil? %>
+              <%= image_tag asset_path('default-avatar.png') %>
+            <% else %>
+              <%= image_tag meme.image_url %>
+            <% end %>
           <% end %>
         </a>
         <!-- Overlay -->

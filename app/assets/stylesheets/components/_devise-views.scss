@@ -1,0 +1,89 @@
+.sign-up-background {
+  background-color: $light-gray;
+}
+
+.login-section {
+  background-color: $light-gray;
+  // min-width: 500px;
+  padding: 45px;
+  border-radius: 8px;
+}
+
+.login-logo {
+  padding: 45px;
+}
+
+.login-logo-img {
+    width: 250px;
+  }
+
+.memento-button {
+  width: auto;
+  font-family: Ubuntu;
+
+}
+
+.form-check-label {
+  color: #A3A3A3;
+  font-family: Ubuntu;
+  font-size: 12px;
+}
+
+.sign-up-section {
+  display: flex;
+  text-align: center;
+  a {
+    padding: 15px;
+    color: white;
+    transition: 0.3s;
+    opacity: 0.7;
+    &:hover {
+      text-decoration: none;
+      opacity: 0.5;
+    }
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .login-section {
+    margin: 15px;
+    padding: 45px;
+    border-radius: 8px;
+  }
+
+  .login-logo-img {
+    width: 250px;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .login-section {
+    margin: 15px;
+    padding: 45px;
+    border-radius: 8px;
+  }
+
+  .login-logo-img {
+    width: 250px;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+
+  .login-section {
+    min-width: 500px;
+    padding: 45px;
+  }
+
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .login-section {
+    min-width: 500px;
+    padding: 45px;
+  }
+}
