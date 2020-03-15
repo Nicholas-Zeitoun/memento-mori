@@ -14,9 +14,13 @@
 
         <% dataArray = [] %>
         <% latest_memes.each_with_index do |meme, ind| %>
+          <% meme_image = "" %>
+          <% if meme.image.attached? %>
+            <% meme_image = cl_image_path(meme.image.key) %>
+          <% end %>
           <% dataArray << { name: (meme.title[0,6] + "..."),
                      steps: meme.rarity.total_score,
-                     href: cl_image_path(meme.image.key) } %>
+                     href: meme_image } %>
         <% end %>
 
         <%= content_tag :div, style:"height: 400px", id: "js-meme-chart",

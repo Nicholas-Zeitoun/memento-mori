@@ -6,48 +6,51 @@
     <!-- Right Dashboard -->
     <div class="right-dashboard row m-0 p-0">
       <!-- Meme window -->
-      <div class="col-12 col-md-12 col-lg-6 p-5">
-
-         <h2>Sign up</h2>
-
-         <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-         <%= f.error_notification %>
-
-           <div class="form-inputs">
-             <%= f.input :username,
-                         required: true,
-                         autofocus: true,
-                         input_html: { autocomplete: "username" }%>
-             <%= f.input :email,
-                         required: true,
-                         autofocus: true,
-                         input_html: { autocomplete: "email" }%>
-             <%= f.input :password,
-                         required: true,
-                         hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                         input_html: { autocomplete: "new-password" } %>
-             <%= f.input :password_confirmation,
-                         required: true,
-                         input_html: { autocomplete: "new-password" } %>
-           </div>
-
-           <div class="col-12 btn btn-primary form-actions">
-             <%= f.button :submit, "Sign up", class: "text-white" %>
-           </div>
-         <% end %>
-
-         <!-- Space between button and devise Sign up / Forgot Password Links -->
-         <br>
-         <%= render "devise/shared/links" %>
-
+      <div class="col-12 col-md-12 col-lg-6 p-5 d-flex flex-column justify-content-center sign-up-background">
+        <div class="login-section">
+          <h2>Sign up</h2>
+          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+          <%= f.error_notification %>
+            <div class="form-inputs">
+              <%= f.input :username,
+                          required: true,
+                          autofocus: true,
+                          label: false,
+                          input_html: { class: 'memento-input mt-4', autocomplete: "username" },
+                          placeholder: 'Username' %>
+              <%= f.input :email,
+                          required: true,
+                          autofocus: true,
+                          label: false,
+                          input_html: { class: 'memento-input', autocomplete: "email" },
+                          placeholder: 'Email' %>
+              <%= f.input :password,
+                          required: true,
+                          label: false,
+                          hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                          input_html: { class: 'memento-input mt-4', autocomplete: "new-password" },
+                          placeholder: 'Password' %>
+              <%= f.input :password_confirmation,
+                          required: true,
+                          label: false,
+                          input_html: { class: 'memento-input', autocomplete: "new-password" },
+                          placeholder: 'Password confirmation' %>
+            </div>
+            <div class="col-12 btn btn-primary form-actions">
+              <%= f.button :submit, "Sign up", class: "memento-button text-white" %>
+            </div>
+          <% end %>
+          <!-- Space between button and devise Sign up / Forgot Password Links -->
+          <br>
+          <%= render "devise/shared/links" %>
+        </div>
       </div>
       <!-- Right side bar -->
-      <div class="col-0 col-md-0 col-lg-6 d-none d-lg-flex flex-column text-center bg-primary p-5">
-            <div class="banner-image p-5">
-
-      <!-- REPLACE Image with random Memento meme?? -->
-      <%= image_tag asset_path("https://media.giphy.com/media/xTiTnIdG44UV8Lkl4A/giphy.gif"), class: "banner-image" %>
-    </div>
+      <div class="col-0 col-md-0 col-lg-6 d-none d-lg-flex flex-column text-center justify-content-center bg-primary p-5">
+        <div class="banner-image p-5">
+          <!-- REPLACE Image with random Memento meme?? -->
+          <%= image_tag asset_path('memento-alt-logo.png') %>
+        </div>
       </div>
     </div>
   </div>

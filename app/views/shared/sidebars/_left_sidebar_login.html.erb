@@ -1,17 +1,21 @@
 <div class="left-sidebar-form-container mt-4 p-4">
   <%= simple_form_for(:user, :url => session_path(:user)) do |f| %>
-    <div class="form-inputs">
+    <div class="form-inputs mt-4">
       <%= f.input :email,
                   required: false,
                   autofocus: true,
-                  input_html: { autocomplete: "email" } %>
+                  label: false,
+                  input_html: { class: 'memento-input', autocomplete: "email" },
+                  placeholder: 'Email' %>
       <%= f.input :password,
                   required: false,
-                  input_html: { autocomplete: "current-password" } %>
+                  label: false,
+                  input_html: { class: 'memento-input', autocomplete: "current-password" },
+                  placeholder: 'Password' %>
     </div>
 
     <div class="col-12 btn btn-primary form-actions">
-      <%= f.button :submit, "Log in", class: "text-white" %>
+      <%= f.button :submit, "Log in", class: "memento-button text-white" %>
     </div>
   <% end %>
 </div>
